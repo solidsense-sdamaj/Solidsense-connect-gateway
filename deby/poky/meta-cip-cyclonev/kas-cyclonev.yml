@@ -3,7 +3,7 @@
 # CIP core kas qemux86-64 configuration
 
 header:
-    version: "0.13"
+    version: "2"
 machine: cyclonev
 distro: deby
 repos:
