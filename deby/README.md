@@ -32,14 +32,19 @@ Generic build instructions
 
 To build the file system image for a specific board you need to
 prepare a [KAS](https://github.com/siemens/kas) docker environment.
-One you have the environment ready run a KAS container and build
-the image using its corresponding KAS project file.
+Make sure that your docker is using the overlay2 storage driver and
+your host kernel supports overlayfs.
 
-For example, in case of iWave RZ/G1M Qseven Development Kit:
 
 ```shell
-host$ docker run -v $PWD/cip-core:/cip-core -e USER_ID=`id -u $USER` -e http_proxy=$http_proxy -e https_proxy=$https_proxy -it kas sh
+host$ docker run -v $PWD/cip-core:/cip-core -e USER_ID=`id -u $USER` -e http_proxy=$http_proxy -e https_proxy=$https_proxy -it kasproject/kas:0.10.0 sh
 docker$ cd /cip-core/deby/poky/
+```
+
+To build the file system image use the corresponding kas project file. 
+For example, in case of the iWave RZ/G1M Qseven Development Kit:
+
+```shell
 docker$ kas build --target core-image-minimal meta-cip-iwg20m/kas-iwg20m.yml
 ```
 
