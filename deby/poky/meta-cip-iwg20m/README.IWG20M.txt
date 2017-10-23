@@ -7,17 +7,19 @@ Build the binaries
 ==================
 
 Build using KAS:
-    host$ docker run -v $PWD/cip-core:/cip-core -e USER_ID=`id -u $USER` -e http_proxy=$http_proxy -e https_proxy=$https_proxy -it kas sh
+    host$ docker run -v $PWD/cip-core:/cip-core -e USER_ID=`id -u $USER` -e http_proxy=$http_proxy -e https_proxy=$https_proxy -it kasproject/kas:0.10.0 sh
     docker$ cd /cip-core/deby/poky/
     docker$ kas build --target core-image-minimal meta-cip-iwg20m/kas-iwg20m.yml
 
 Get the resulting binaries
     host$ cd build/tmp/deploy/images/iwg20m/
     host$ ls
-        core-image-minimal-iwg20m.tar.gz
-        uImage
-        uImage-r8a7743-iwg20m.dtb
-        u-boot.bin
+        core-image-minimal-iwg20m.cpio.gz (ramdisk without u-boot header for LAVA)
+        core-image-minimal-iwg20m.cpio.gz.u-boot (ramdisk with u-boot header)
+        core-image-minimal-iwg20m.tar.gz (file system image)
+        uImage (kernel with u-boot header)
+        uImage-r8a7743-iwg20d-q7.dtb (device tree)
+        u-boot.bin (u-boot binary)
 
 Install the binaries
 ====================
@@ -29,7 +31,7 @@ Prepare SD Card partitions
 
 Install the binaries
     $ cp -L uImage /media/<user>/BOOT/uImage
-    $ cp -L uImage-r8a7743-iwg20m.dtb /media/<user>/BOOT/r8a7743-iwg20m_q7.dtb
+    $ cp -L uImage-r8a7743-iwg20d-q7.dtb /media/<user>/BOOT/r8a7743-iwg20m_q7.dtb
     $ sudo rm -rf /media/<user>/ROOT/*
     $ sudo tar xvf core-image-minimal-iwg20m.tar.gz -C /media/<user>/ROOT/
 
