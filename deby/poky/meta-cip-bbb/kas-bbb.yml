@@ -1,7 +1,6 @@
 # Copyright (C) 2016-2017, TOSHIBA Corp., Daniel Sangorrin <daniel.sangorrin@toshiba.co.jp>
 # SPDX-License-Identifier:	MIT
-# CIP core kas qemux86-64 configuration
-
+# CIP core kas bbb configuration
 header:
     version: "0.10"
 machine: bbb
