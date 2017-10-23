@@ -2,7 +2,7 @@
 # SPDX-License-Identifier:	MIT
 # CIP core kas bbb configuration
 header:
-    version: "0.10"
+    version: "2"
 machine: bbb
 distro: deby
 repos:
@@ -12,10 +12,10 @@ repos:
             deby/poky/meta-cip-bbb:
     meta-debian:
         url: "https://github.com/meta-debian/meta-debian.git"
-        refspec: jethro
+        refspec: morty
     poky:
         url: "https://git.yoctoproject.org/git/poky.git"
-        refspec: jethro
+        refspec: morty
         layers:
             meta:
 bblayers_conf_header:
