@@ -50,11 +50,17 @@ local_conf_header:
     UBOOT_GIT_REPO = "${BOOTLOADER_GIT_URI}/${BOOTLOADER_GIT_PREFIX}renesas-u-boot-cip.git;branch=2013.01.01/rzg1-iwave;protocol=${BOOTLOADER_GIT_PROTOCOL}"
     UBOOT_GIT_SRCREV = "${AUTOREV}"
     # Linux kernel related variables
+    LINUX_GIT_URI = "git://github.com/renesas-rz"
+    LINUX_GIT_PROTOCOL = "https"
+    LINUX_GIT_PREFIX = ""
+    LINUX_GIT_REPO = "renesas-cip.git"
+    LINUX_GIT_SRCREV = "v4.4.69-cip4"
     LINUX_DEFCONFIG = "shmobile_defconfig"
-    KERNEL_DEVICETREE = "r8a7743-iwg20d-q7.dtb"
+    KERNEL_DEVICETREE = "r8a7743-iwg20m.dtb"
     KERNEL_IMAGETYPE = "uImage"
     KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT}"
     SRC_URI_ALLOWED = " \
+        ${LINUX_GIT_URI}/${LINUX_GIT_PREFIX} \
         git://github.com/ystk/ \
         ${BOOTLOADER_GIT_URI}/${BOOTLOADER_GIT_PREFIX} \
     "
