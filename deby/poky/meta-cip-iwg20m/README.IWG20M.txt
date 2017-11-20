@@ -18,7 +18,7 @@ Get the resulting binaries
         core-image-minimal-iwg20m.cpio.gz.u-boot (ramdisk with u-boot header)
         core-image-minimal-iwg20m.tar.gz (file system image)
         uImage (kernel with u-boot header)
-        uImage-r8a7743-iwg20m.dtb (device tree)
+        uImage-r8a7743-iwg20d-q7.dtb (device tree)
         u-boot.bin (u-boot binary)
 
 Install the binaries
@@ -31,7 +31,7 @@ Prepare SD Card partitions
 
 Install the binaries
     $ cp -L uImage /media/<user>/BOOT/uImage
-    $ cp -L uImage-r8a7743-iwg20m.dtb /media/<user>/BOOT/r8a7743-iwg20m_q7.dtb
+    $ cp -L uImage-r8a7743-iwg20d-q7.dtb /media/<user>/BOOT/r8a7743-iwg20m_q7.dtb
     $ sudo rm -rf /media/<user>/ROOT/*
     $ sudo tar xvf core-image-minimal-iwg20m.tar.gz -C /media/<user>/ROOT/
 
