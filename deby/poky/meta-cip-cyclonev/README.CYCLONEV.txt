@@ -33,8 +33,11 @@ Install the binaries
     $ sudo rm -rf /media/<user>/<root partition>/* (or put them on a backup folder)
     $ sudo tar xvf core-image-minimal-cyclonev.tar.gz -C /media/<user>/<root partition>/
 
+Tests
+=====
+
 Boot test
-=========
+---------
 
 Insert the card on the micro-sd slot and boot
     $ picocom -b 115200 /dev/ttyUSB0
@@ -52,15 +55,15 @@ noreset is     : no
 nolock is      : no
 send_cmd is    : sz -vv
 receive_cmd is : rz -vv
-imap is        : 
-omap is        : 
+imap is        :
+omap is        :
 emap is        : crcrlf,delbs,
 
 Terminal ready
 
 Debian GNU/Linux 8 (none) /dev/ttyS0
 
-(none) login: 
+(none) login:
 U-Boot SPL 2013.01.01 (Sep 21 2015 - 06:53:43)
 BOARD : Altera SOCFPGA Cyclone V Board
 CLOCK: EOSC1 clock 25000 KHz
@@ -99,7 +102,7 @@ Skipped ethaddr assignment due to invalid EMAC address in EEPROM
 Net:   mii0
 Warning: failed to set MAC address
 
-Hit any key to stop autoboot:  0 
+Hit any key to stop autoboot:  0
 reading u-boot.scr
 903 bytes read in 4 ms (219.7 KiB/s)
 ## Executing script at 02000000
@@ -264,7 +267,7 @@ Starting kernel ...
 [    1.980852] altera_hps2fpga_bridge ff500000.fpga_bridge: fpga bridge [hps2fpga] registered
 [    1.982626] mmc_host mmc0: Bus speed (slot 0) = 50000000Hz (slot req 50000000Hz, actual 50000000HZ div = 0)
 [    1.982683] mmc0: new high speed SDHC card at address 59b4
-[    1.983103] mmcblk0: mmc0:59b4       3.73 GiB 
+[    1.983103] mmcblk0: mmc0:59b4       3.73 GiB
 [    1.984125]  mmcblk0: p1 p2 p3
 [    2.012122] fpga-region soc:base_fpga_region: FPGA Region probed
 [    2.018372] oprofile: using arm/armv7-ca9
@@ -309,3 +312,108 @@ Enter 'help' for a list of built-in commands.
 
 # uname -a
 Linux (none) 4.4.75-cip6 #2 SMP Thu Sep 7 07:49:48 UTC 2017 armv7l GNU/Linux
+
+GPIO test
+---------
+
+Ref: https://media.digikey.com/pdf/Data%20Sheets/Terasic%20Technologies/DE0-Nano-SoC_UM.pdf
+Ref: https://www.altera.com/en_US/pdfs/literature/ug/DE0_Nano_User_Manual_v1.9.pdf
+
+- Three GPIO controllers
+    GPIO0: /sys/class/gpio/gpiochip483/label = ff708000.gpio (ngpio: 27)
+    GPIO1: /sys/class/gpio/gpiochip454/label = ff709000.gpio (ngpio: 29)
+    GPIO2: /sys/class/gpio/gpiochip427/label = ff70a000.gpio (ngpio: 29)
+
+Build
+    host$ git clone https://github.com/larsks/gpio-watch
+    host$ cd gpio-watch/
+    host$ source path/to/environment-setup-armv7a-vfs-neon-deby-linux-gnueabi
+    host$ make
+    host$ sudo cp gpio-watch <sdcard root partition>/root
+
+Configure
+    host$ sudo mkdir <sdcard root partition>/root/scripts
+    host$ sudo vi  <sdcard root partition>/root/scripts/479
+        #!/bin/sh
+        echo "Button pressed: Pin:$1 Value:$2"
+    host$ sudo chmod +x <sdcard root partition>/root/scripts/479
+
+Run
+    target# ./gpio-watch -s scripts 479
+    (Press Key2 button)
+        Button pressed: Pin:479 Value:0
+        Button pressed: Pin:479 Value:1
+        Button pressed: Pin:479 Value:1
+        Button pressed: Pin:479 Value:0
+
+Gigabit Ethernet test
+---------------------
+
+- Plug RJ45 cable to RJ45 connector on the board
+- Make sure a led on RJ45 connector is ON
+- Type the below command:
+    # ifconfig eth0 <ip_address>
+- Get kernel message output like:
+    # [  777.674701] socfpga-dwmac ff702000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+- Type command:
+    # ping <another_ip_address>
+- Get output like:
+    PING 10.116.41.48 (10.116.41.48): 56 data bytes
+    64 bytes from 10.116.41.48: seq=0 ttl=64 time=1.863 ms
+    64 bytes from 10.116.41.48: seq=1 ttl=64 time=0.995 ms
+    64 bytes from 10.116.41.48: seq=2 ttl=64 time=0.955 ms
+
+HPS reset buttons
+-----------------
+
+- HPS_RESET_N resets all HPS logics that can be reset (Include HPS, Ethernet, USB, ...).
+- HPS_WARM_RST_N resets to the HPS block.
+- Test procedure:
+    - Press either HPS_RESET_N or HPS_WARM_RST_N.
+    - The system will be rebooted.
+
+HPS_LED
+-------
+
+- Build toolchain for the board
+        - $ bitbake meta-toolchain
+        - When building is completed, the output is in tmp/deploy/sdk/
+        - Run the *.sh file. (use -d option for installing the SDK to directory)
+- Use the toolchain to compile C-source for testing the HPS_LED
+        - In toolchain directory, run: $ source environment-setup-armv7a-vfs-neon-deby-linux-gnueabi
+        - Go to the C-source directory which contains the blink.c file.
+          [Note] blink.c can be obtained from the Kit installation (ZIP) (Linux)
+                 Ref: https://www.altera.com/products/boards_and_kits/dev-kits/altera/kit-cyclone-v-soc.html
+        - Run: $ $CC -o blink_test blink.c
+        - Copy the execute blink_test to the board
+- Run the testing on the board
+        - Run: ./blink_test led_number delay_time
+        - Currently, HPS_LED just has only a led, so led_number is 0
+        - Ex: ./blink_test 0 100
+        - The led will blink with 100 ms
+
+HPS_button
+----------
+
+- Build a kernel module for controlling the button
+    - Copy source/recipes-kernel folder to cip-core/deby/poky/meta-cip-cyclonev/
+    - build linux-base recipe to get the module.
+        - $ bitbake linux-base
+    - The gpio_test.ko module is available in
+            cip-core/deby/build-meta-cip-cyclonev/tmp/work/cyclonev-deby-linux-gnueabi/linux-base/gitAUTOINC+7e7c26e0e4-r0/build/drivers/gpio_interrupt/
+    - Copy the module gpio_test.ko to the board
+- Run the module on the board
+    - insmod ./gpio_test.ko gpioButton=479
+    - get output like the below
+        [10318.140861] GPIO_TEST: Initializing the GPIO_TEST LKM
+        [10318.146036] GPIO_TEST: The button state is currently: 1
+        [10318.151240] GPIO_TEST: The button is mapped to IRQ: 101
+        [10318.156474] GPIO_TEST: The interrupt request result is: 0
+    - Press the HPS_button, get output like
+        [10388.945025] GPIO_TEST: Interrupt! (button state is 1)
+        [10397.853717] GPIO_TEST: Interrupt! (button state is 1)
+        [10397.858760] GPIO_TEST: Interrupt! (button state is 1)
+    - rmmod ./gpio_test.ko, get output like
+        [10465.303532] GPIO_TEST: The button state is currently: 1
+        [10465.308773] GPIO_TEST: The button was pressed 3 times
+        [10465.313907] GPIO_TEST: Goodbye from the LKM!
