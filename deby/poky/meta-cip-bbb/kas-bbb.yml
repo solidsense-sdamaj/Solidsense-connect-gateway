@@ -47,6 +47,7 @@ local_conf_header:
     UBOOT_SUFFIX = "img"
     SPL_BINARY = "MLO"
     # Linux kernel related variables
+    # LINUX_GIT_SRCREV = "a09e49b41e1bb15e0ec04a8a3b92728de7310c96" # v4.4.98-cip13
     LINUX_DEFCONFIG = "omap2plus_defconfig"
     KERNEL_DEVICETREE = "am335x-boneblack.dtb"
     KERNEL_IMAGETYPE = "zImage"

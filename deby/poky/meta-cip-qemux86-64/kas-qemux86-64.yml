@@ -39,3 +39,5 @@ local_conf_header:
         ABORT,${DL_DIR},100M,1K \
         ABORT,${SSTATE_DIR},100M,1K"
     CONF_VERSION = "1"
+    # Linux kernel related variables
+    # LINUX_GIT_SRCREV = "a09e49b41e1bb15e0ec04a8a3b92728de7310c96" # v4.4.98-cip13
