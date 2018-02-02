@@ -14,12 +14,14 @@ Build using KAS:
 Test the image
 ==============
 
-host$ cd build/tmp/deploy/images/qemux86-64/
-host$ qemu-system-x86_64 -kernel bzImage -hda core-image-minimal-qemux86-64.ext4 -append "root=/dev/sda rw console=ttyS0" -nographic
+Using runqemu:
+    [Note] make sure that your KAS docker image includes /sbin/ip
+    [Opt] host$ sudo modprobe tun
+    host$ docker run -v /dev/net/tun:/dev/net/tun -v $PWD/cip-core:/cip-core -e USER_ID=`id -u $USER` -e http_proxy=$http_proxy -e https_proxy=$https_proxy -e NO_PROXY="$no_proxy" -it kasproject/kas:0.13.0 sh
+    docker$ cd /cip-core/deby/poky/
+    docker$ kas shell --target core-image-minimal meta-cip-qemux86-64/kas-qemux86-64.yml
+    docker$ runqemu qemux86-64 nographic slirp
 
-[Alt] Use poky runqemu (not tested)
-  host$ modify the KAS image to include the /sbin/ip binary (iproute2 package)
-  host$ sudo modprobe tun
-  host$ docker run -v /dev/net/tun:/dev/net/tun -v $PWD/cip-core:/cip-core -e USER_ID=`id -u $USER` -e http_proxy=$http_proxy -e https_proxy=$https_proxy -e NO_PROXY="$no_proxy" -it kasproject/kas:0.13.0 sh
-  docker$ kas shell --target core-image-minimal meta-cip-qemux86-64/kas-qemux86-64.yml
-  docker$ runqemu qemux86-64 nographic
+Manually calling qemu
+    host$ cd build/tmp/deploy/images/qemux86-64/
+    host$ qemu-system-x86_64 -kernel bzImage -hda core-image-minimal-qemux86-64.ext4 -append "root=/dev/sda rw console=ttyS0" -nographic
