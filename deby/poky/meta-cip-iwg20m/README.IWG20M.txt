@@ -10,6 +10,7 @@ Build using KAS:
     host$ docker run -v $PWD/cip-core:/cip-core -e USER_ID=`id -u $USER` -e http_proxy=$http_proxy -e https_proxy=$https_proxy -e NO_PROXY="$no_proxy" -it kasproject/kas:0.13.0 sh
     docker$ cd /cip-core/deby/poky/
     docker$ kas build --target core-image-minimal meta-cip-iwg20m/kas-iwg20m.yml
+    [Note] To build the toolchain/SDK use "meta-toolchain" as a target
 
 Get the resulting binaries
     host$ cd build/tmp/deploy/images/iwg20m/
