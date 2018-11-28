@@ -7,6 +7,7 @@ Build the binaries
 ==================
 
 Build using KAS:
+    host$ git clone https://gitlab.com/cip-project/cip-core.git
     host$ docker run -v $PWD/cip-core:/cip-core -e USER_ID=`id -u $USER` -e http_proxy=$http_proxy -e https_proxy=$https_proxy -e NO_PROXY="$no_proxy" -it kasproject/kas:0.13.0 sh
     docker$ cd /cip-core/deby/poky/
     docker$ kas build --target core-image-minimal meta-cip-bbb/kas-bbb.yml
