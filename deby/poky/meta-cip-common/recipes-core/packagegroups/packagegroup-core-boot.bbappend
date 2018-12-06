@@ -1,4 +1,4 @@
-# Copyright (C) 2016-2017, TOSHIBA Corp., Daniel Sangorrin <daniel.sangorrin@toshiba.co.jp>
+# Copyright (C) 2016-2018, TOSHIBA Corp., Daniel Sangorrin <daniel.sangorrin@toshiba.co.jp>
 # SPDX-License-Identifier:	MIT
 
 RDEPENDS_${PN} += "kernel-image"
