@@ -6,6 +6,9 @@ glibc-staticdev \
 binutils-dev \
 glib-2.0-dev \
 kernel-dev \
+bison-dev \
+flex-dev \
+bc-dev \
 i2c-tools-dev \
 libc6-dev \
 libdw-dev \
@@ -21,4 +24,5 @@ pciutils-dev \
 strace-dev \
 libaio-dev \
 openssh-dev \
+nativesdk-u-boot-mkimage \
 "
