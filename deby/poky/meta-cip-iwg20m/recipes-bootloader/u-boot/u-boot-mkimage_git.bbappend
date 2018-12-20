@@ -4,3 +4,5 @@ do_compile () {
 	oe_runmake tools
 }
 
+INSANE_SKIP_${PN} = "already-stripped"
+
