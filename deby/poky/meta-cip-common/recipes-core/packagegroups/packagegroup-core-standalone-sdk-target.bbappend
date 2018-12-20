@@ -24,5 +24,4 @@ pciutils-dev \
 strace-dev \
 libaio-dev \
 openssh-dev \
-nativesdk-u-boot-mkimage \
 "
