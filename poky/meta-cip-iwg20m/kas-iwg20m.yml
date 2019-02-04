@@ -8,8 +8,8 @@ distro: deby
 repos:
     meta-custom:
         layers:
-            deby/poky/meta-cip-common:
-            deby/poky/meta-cip-iwg20m:
+            poky/meta-cip-common:
+            poky/meta-cip-iwg20m:
     meta-debian:
         url: "https://github.com/meta-debian/meta-debian.git"
         refspec: morty
