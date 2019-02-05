@@ -7,9 +7,9 @@ Build the binaries
 ==================
 
 Build using KAS:
-    host$ git clone https://gitlab.com/cip-project/cip-core.git
-    host$ docker run -v $PWD/cip-core:/cip-core -e USER_ID=`id -u $USER` -e http_proxy=$http_proxy -e https_proxy=$https_proxy -e NO_PROXY="$no_proxy" -it kasproject/kas:0.17.0 sh
-    docker$ cd /cip-core/deby/poky/
+    host$ git clone https://gitlab.com/cip-project/cip-core/deby.git
+    host$ docker run -v $PWD/deby:/deby -e USER_ID=`id -u $USER` -e http_proxy=$http_proxy -e https_proxy=$https_proxy -e NO_PROXY="$no_proxy" -it kasproject/kas:0.13.0 sh
+    docker$ cd /deby/poky/
     docker$ kas build --target core-image-minimal meta-cip-cyclonev/kas-cyclonev.yml
     docker$ kas build --target meta-toolchain meta-cip-cyclonev/kas-cyclonev.yml
 
@@ -398,11 +398,11 @@ HPS_button
 ----------
 
 - Build a kernel module for controlling the button
-    - Copy source/recipes-kernel folder to cip-core/deby/poky/meta-cip-cyclonev/
+    - Copy source/recipes-kernel folder to deby/poky/meta-cip-cyclonev/
     - build linux-base recipe to get the module.
         - $ bitbake linux-base
     - The gpio_test.ko module is available in
-            cip-core/deby/build-meta-cip-cyclonev/tmp/work/cyclonev-deby-linux-gnueabi/linux-base/gitAUTOINC+7e7c26e0e4-r0/build/drivers/gpio_interrupt/
+            deby/build-meta-cip-cyclonev/tmp/work/cyclonev-deby-linux-gnueabi/linux-base/gitAUTOINC+7e7c26e0e4-r0/build/drivers/gpio_interrupt/
     - Copy the module gpio_test.ko to the board
 - Run the module on the board
     - insmod ./gpio_test.ko gpioButton=479

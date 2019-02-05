@@ -37,8 +37,8 @@ your host kernel supports overlayfs.
 
 
 ```shell
-host$ docker run -v $PWD/cip-core:/cip-core -e USER_ID=`id -u $USER` -e http_proxy=$http_proxy -e https_proxy=$https_proxy -e NO_PROXY="$no_proxy" -it kasproject/kas:0.13.0 sh
-docker$ cd /cip-core/deby/poky/
+host$ docker run -v $PWD/deby:/deby -e USER_ID=`id -u $USER` -e http_proxy=$http_proxy -e https_proxy=$https_proxy -e NO_PROXY="$no_proxy" -it kasproject/kas:0.13.0 sh
+docker$ cd /deby/poky/
 ```
 
 To build the file system image use the corresponding kas project file. 
