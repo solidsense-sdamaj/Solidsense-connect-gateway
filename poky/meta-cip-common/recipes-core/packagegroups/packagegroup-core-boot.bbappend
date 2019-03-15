@@ -55,4 +55,5 @@ PKG_DEBUG = "\
 	ncurses-term \
 	traceroute \
 	iputils-ping \
+	usbutils \
 "
