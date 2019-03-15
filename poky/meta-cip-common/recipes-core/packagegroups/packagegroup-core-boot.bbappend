@@ -56,4 +56,7 @@ PKG_DEBUG = "\
 	traceroute \
 	iputils-ping \
 	usbutils \
+	alsa-utils \
+	util-linux \
+	libpng \
 "
