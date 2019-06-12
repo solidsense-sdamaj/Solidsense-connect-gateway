@@ -12,5 +12,6 @@ stages:
 build_bbb:
   stage: build
   script:
+    - /kas/docker-entrypoint
     - cd poky/
-    - kas build --target core-image-minimal meta-cip-bbb/kas-bbb.yml
+    - gosu builder kas build --target core-image-minimal meta-cip-bbb/kas-bbb.yml
