@@ -24,5 +24,5 @@ KERNEL_IMAGE=build/tmp/deploy/images/$TARGET/uImage
 aws s3 cp --no-progress $KERNEL_IMAGE s3://download.cip-project.org/cip-core/deby/$TARGET/
 
 if [ -n "$DTB" ]; then
-	aws s3 cp --no-progress build/tmp/deploy/images/$TARGET/uImage-$DTB s3://download.cip-project.org/cip-core/$TARGET/$DTB
+	aws s3 cp --no-progress build/tmp/deploy/images/$TARGET/uImage-$DTB s3://download.cip-project.org/cip-core/deby/$DTB
 fi

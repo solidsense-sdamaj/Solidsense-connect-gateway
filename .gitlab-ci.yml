@@ -8,13 +8,15 @@ all:
   script:
     - export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
     - export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
+    - export LAVA_TOKEN=$LAVA_TOKEN
     # iwg20m
     - /kas/docker-entrypoint
     - cd poky/
     - gosu builder kas build --target core-image-minimal meta-cip-iwg20m/kas-iwg20m.yml
     - ls -l build/tmp/deploy/images/iwg20m/
     - scripts/deploy-cip-core.sh iwg20m r8a7743-iwg20d-q7.dtb
-    #- sudo rm -rf build/tmp
+    - scripts/lava-submit-job.sh scripts/lava-cip-core-deby-iwg20m-smoke.yaml
+    - sudo rm -rf build/tmp
 
     # BBB
     #- /kas/docker-entrypoint

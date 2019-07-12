@@ -1,0 +1,60 @@
+# Copyright (C) 2019, Renesas Electronics Europe GmbH, Patryk Mungai <patryk.mungai-ndungu.kx@renesas.com>
+# Copyright (C) 2019, Toshiba corp., Daniel Sangorrin <daniel.sangorrin@toshiba.co.jp>
+# Copyright (C) 2018, Codethink, Ltd., Robert Marshall <robert.marshall@codethink.co.uk>
+# SPDX-License-Identifier:	AGPL-3.0
+# This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, version 3.
+# This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+device_type: r8a7743-iwg20d-q7 
+job_name: cip-core-deby-iwg20m-smoke
+
+timeouts:
+  job:
+    minutes: 40
+  action:
+    minutes: 5
+  connection:
+    minutes: 5
+priority: medium
+visibility: public
+
+# ACTION_BLOCK
+actions:
+- deploy:
+    timeout:
+      minutes: 20
+    to: tftp
+    os: oe
+    kernel:
+      url: https://s3-us-west-2.amazonaws.com/download.cip-project.org/cip-core/deby/iwg20m/uImage
+      type: uImage
+    nfsrootfs:
+      url: https://s3-us-west-2.amazonaws.com/download.cip-project.org/cip-core/deby/iwg20m/core-image-minimal-iwg20m.tar.gz
+      compression: gz
+    dtb:
+      url: https://s3-us-west-2.amazonaws.com/download.cip-project.org/cip-core/deby/iwg20m/r8a7743-iwg20d-q7.dtb
+
+# BOOT_BLOCK
+- boot:
+    auto_login:
+      login_prompt: 'ciphost login:'
+      username: root
+    prompts:
+      - 'cip-project#'
+    method: u-boot
+    commands: nfs
+    timeout:
+      minutes: 5
+
+# TEST_BLOCK
+- test:
+    timeout:
+      minutes: 10
+    definitions:
+    - repository: https://github.com/sangorrin/test-definitions.git
+      from: git
+      path: automated/linux/smoke/smoke.yaml
+      params:
+        SKIP_INSTALL: "True"
+        TESTS: "uname -a, ip a, pwd" 
+      name: smoke-tests
