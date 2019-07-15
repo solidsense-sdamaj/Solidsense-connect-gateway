@@ -1,4 +1,4 @@
-image: kasproject/kas:0.13.0
+image: kasproject/kas
 
 variables:
   GIT_STRATEGY: clone
@@ -12,11 +12,11 @@ all:
     # iwg20m
     - /kas/docker-entrypoint
     - cd poky/
-    - gosu builder kas build --target core-image-minimal meta-cip-iwg20m/kas-iwg20m.yml
-    - ls -l build/tmp/deploy/images/iwg20m/
-    - scripts/deploy-cip-core.sh iwg20m r8a7743-iwg20d-q7.dtb
+    #- gosu builder kas build --target core-image-minimal meta-cip-iwg20m/kas-iwg20m.yml
+    #- ls -l build/tmp/deploy/images/iwg20m/
+    #- scripts/deploy-cip-core.sh iwg20m r8a7743-iwg20d-q7.dtb
     - scripts/lava-submit-job.sh scripts/lava-cip-core-deby-iwg20m-smoke.yaml
-    - sudo rm -rf build/tmp
+    #- sudo rm -rf build/tmp
 
     # BBB
     #- /kas/docker-entrypoint
