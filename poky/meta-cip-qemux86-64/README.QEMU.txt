@@ -8,7 +8,7 @@ Build the binaries
 
 Build using KAS:
     host$ git clone https://gitlab.com/cip-project/cip-core/deby.git
-    host$ docker run -v $PWD/deby:/deby -e USER_ID=`id -u $USER` -e http_proxy=$http_proxy -e https_proxy=$https_proxy -e NO_PROXY="$no_proxy" -it kasproject/kas:0.13.0 sh
+    host$ docker run -v $PWD/deby:/deby -e USER_ID=`id -u $USER` -e http_proxy=$http_proxy -e https_proxy=$https_proxy -e NO_PROXY="$no_proxy" -it kasproject/kas sh
     docker$ cd /deby/poky/
     docker$ kas build --target core-image-minimal meta-cip-qemux86-64/kas-qemux86-64.yml
     [Note] To build the toolchain/SDK use "meta-toolchain" as a target
@@ -19,7 +19,7 @@ Test the image
 Using runqemu:
     [Note] make sure that your KAS docker image includes /sbin/ip
     [Opt] host$ sudo modprobe tun
-    host$ docker run -v /dev/net/tun:/dev/net/tun -v $PWD/deby:/deby -e USER_ID=`id -u $USER` -e http_proxy=$http_proxy -e https_proxy=$https_proxy -e NO_PROXY="$no_proxy" -it kasproject/kas:0.13.0 sh
+    host$ docker run -v /dev/net/tun:/dev/net/tun -v $PWD/deby:/deby -e USER_ID=`id -u $USER` -e http_proxy=$http_proxy -e https_proxy=$https_proxy -e NO_PROXY="$no_proxy" -it kasproject/kas sh
     docker$ cd /deby/poky/
     docker$ kas shell --target core-image-minimal meta-cip-qemux86-64/kas-qemux86-64.yml
     docker$ runqemu qemux86-64 nographic slirp
