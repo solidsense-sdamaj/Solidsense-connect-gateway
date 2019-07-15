@@ -10,6 +10,7 @@ PATH=$PATH:~/.local/bin
 
 if ! which lavacli 2>&1 >/dev/null; then
 	echo "Installing lavacli..."
+    pip3 install wheel
 	pip3 install lavacli
 fi
 
