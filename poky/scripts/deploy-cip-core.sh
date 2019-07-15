@@ -18,11 +18,11 @@ TARGET=$1
 DTB=$2
 
 echo "Uploading artifacts..."
-aws s3 cp --no-progress build/tmp/deploy/images/$TARGET/core-image-minimal-$TARGET.tar.gz s3://download.cip-project.org/cip-core/deby/$TARGET/
-
-KERNEL_IMAGE=build/tmp/deploy/images/$TARGET/uImage
-aws s3 cp --no-progress $KERNEL_IMAGE s3://download.cip-project.org/cip-core/deby/$TARGET/
-
+mkdir $TARGET
+cp build/tmp/deploy/images/$TARGET/core-image-minimal-$TARGET.tar.gz ./$TARGET/
+cp build/tmp/deploy/images/$TARGET/uImage ./$TARGET/
 if [ -n "$DTB" ]; then
-	aws s3 cp --no-progress build/tmp/deploy/images/$TARGET/uImage-$DTB s3://download.cip-project.org/cip-core/deby/$DTB
+    cp build/tmp/deploy/images/$TARGET/uImage-$DTB ./$TARGET/$DTB
 fi
+aws s3 sync $TARGET/. s3://download.cip-project.org/cip-core/deby/ --acl public-read
+rm -rf $TARGET
