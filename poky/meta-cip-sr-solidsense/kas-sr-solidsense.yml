@@ -1,0 +1,132 @@
+# Copyright (C) 2016-2017, Solidrun, Eric Bree <eric.bree@solid-run.com>
+# SPDX-License-Identifier:	MIT
+# CIP core kas solidsense configuration
+header:
+    version: 7
+machine: solidsense
+distro: deby
+repos:
+    meta-custom:
+        layers:
+            poky/meta-cip-common:
+            poky/meta-cip-sr-solidsense:
+    meta-debian:
+        url: "https://github.com/meta-debian/meta-debian.git"
+        refspec: warrior
+    meta-openembedded:
+        url: "https://github.com/openembedded/meta-openembedded.git"
+        refspec: warrior
+        layers:
+           meta-filesystems:
+           meta-networking:
+           meta-oe:
+           meta-python:
+    meta-virtualization:
+        url: "https://git.yoctoproject.org/git/meta-virtualization"
+        refspec: warrior
+    poky:
+        url: "https://git.yoctoproject.org/git/poky.git"
+        refspec: warrior
+        layers:
+            meta:
+            meta-poky:
+    meta-java:
+        url: "git://git.yoctoproject.org/meta-java"
+        refspec: warrior
+    meta-mender-core:
+        url: "https://github.com/mendersoftware/meta-mender.git"
+        refspec: master
+        layers:
+            meta-mender-core:
+bblayers_conf_header:
+  meta-custom: |
+    LCONF_VERSION = "6"
+    BBPATH = "${TOPDIR}"
+    BBFILES ?= ""
+local_conf_header:
+  meta-custom: |
+    BB_NUMBER_THREADS ?= "${@oe.utils.cpu_count()}"
+    PARALLEL_MAKE ?= "-j ${@oe.utils.cpu_count()}"
+    PACKAGE_CLASSES ?= "package_rpm"
+    EXTRA_IMAGE_FEATURES = "debug-tweaks"
+    USER_CLASSES ?= "buildstats image-mklibs image-prelink"
+    PATCHRESOLVE = "noop"
+    BB_DISKMON_DIRS = "\
+        STOPTASKS,${TMPDIR},1G,100K \
+        STOPTASKS,${DL_DIR},1G,100K \
+        STOPTASKS,${SSTATE_DIR},1G,100K \
+        ABORT,${TMPDIR},100M,1K \
+        ABORT,${DL_DIR},100M,1K \
+        ABORT,${SSTATE_DIR},100M,1K"
+    CONF_VERSION = "1"
+    DL_DIR ?= "/home/eric/work.kingcheese/downloads"
+    # U-boot related variables
+    EXTRA_IMAGEDEPENDS += "u-boot"
+    UBOOT_MACHINE = "mx6cuboxi_defconfig"
+    UBOOT_SUFFIX = "img"
+    ## UBOOT_ENTRYPOINT = "0x40008000"
+    ## UBOOT_LOADADDRESS = "0x40007fc0"
+    BOOTLOADER_GIT_PROTOCOL = "https"
+    BOOTLOADER_GIT_URI = "git://github.com"
+    BOOTLOADER_GIT_PREFIX = "SolidRun/"
+    UBOOT_GIT_REPO = "${BOOTLOADER_GIT_URI}/${BOOTLOADER_GIT_PREFIX}u-boot.git;branch=v2018.01-solidrun-imx6;protocol=${BOOTLOADER_GIT_PROTOCOL}"
+    ## UBOOT_GIT_SRCREV = "${AUTOREV}"
+    # Linux kernel related variables
+    LINUX_GIT_PROTOCOL = "https"
+    LINUX_GIT_URI = "git://github.com"
+    LINUX_GIT_REPO = "linux-stable.git"
+    LINUX_GIT_PREFIX = "SolidRun/"
+    LINUX_GIT_SRCREV = "linux-4.9.y-imx6"
+    LINUX_GIT_BRANCH = "linux-4.9.y-imx6"
+    LINUX_DEFCONFIG = "imx_v7_defconfig"
+    KERNEL_DEVICETREE = "imx6dl-hummingboard2-emmc-som-v15.dtb"
+    KERNEL_IMAGETYPE = "zImage"
+    ## KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT}"
+    SRC_URI_ALLOWED = " \
+        git://github.com/ystk/ \
+        git://github.com/SolidRun/ \
+        ${BOOTLOADER_GIT_URI}/${BOOTLOADER_GIT_PREFIX} \
+    "
+
+    # Add distro features
+    DISTRO_FEATURES += " virtualization"
+
+    # Add image features
+    #IMAGE_FEATURES = "read-only-rootfs"
+
+    # Read only rootfs
+    #IMAGE_INSTALL_append = " initscripts-readonly-rootfs-overlay"
+
+    #
+    # Install zimage, dtb and kernel modules
+    #
+    #IMAGE_INSTALL_append = " kernel-devicetree kernel-image-zimage kernel-modules u-boot linux-firmware"
+    IMAGE_INSTALL_append = " kernel-devicetree kernel-image-zimage kernel-modules linux-firmware"
+    IMAGE_INSTALL_append = " openssh"
+
+    # Add additional packages
+    #IMAGE_INSTALL_append = " docker u-boot-fw-utils wireless-regdb iw"
+    IMAGE_INSTALL_append = " docker u-boot-fw-utils wireless-regdb iw util-linux hostapd"
+
+    # Temporary additional packages
+    IMAGE_INSTALL_append = " python3 grpc nfs-utils openjdk-8"
+    PREFERRED_PROVIDER_virtual/java-native = "cacao-native"
+    PREFERRED_PROVIDER_virtual/java-initial-native = "cacao-initial-native"
+    #PREFERRED_PROVIDER_virtual/java-native = "jamvm-native"
+    #PREFERRED_PROVIDER_virtual/java-initial-native = "jamvm-initial-native"
+
+    # Mender related variables
+    INHERIT += "mender-full"
+    MENDER_ARTIFACT_NAME = "Solidsense 2019081800"
+    ARTIFACTIMG_FSTYPE = "ext4"
+    MENDER_SERVER_URL = "https://mender.solidsense.io"
+    FILESEXTRAPATHS_prepend_pn-mender := "${TOPDIR}/../meta-cip-sr-solidsense/mender-cert:"
+    SRC_URI_append_pn-mender = " file://server.crt"
+    SRC_URI_append_pn-mender = " file://artifact-verify-key.pem"
+    PREFERRED_PROVIDER_u-boot-fw-utils = "u-boot-fw-utils"
+    #MENDER_FEATURES_ENABLE_append = " mender-uboot mender-image-sd"
+    MENDER_FEATURES_ENABLE_append = " mender-uboot"
+    MENDER_FEATURES_DISABLE_append = " mender-grub mender-image-uefi"
+    MENDER_UBOOT_ENV_STORAGE_DEVICE_OFFSET_1 = "0xFE000"
+    MENDER_UBOOT_ENV_STORAGE_DEVICE_OFFSET_2 = "0xFC000"
+    BOOTENV_SIZE = "8192"
