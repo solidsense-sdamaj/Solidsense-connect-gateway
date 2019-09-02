@@ -31,11 +31,11 @@ repos:
             meta:
             meta-poky:
     meta-java:
-        url: "git://git.yoctoproject.org/meta-java"
-        refspec: warrior
+        url: "https://github.com/solidrun-ejb/meta-java.git"
+        refspec: meta-cip-sr-solidsense
     meta-mender-core:
-        url: "https://github.com/mendersoftware/meta-mender.git"
-        refspec: master
+        url: "https://github.com/solidrun-ejb/meta-mender.git"
+        refspec: meta-cip-sr-solidsense
         layers:
             meta-mender-core:
 bblayers_conf_header:
