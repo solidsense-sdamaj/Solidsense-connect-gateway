@@ -1,0 +1,11 @@
+build/
+kas
+meta-cip-sr-solidsense/mender-cert
+meta-debian
+meta-java
+meta-mender-core
+meta-openembedded
+meta-virtualization
+poky
+*.swo
+*.swp
