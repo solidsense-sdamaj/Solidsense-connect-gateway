@@ -60,42 +60,15 @@ local_conf_header:
         ABORT,${SSTATE_DIR},100M,1K"
     CONF_VERSION = "1"
     DL_DIR ?= "/home/eric/work.kingcheese/downloads"
-    # U-boot related variables
-    EXTRA_IMAGEDEPENDS += "u-boot"
-    UBOOT_MACHINE = "mx6cuboxi_defconfig"
-    UBOOT_SUFFIX = "img"
-    ## UBOOT_ENTRYPOINT = "0x40008000"
-    ## UBOOT_LOADADDRESS = "0x40007fc0"
-    BOOTLOADER_GIT_PROTOCOL = "https"
-    BOOTLOADER_GIT_URI = "git://github.com"
-    BOOTLOADER_GIT_PREFIX = "SolidRun/"
-    UBOOT_GIT_REPO = "${BOOTLOADER_GIT_URI}/${BOOTLOADER_GIT_PREFIX}u-boot.git;branch=v2018.01-solidrun-imx6;protocol=${BOOTLOADER_GIT_PROTOCOL}"
-    ## UBOOT_GIT_SRCREV = "${AUTOREV}"
-    # Linux kernel related variables
-    LINUX_GIT_PROTOCOL = "https"
-    LINUX_GIT_URI = "git://github.com"
-    LINUX_GIT_REPO = "linux-stable.git"
-    LINUX_GIT_PREFIX = "SolidRun/"
-    LINUX_GIT_SRCREV = "linux-4.9.y-imx6"
-    LINUX_GIT_BRANCH = "linux-4.9.y-imx6"
-    LINUX_DEFCONFIG = "imx_v7_defconfig"
-    KERNEL_DEVICETREE = "imx6dl-hummingboard2-emmc-som-v15.dtb"
-    KERNEL_IMAGETYPE = "zImage"
-    ## KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT}"
-    SRC_URI_ALLOWED = " \
-        git://github.com/ystk/ \
-        git://github.com/SolidRun/ \
-        ${BOOTLOADER_GIT_URI}/${BOOTLOADER_GIT_PREFIX} \
-    "
+    #
+    #SRC_URI_ALLOWED = " \
+    #    git://github.com/ystk/ \
+    #    git://github.com/SolidRun/ \
+    #    ${BOOTLOADER_GIT_URI}/${BOOTLOADER_GIT_PREFIX} \
+    #"
 
     # Add distro features
     DISTRO_FEATURES += " virtualization"
-
-    # Add image features
-    #IMAGE_FEATURES = "read-only-rootfs"
-
-    # Read only rootfs
-    #IMAGE_INSTALL_append = " initscripts-readonly-rootfs-overlay"
 
     #
     # Install zimage, dtb and kernel modules
