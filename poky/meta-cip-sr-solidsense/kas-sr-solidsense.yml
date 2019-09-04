@@ -69,37 +69,32 @@ local_conf_header:
 
     # Add distro features
     DISTRO_FEATURES += " virtualization"
+    
+    # Enable read only rootfs
+    EXTRA_IMAGE_FEATURES += "read-only-rootfs"
 
     #
     # Install zimage, dtb and kernel modules
     #
     #IMAGE_INSTALL_append = " kernel-devicetree kernel-image-zimage kernel-modules u-boot linux-firmware"
-    IMAGE_INSTALL_append = " kernel-devicetree kernel-image-zimage kernel-modules linux-firmware"
-    IMAGE_INSTALL_append = " openssh"
+    IMAGE_INSTALL_append += "kernel-devicetree kernel-image-zimage kernel-modules firmware-wireless-wilink8"
+    IMAGE_INSTALL_append += "openssh mmc-utils"
 
     # Add additional packages
     #IMAGE_INSTALL_append = " docker u-boot-fw-utils wireless-regdb iw"
-    IMAGE_INSTALL_append = " docker u-boot-fw-utils wireless-regdb iw util-linux hostapd"
+    IMAGE_INSTALL_append += "docker u-boot-fw-utils wireless-regdb iw util-linux hostapd bluez5"
 
     # Temporary additional packages
-    IMAGE_INSTALL_append = " python3 grpc nfs-utils openjdk-8"
+    IMAGE_INSTALL_append += "python3 grpc nfs-utils openjdk-8"
     PREFERRED_PROVIDER_virtual/java-native = "cacao-native"
     PREFERRED_PROVIDER_virtual/java-initial-native = "cacao-initial-native"
     #PREFERRED_PROVIDER_virtual/java-native = "jamvm-native"
     #PREFERRED_PROVIDER_virtual/java-initial-native = "jamvm-initial-native"
 
-    # Mender related variables
+    # Mender
     INHERIT += "mender-full"
-    MENDER_ARTIFACT_NAME = "Solidsense 2019081800"
-    ARTIFACTIMG_FSTYPE = "ext4"
-    MENDER_SERVER_URL = "https://mender.solidsense.io"
-    FILESEXTRAPATHS_prepend_pn-mender := "${TOPDIR}/../meta-cip-sr-solidsense/mender-cert:"
-    SRC_URI_append_pn-mender = " file://server.crt"
-    SRC_URI_append_pn-mender = " file://artifact-verify-key.pem"
+    MENDER_ARTIFACT_NAME = "Solidsense 2019090400"
     PREFERRED_PROVIDER_u-boot-fw-utils = "u-boot-fw-utils"
     #MENDER_FEATURES_ENABLE_append = " mender-uboot mender-image-sd"
     MENDER_FEATURES_ENABLE_append = " mender-uboot"
     MENDER_FEATURES_DISABLE_append = " mender-grub mender-image-uefi"
-    MENDER_UBOOT_ENV_STORAGE_DEVICE_OFFSET_1 = "0xFE000"
-    MENDER_UBOOT_ENV_STORAGE_DEVICE_OFFSET_2 = "0xFC000"
-    BOOTENV_SIZE = "8192"
