@@ -1,0 +1,12 @@
+[Unit]
+Description=Start Kura
+Requires=hostapd-wlan0.service
+After=hostapd-wlan0.service
+
+[Service]
+Type=forking
+ExecStart=/opt/eclipse/kura_4.0.0_solid_sense/bin/start_kura_background.sh
+PIDFile=/var/run/kura.pid
+
+[Install]
+WantedBy=multi-user.target
