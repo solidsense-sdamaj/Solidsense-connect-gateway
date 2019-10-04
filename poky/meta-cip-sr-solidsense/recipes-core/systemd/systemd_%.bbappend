@@ -1,7 +1,3 @@
-FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
-
-inherit systemd
-
 do_install_append () {
     # Create a directory on the data partition for journald logs
     install -d ${D}/data/.var/log/journal
