@@ -5,6 +5,7 @@ meta-debian
 meta-java
 meta-mender-core
 meta-openembedded
+meta-readonly-rootfs-overlay
 meta-virtualization
 poky
 *.swo
