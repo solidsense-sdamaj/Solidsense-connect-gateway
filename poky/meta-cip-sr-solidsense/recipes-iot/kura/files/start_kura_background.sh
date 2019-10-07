@@ -40,15 +40,15 @@ if [ -z "$KURA_RUNNING" ] ; then
         -Djdk.tls.trustNameService=true \
         -Dosgi.console=5002 \
         -Declipse.consoleLog=true \
+	-Declipse.log.backup.max=1 \
+	-Declipse.log.size.max=100 \
         -jar "${DIR}"/plugins/org.eclipse.equinox.launcher_1.4.0.v20161219-1356.jar \
-	-configuration /tmp/.kura/configuration | logger --tag "kura") &
+	-configuration /tmp/.kura/configuration) &
 
-        # Old logging
-        ## -Declipse.consoleLog=true >> /var/log/kura-console.log 2>> /var/log/kura-console.log \
     #Save the PID
     KURA_PID=$!
     echo "Kura Started (pid=$KURA_PID) ..." >> /var/log/kura-console.log
-    echo $KURA_PID > /var/run/kura.pid
+    echo $KURA_PID > /run/kura.pid
 else
     echo "Failed to start Kura. It is already running ..." >> /var/log/kura-console.log
 fi
