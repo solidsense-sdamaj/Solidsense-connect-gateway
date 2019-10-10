@@ -40,8 +40,6 @@ if [ -z "$KURA_RUNNING" ] ; then
         -Djdk.tls.trustNameService=true \
         -Dosgi.console=5002 \
         -Declipse.consoleLog=true \
-	-Declipse.log.backup.max=1 \
-	-Declipse.log.size.max=100 \
         -jar "${DIR}"/plugins/org.eclipse.equinox.launcher_1.4.0.v20161219-1356.jar \
 	-configuration /tmp/.kura/configuration) &
 

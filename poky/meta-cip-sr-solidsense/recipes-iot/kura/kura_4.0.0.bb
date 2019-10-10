@@ -13,6 +13,7 @@ SRC_URI = " \
     file://iptables \
     file://ip6tables \
     file://krc.sh \
+    file://log4j.xml \
 "
 
 SYSTEMD_SERVICE_${PN} = "kura.service"
@@ -52,6 +53,9 @@ do_install () {
 
     install -d ${D}${base_bindir}
     install -m 0755 ${WORKDIR}/krc.sh ${D}${base_bindir}/krc
+
+    install -d ${D}/opt/eclipse/kura_4.0.0_solid_sense/user
+    install -m 0644 ${WORKDIR}/log4j.xml ${D}/opt/eclipse/kura_4.0.0_solid_sense/user/log4j.xml
 }
 
 FILES_${PN} = " \
