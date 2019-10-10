@@ -38,6 +38,8 @@ repos:
         refspec: meta-cip-sr-solidsense
         layers:
             meta-mender-core:
+    meta-readonly-rootfs-overlay:
+        url: "https://github.com/solidrun-ejb/meta-readonly-rootfs-overlay"
 bblayers_conf_header:
   meta-custom: |
     LCONF_VERSION = "6"
@@ -60,41 +62,54 @@ local_conf_header:
         ABORT,${SSTATE_DIR},100M,1K"
     CONF_VERSION = "1"
     DL_DIR ?= "/home/eric/work.kingcheese/downloads"
-    #
-    #SRC_URI_ALLOWED = " \
-    #    git://github.com/ystk/ \
-    #    git://github.com/SolidRun/ \
-    #    ${BOOTLOADER_GIT_URI}/${BOOTLOADER_GIT_PREFIX} \
-    #"
 
     # Add distro features
-    DISTRO_FEATURES += " virtualization"
+    DISTRO_FEATURES_append += "ipv6 systemd sysvinit virtualization ipv6"
+    VIRTUAL-RUNTIME_init_manager = "systemd"
+    DISTRO_FEATURES_BACKFILL_CONSIDERED = "sysvinit"
+    VIRTUAL-RUNTIME_initscripts = ""
     
     # Enable read only rootfs
-    EXTRA_IMAGE_FEATURES += "read-only-rootfs"
+    IMAGE_INSTALL_append += "initscripts-readonly-rootfs-overlay"
+
+    # Set users and passwords
+    INHERIT += "extrausers"
+    EXTRA_USERS_PARAMS = " \
+        usermod --password \
+        '\$6\$O6mi4EVySr\$iRTUoo7yhQEGoxtl3.46Ljhy2c/RHNyUS0/9JIq2nFxkPTTEJSKNwoVlQz7Ce.o4WYDbRMOkUMaDMgdGNhPgC/' \
+        root; \
+    "
+    EXTRA_USERS_PARAMS += " \
+        useradd --password \
+        '\$6\$IIvhzAmkoq\$fx6DpxdQaBFlGclWrfc5zm.jCDu//UyCUaaVybwhnmywTMhXoblZEE9e1pnAYxNWzW2PczBagHfOZrP/k0XA21' \
+        -G dialout,sudo,audio,video -d /data/solidsense solidsense \
+    "
 
     #
     # Install zimage, dtb and kernel modules
     #
-    #IMAGE_INSTALL_append = " kernel-devicetree kernel-image-zimage kernel-modules u-boot linux-firmware"
-    IMAGE_INSTALL_append += "kernel-devicetree kernel-image-zimage kernel-modules firmware-wireless-wilink8"
-    IMAGE_INSTALL_append += "openssh mmc-utils"
+    IMAGE_INSTALL_append += "kernel-devicetree kernel-image-zimage kernel-modules"
+    IMAGE_INSTALL_append += "firmware-wireless-wilink8 kernel-firmware-sdma-imx6q"
 
     # Add additional packages
-    #IMAGE_INSTALL_append = " docker u-boot-fw-utils wireless-regdb iw"
-    IMAGE_INSTALL_append += "docker u-boot-fw-utils wireless-regdb iw util-linux hostapd bluez5"
+    IMAGE_INSTALL_append += "openssh mmc-utils solidsense-scripts sudo"
+    IMAGE_INSTALL_append += "docker u-boot-fw-utils util-linux"
+    IMAGE_INSTALL_append += "init-ifupdown ifupdown dhcp-client"
 
     # Temporary additional packages
-    IMAGE_INSTALL_append += "python3 grpc nfs-utils openjdk-8"
+    IMAGE_INSTALL_append += "ppp wpa-supplicant wireless-regdb iw hostapd bluez5"
+    IMAGE_INSTALL_append += "nfs-utils modem-gps wirepas-gateway dhcp-server bind"
+    IMAGE_INSTALL_append += "kura wireless-tools"
+    #     Debug
+    #IMAGE_INSTALL_append += "strace gdb"
+    #     Java
     PREFERRED_PROVIDER_virtual/java-native = "cacao-native"
     PREFERRED_PROVIDER_virtual/java-initial-native = "cacao-initial-native"
-    #PREFERRED_PROVIDER_virtual/java-native = "jamvm-native"
-    #PREFERRED_PROVIDER_virtual/java-initial-native = "jamvm-initial-native"
 
     # Mender
     INHERIT += "mender-full"
-    MENDER_ARTIFACT_NAME = "Solidsense 2019090400"
+    MENDER_ARTIFACT_NAME = "Solidsense-2019100600"
     PREFERRED_PROVIDER_u-boot-fw-utils = "u-boot-fw-utils"
-    #MENDER_FEATURES_ENABLE_append = " mender-uboot mender-image-sd"
-    MENDER_FEATURES_ENABLE_append = " mender-uboot"
+    MENDER_FEATURES_ENABLE_append = " mender-uboot mender-image-sd"
     MENDER_FEATURES_DISABLE_append = " mender-grub mender-image-uefi"
+    IMAGE_ROOTFS_EXCLUDE_PATH_append = " uboot"
