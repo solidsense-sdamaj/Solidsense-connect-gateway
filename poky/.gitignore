@@ -1,4 +1,4 @@
-build/
+build*/
 kas
 meta-cip-sr-solidsense/mender-cert
 meta-debian
