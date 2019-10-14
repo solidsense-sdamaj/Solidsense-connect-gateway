@@ -19,6 +19,8 @@ SRC_URI = " \
     file://wirepasTransport1.service \
     file://wirepasTransport2.service \
     file://wirepas_gateway-1.1.0-py3-none-any.whl \
+    file://wm-dbus-print \
+    file://wm-gw \
 "
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
@@ -59,6 +61,10 @@ do_install_append () {
     install -d ${D}/data/solidsense/grpc
     cp -a ${WORKDIR}/grpc/* ${D}/data/solidsense/grpc
     chown -R root:root ${D}/data/solidsense/grpc
+
+    install -d ${D}${bindir}
+    install -m 0755 ${WORKDIR}/wm-dbus-print ${D}${bindir}
+    install -m 0755 ${WORKDIR}/wm-gw ${D}${bindir}
 
     install -d ${D}/data/solidsense/wirepas
     install -m 0755 ${WORKDIR}/sinkService ${D}/data/solidsense/wirepas/sinkService
@@ -111,4 +117,6 @@ FILES_${PN} = " \
     /etc/dbus-1 \
     /etc/dbus-1/system.d \
     /etc/dbus-1/system.d/com.wirepas.sink.conf \
+    /usr/bin/wm-dbus-print \
+    /usr/bin/wm-gw \
 "
