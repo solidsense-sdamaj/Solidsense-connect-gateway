@@ -28,7 +28,7 @@ RDEPENDS_${PN} = "\
 
 do_install () {
     install -d ${D}/opt/SolidSense/modem_gps
-    cp -arP ${WORKDIR}/modem_gps-${PV}/* ${D}/opt/SolidSense/modem_gps
+    cp -arP ${S}/* ${D}/opt/SolidSense/modem_gps
     chown -R root:root ${D}/opt/SolidSense/modem_gps
 
     install -d ${D}/data/.opt/log
