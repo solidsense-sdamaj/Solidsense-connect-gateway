@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = " \
 FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 
 SRC_URI = " \
-    git://git@github.com/SolidRun/Solidense-Modem_GPS_Service.git;protocol=ssh \
+    git://github.com/SolidRun/Solidense-Modem_GPS_Service.git;protocol=ssh \
 "
 SRCREV = "665589418cf8a48729a4873f32f9b1d7ceb63c86"
 S = "${WORKDIR}/git"
