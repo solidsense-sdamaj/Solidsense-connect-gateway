@@ -19,8 +19,6 @@ SRC_URI = " \
     file://wirepasTransport1.service \
     file://wirepasTransport2.service \
     file://wirepas_gateway-1.1.0-py3-none-any.whl \
-    file://wm-dbus-print \
-    file://wm-gw \
 "
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
@@ -53,7 +51,9 @@ do_compile () {
 }
 
 do_install () {
-    ${STAGING_BINDIR_NATIVE}/pip3 install ${WORKDIR}/wirepas_gateway-1.1.0-py3-none-any.whl
+    install -d ${D}${PYTHON_SITEPACKAGES_DIR}
+    ${STAGING_BINDIR_NATIVE}/pip3 install --disable-pip-version-check -v --no-deps \
+        -t ${D}/${PYTHON_SITEPACKAGES_DIR} --no-cache-dir ${WORKDIR}/wirepas_gateway-1.1.0-py3-none-any.whl
 }
 
 do_install_append () {
@@ -61,10 +61,6 @@ do_install_append () {
     install -d ${D}/data/solidsense/grpc
     cp -a ${WORKDIR}/grpc/* ${D}/data/solidsense/grpc
     chown -R root:root ${D}/data/solidsense/grpc
-
-    install -d ${D}${bindir}
-    install -m 0755 ${WORKDIR}/wm-dbus-print ${D}${bindir}
-    install -m 0755 ${WORKDIR}/wm-gw ${D}${bindir}
 
     install -d ${D}/data/solidsense/wirepas
     install -m 0755 ${WORKDIR}/sinkService ${D}/data/solidsense/wirepas/sinkService
@@ -117,6 +113,66 @@ FILES_${PN} = " \
     /etc/dbus-1 \
     /etc/dbus-1/system.d \
     /etc/dbus-1/system.d/com.wirepas.sink.conf \
-    /usr/bin/wm-dbus-print \
-    /usr/bin/wm-gw \
+    /usr/lib/python3.7/site-packages/dbusCExtension.cpython-34m.so \
+    /usr/lib/python3.7/site-packages/wirepas_gateway \
+    /usr/lib/python3.7/site-packages/bin \
+    /usr/lib/python3.7/site-packages/wirepas_gateway-1.1.0.dist-info \
+    /usr/lib/python3.7/site-packages/wirepas_gateway-extras \
+    /usr/lib/python3.7/site-packages/wirepas_gateway/transport_service.py \
+    /usr/lib/python3.7/site-packages/wirepas_gateway/__init__.py \
+    /usr/lib/python3.7/site-packages/wirepas_gateway/__main__.py \
+    /usr/lib/python3.7/site-packages/wirepas_gateway/dbus_print_client.py \
+    /usr/lib/python3.7/site-packages/wirepas_gateway/utils \
+    /usr/lib/python3.7/site-packages/wirepas_gateway/dbus \
+    /usr/lib/python3.7/site-packages/wirepas_gateway/__pycache__ \
+    /usr/lib/python3.7/site-packages/wirepas_gateway/protocol \
+    /usr/lib/python3.7/site-packages/wirepas_gateway/wirepas_certs \
+    /usr/lib/python3.7/site-packages/wirepas_gateway/utils/serialization_tools.py \
+    /usr/lib/python3.7/site-packages/wirepas_gateway/utils/__init__.py \
+    /usr/lib/python3.7/site-packages/wirepas_gateway/utils/log_tools.py \
+    /usr/lib/python3.7/site-packages/wirepas_gateway/utils/argument_tools.py \
+    /usr/lib/python3.7/site-packages/wirepas_gateway/utils/__pycache__ \
+    /usr/lib/python3.7/site-packages/wirepas_gateway/utils/__pycache__/serialization_tools.cpython-37.pyc \
+    /usr/lib/python3.7/site-packages/wirepas_gateway/utils/__pycache__/argument_tools.cpython-37.pyc \
+    /usr/lib/python3.7/site-packages/wirepas_gateway/utils/__pycache__/log_tools.cpython-37.pyc \
+    /usr/lib/python3.7/site-packages/wirepas_gateway/utils/__pycache__/__init__.cpython-37.pyc \
+    /usr/lib/python3.7/site-packages/wirepas_gateway/dbus/return_code.py \
+    /usr/lib/python3.7/site-packages/wirepas_gateway/dbus/__init__.py \
+    /usr/lib/python3.7/site-packages/wirepas_gateway/dbus/sink_manager.py \
+    /usr/lib/python3.7/site-packages/wirepas_gateway/dbus/dbus_client.py \
+    /usr/lib/python3.7/site-packages/wirepas_gateway/dbus/c-extension \
+    /usr/lib/python3.7/site-packages/wirepas_gateway/dbus/__pycache__ \
+    /usr/lib/python3.7/site-packages/wirepas_gateway/dbus/c-extension/dbus_c.c \
+    /usr/lib/python3.7/site-packages/wirepas_gateway/dbus/__pycache__/return_code.cpython-37.pyc \
+    /usr/lib/python3.7/site-packages/wirepas_gateway/dbus/__pycache__/sink_manager.cpython-37.pyc \
+    /usr/lib/python3.7/site-packages/wirepas_gateway/dbus/__pycache__/__init__.cpython-37.pyc \
+    /usr/lib/python3.7/site-packages/wirepas_gateway/dbus/__pycache__/dbus_client.cpython-37.pyc \
+    /usr/lib/python3.7/site-packages/wirepas_gateway/__pycache__/dbus_print_client.cpython-37.pyc \
+    /usr/lib/python3.7/site-packages/wirepas_gateway/__pycache__/__init__.cpython-37.pyc \
+    /usr/lib/python3.7/site-packages/wirepas_gateway/__pycache__/__main__.cpython-37.pyc \
+    /usr/lib/python3.7/site-packages/wirepas_gateway/__pycache__/transport_service.cpython-37.pyc \
+    /usr/lib/python3.7/site-packages/wirepas_gateway/protocol/topic_helper.py \
+    /usr/lib/python3.7/site-packages/wirepas_gateway/protocol/__init__.py \
+    /usr/lib/python3.7/site-packages/wirepas_gateway/protocol/__pycache__ \
+    /usr/lib/python3.7/site-packages/wirepas_gateway/protocol/__pycache__/topic_helper.cpython-37.pyc \
+    /usr/lib/python3.7/site-packages/wirepas_gateway/protocol/__pycache__/__init__.cpython-37.pyc \
+    /usr/lib/python3.7/site-packages/wirepas_gateway/wirepas_certs/extwirepas.pem \
+    /usr/lib/python3.7/site-packages/bin/wm-gw \
+    /usr/lib/python3.7/site-packages/bin/wm-dbus-print \
+    /usr/lib/python3.7/site-packages/wirepas_gateway-1.1.0.dist-info/entry_points.txt \
+    /usr/lib/python3.7/site-packages/wirepas_gateway-1.1.0.dist-info/metadata.json \
+    /usr/lib/python3.7/site-packages/wirepas_gateway-1.1.0.dist-info/RECORD \
+    /usr/lib/python3.7/site-packages/wirepas_gateway-1.1.0.dist-info/WHEEL \
+    /usr/lib/python3.7/site-packages/wirepas_gateway-1.1.0.dist-info/INSTALLER \
+    /usr/lib/python3.7/site-packages/wirepas_gateway-1.1.0.dist-info/DESCRIPTION.rst \
+    /usr/lib/python3.7/site-packages/wirepas_gateway-1.1.0.dist-info/top_level.txt \
+    /usr/lib/python3.7/site-packages/wirepas_gateway-1.1.0.dist-info/METADATA \
+    /usr/lib/python3.7/site-packages/wirepas_gateway-extras/package \
+    /usr/lib/python3.7/site-packages/wirepas_gateway-extras/package/LICENSE.txt \
+    /usr/lib/python3.7/site-packages/wirepas_gateway-extras/package/setup.py \
+    /usr/lib/python3.7/site-packages/wirepas_gateway-extras/package/README.rst \
+    /usr/lib/python3.7/site-packages/wirepas_gateway-extras/package/extwirepas.pem \
+    /usr/lib/python3.7/site-packages/wirepas_gateway-extras/package/requirements.txt \
+    /usr/lib/python3.7/site-packages/wirepas_gateway-extras/package/__pycache__ \
+    /usr/lib/python3.7/site-packages/wirepas_gateway-extras/package/__pycache__/setup.cpython-37.pyc \
 "
