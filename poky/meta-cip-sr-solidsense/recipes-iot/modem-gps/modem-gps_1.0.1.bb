@@ -2,16 +2,15 @@ SUMMARY = "Modem GPS"
 DESCRIPTION = "Modem GPS"
 LICENSE = "GPLv2+"
 LIC_FILES_CHKSUM = " \
-    file://../gpl-2.0.txt;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
+    file://LICENSE;md5=b5d7f7156f7785ca2eb55d6cc1b4c118 \
 "
 FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 
 SRC_URI = " \
-    file://modem_gps-${PV}.tar.gz \
-    file://modem_gps.service \
-    file://gpl-2.0.txt \
+    git://git@github.com/SolidRun/Solidense-Modem_GPS_Service.git;protocol=ssh \
 "
-S = "${WORKDIR}/modem_gps"
+SRCREV = "665589418cf8a48729a4873f32f9b1d7ceb63c86"
+S = "${WORKDIR}/git"
 
 SYSTEMD_SERVICE_${PN} = "modem_gps.service"
 SYSTEMD_AUTO_ENABLE_${PN} = "enable"
@@ -42,7 +41,7 @@ do_install () {
     sed -i -e 's,/bin/bash,/bin/sh,g' ${D}${bindir}/modem_status
 
     install -d ${D}${systemd_unitdir}/system
-    install -m 0644 ${WORKDIR}/modem_gps.service ${D}${systemd_unitdir}/system
+    install -m 0644 ${S}/modem_gps.service ${D}${systemd_unitdir}/system
     sed -i -e 's,@SBINDIR@,${sbindir},g' \
         -e 's,@SYSCONFDIR@,${sysconfdir},g' \
         ${D}${systemd_unitdir}/system/modem_gps.service
@@ -60,6 +59,8 @@ FILES_${PN} = " \
     /data/solidsense/modem_gps \
     /usr/bin/modem_status \
     /opt/log \
+    /opt/SolidSense/modem_gps/README.md \
+    /opt/SolidSense/modem_gps/LICENSE \
     /opt/SolidSense/modem_gps/GPS_Service.proto \
     /opt/SolidSense/modem_gps/Modem_GPS_Parameters.py \
     /opt/SolidSense/modem_gps/GPS_Service_pb2_grpc.py \
