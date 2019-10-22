@@ -4,8 +4,6 @@ HOMEPAGE = "https://github.com/wirepas/gateway"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://../LICENSE;md5=b8b4f77337154d1f64ebe68dcd93fab6"
 
-PYPI_PACKAGE = "wirepas_gateway"
-
 SRC_URI = " \
     file://LICENSE \
     file://com.wirepas.sink.conf \
@@ -18,7 +16,7 @@ SRC_URI = " \
     file://wirepasSinkConfig.service \
     file://wirepasTransport1.service \
     file://wirepasTransport2.service \
-    file://wirepas_gateway-1.1.0-py3-none-any.whl \
+    file://wirepas_gateway-1.1.0-cp34-cp34m-linux_armv7l.whl \
 "
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
@@ -53,7 +51,16 @@ do_compile () {
 do_install () {
     install -d ${D}${PYTHON_SITEPACKAGES_DIR}
     ${STAGING_BINDIR_NATIVE}/pip3 install --disable-pip-version-check -v --no-deps \
-        -t ${D}/${PYTHON_SITEPACKAGES_DIR} --no-cache-dir ${WORKDIR}/wirepas_gateway-1.1.0-py3-none-any.whl
+        -t ${D}/${PYTHON_SITEPACKAGES_DIR} --no-cache-dir ${WORKDIR}/wirepas_gateway-1.1.0-cp34-cp34m-linux_armv7l.whl
+
+    ln -s /usr/lib/python3.7/site-packages/dbusCExtension.cpython-34m.so ${D}/usr/lib/python3.7/site-packages/dbusCExtension.so
+
+    install -d ${D}${bindir}
+    ln -s ${D}/usr/lib/python3.7/site-packages/bin/wm-dbus-print ${D}${bindir}/wm-dbus-print
+    ln -s ${D}/usr/lib/python3.7/site-packages/bin/wm-gw ${D}${bindir}/wm-gw
+
+    sed -i -e '1s|^#!.*|#!/usr/bin/env python3|' ${D}${bindir}/wm-gw
+    sed -i -e '1s|^#!.*|#!/usr/bin/env python3|' ${D}${bindir}/wm-dbus-print
 }
 
 do_install_append () {
@@ -113,6 +120,8 @@ FILES_${PN} = " \
     /etc/dbus-1 \
     /etc/dbus-1/system.d \
     /etc/dbus-1/system.d/com.wirepas.sink.conf \
+    /usr/bin/wm-dbus-print \
+    /usr/bin/wm-gw \
     /usr/lib/python3.7/site-packages/dbusCExtension.cpython-34m.so \
     /usr/lib/python3.7/site-packages/wirepas_gateway \
     /usr/lib/python3.7/site-packages/bin \
@@ -175,4 +184,7 @@ FILES_${PN} = " \
     /usr/lib/python3.7/site-packages/wirepas_gateway-extras/package/requirements.txt \
     /usr/lib/python3.7/site-packages/wirepas_gateway-extras/package/__pycache__ \
     /usr/lib/python3.7/site-packages/wirepas_gateway-extras/package/__pycache__/setup.cpython-37.pyc \
+"
+FILES_${PN}-dev = " \
+    /usr/lib/python3.7/site-packages/dbusCExtension.so \
 "
