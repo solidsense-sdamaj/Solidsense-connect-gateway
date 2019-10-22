@@ -98,7 +98,7 @@ local_conf_header:
 
     # Temporary additional packages
     IMAGE_INSTALL_append += "ppp wpa-supplicant wireless-regdb iw hostapd bluez5"
-    IMAGE_INSTALL_append += "nfs-utils modem-gps wirepas-gateway dhcp-server bind"
+    IMAGE_INSTALL_append += "nfs-utils modem-gps wirepas-gateway wirepas-gateway-dev dhcp-server bind"
     IMAGE_INSTALL_append += "kura wireless-tools"
     #     Debug
     #IMAGE_INSTALL_append += "strace gdb"
@@ -108,7 +108,7 @@ local_conf_header:
 
     # Mender
     INHERIT += "mender-full"
-    MENDER_ARTIFACT_NAME = "Solidsense-2019101400"
+    MENDER_ARTIFACT_NAME = "Solidsense-2019102000"
     PREFERRED_PROVIDER_u-boot-fw-utils = "u-boot-fw-utils"
     MENDER_FEATURES_ENABLE_append = " mender-uboot mender-image-sd"
     MENDER_FEATURES_DISABLE_append = " mender-grub mender-image-uefi"
