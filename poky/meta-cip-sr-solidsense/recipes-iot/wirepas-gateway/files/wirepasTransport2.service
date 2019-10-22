@@ -5,7 +5,7 @@ Requires=network.target
 [Service]
 Type=simple
 User=solidsense
-ExecStart=/usr/local/bin/wm-gw --settings=/data/solidsense/wirepas/wirepasTransport2.service.cfg
+ExecStart=/usr/bin/wm-gw --settings=/data/solidsense/wirepas/wirepasTransport2.service.cfg
 Restart=always
 RestartSec=6
 
