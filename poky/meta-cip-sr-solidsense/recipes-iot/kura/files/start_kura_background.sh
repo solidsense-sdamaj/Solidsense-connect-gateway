@@ -3,10 +3,24 @@
 # Kura should be installed to the /opt/eclipse directory.
 export PATH=/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin:/opt/jvm/bin:/usr/java/bin:$PATH
 export MALLOC_ARENA_MAX=1
+KURA_CUSTOM_PROPERTIES_FILE="/opt/eclipse/kura/user/kura_custom.properties"
 
 if [ ! -f /opt/eclipse/kura/user/snapshots/snapshot_0.xml ] ; then
     cd "/opt/SolidSense/kura/config" || exit
-    python2 /opt/SolidSense/kura/config/gen_kura_properties.py
+    python3 /opt/SolidSense/kura/config/gen_kura_properties.py
+fi
+
+MENDER_VERSION="$(sed s'/artifact_name=//' < /etc/mender/artifact_info)"
+KURA_FIRMWARE_VERSION="$(grep kura.firmware.version ${KURA_CUSTOM_PROPERTIES_FILE} | sed s'/kura.firmware.version=//')"
+
+if [ -z "${KURA_FIRMWARE_VERSION}" ] ; then
+	sed "s/################/kura.firmware.version=${MENDER_VERSION}\\n\\n################/" \
+		< "${KURA_CUSTOM_PROPERTIES_FILE}" > /tmp/kura_custom.properties
+	mv /tmp/kura_custom.properties "${KURA_CUSTOM_PROPERTIES_FILE}"
+elif [ "${MENDER_VERSION}" != "${KURA_FIRMWARE_VERSION}" ] ; then
+	sed "s/kura.firmware.version=.*$/kura.firmware.version=${MENDER_VERSION}/" \
+		< "${KURA_CUSTOM_PROPERTIES_FILE}" > /tmp/kura_custom.properties
+	mv /tmp/kura_custom.properties "${KURA_CUSTOM_PROPERTIES_FILE}"
 fi
 
 DIR=$(cd "$(dirname "${0}")/.." || exit; pwd)

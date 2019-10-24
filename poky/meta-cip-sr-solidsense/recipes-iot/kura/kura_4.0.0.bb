@@ -7,6 +7,7 @@ LIC_FILES_CHKSUM = " \
 FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 
 SRC_URI = " \
+    git://github.com/SolidRun/SolidSense-V1.git;protocol=ssh \
     file://kura-${PV}.tar.gz \
     file://kura.service \
     file://start_kura_background.sh \
@@ -15,6 +16,7 @@ SRC_URI = " \
     file://krc.sh \
     file://log4j.xml \
 "
+SRCREV = "98a3331932752cadafa34d1e6ff84873f0c14ac0"
 
 SYSTEMD_SERVICE_${PN} = "kura.service"
 SYSTEMD_AUTO_ENABLE_${PN} = "enable"
@@ -36,7 +38,6 @@ inherit systemd
 
 do_install () {
     cp -arP ${WORKDIR}/kura-${PV}/* ${D}
-    chown -R root:root ${D}/opt
 
     install -d ${D}${systemd_unitdir}/system
     install -m 0644 ${WORKDIR}/kura.service ${D}${systemd_unitdir}/system
@@ -56,6 +57,11 @@ do_install () {
 
     install -d ${D}/opt/eclipse/kura_4.0.0_solid_sense/user
     install -m 0644 ${WORKDIR}/log4j.xml ${D}/opt/eclipse/kura_4.0.0_solid_sense/user/log4j.xml
+
+    rm -rf ${D}/opt/SolidSense/kura/config/*
+    cp -arP ${WORKDIR}/git/Kura/Config/* ${D}/opt/SolidSense/kura/config/
+
+    chown -R root:root ${D}/opt
 }
 
 FILES_${PN} = " \
