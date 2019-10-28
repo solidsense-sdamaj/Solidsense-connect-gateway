@@ -30,11 +30,9 @@ DEPENDS = " \
 RDEPENDS_${PN} = " \
     openocd \
     python3 \
-    python3-grpcio \
-    python3-grpcio-tools \
     python3-paho-mqtt \
     python3-pydbus \
-    python3-pyyaml \
+    python3-pyyaml (=5.1.1)\
     systemd \
     wirepas-messaging \
 "
@@ -45,7 +43,7 @@ SINK_SERVICE_CFLAGS = " \
     -I${S}/sink_service/c-mesh-api/lib/platform \
 "
 
-EXTRA_OEMAKE = "\
+EXTRA_OEMAKE = " \
     'CC=${CC}' \
     'CFLAGS=${CFLAGS} ${SINK_SERVICE_CFLAGS}' \
     'LFLAGS=${LDFLAGS}' \
