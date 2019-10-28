@@ -30,12 +30,12 @@ do_install () {
 
     install -d ${D}/etc/init.d
     install -m 0755 ${WORKDIR}/bind9.init ${D}/etc/init.d/bind9
+
+    ln -s /etc/solidsense ${D}/etc/solidsense_device
 }
 
 FILES_${PN} = " \
-    /opt \
-    /opt/scripts \
+    /etc/init.d/bind9 \
+    /etc/solidsense_device \
     /opt/scripts/check_solidsense \
-    /etc \
-    /etc/solidsense \
 "
