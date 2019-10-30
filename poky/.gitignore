@@ -3,6 +3,7 @@ kas
 meta-cip-sr-solidsense/mender-cert
 meta-debian
 meta-java
+meta-iot-cloud
 meta-mender-core
 meta-openembedded
 meta-readonly-rootfs-overlay
