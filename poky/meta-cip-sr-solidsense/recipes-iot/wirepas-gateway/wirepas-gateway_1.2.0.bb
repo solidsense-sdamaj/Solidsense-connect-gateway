@@ -12,7 +12,6 @@ SRC_URI = " \
     file://com.wirepas.sink.conf \
     file://configure_node.py \
     file://grpc.tar.gz \
-    file://sinkService \
     file://wirepasMicro.service \
     file://wirepasSink1.service \
     file://wirepasSink2.service \
@@ -86,7 +85,6 @@ do_install () {
     chown -R root:root ${D}/data/solidsense/grpc
 
     install -d ${D}/data/solidsense/wirepas
-    install -m 0755 ${WORKDIR}/sinkService ${D}/data/solidsense/wirepas/sinkService
     install -m 0644 ${WORKDIR}/configure_node.py ${D}/data/solidsense/wirepas/configure_node.py
     install -d ${D}${sysconfdir}/dbus-1/system.d
     install -m 0644 ${WORKDIR}/com.wirepas.sink.conf ${D}${sysconfdir}/dbus-1/system.d/com.wirepas.sink.conf
@@ -118,7 +116,7 @@ do_install () {
         ${D}${systemd_unitdir}/system/wirepasTransport2.service
 
     install -d ${D}/data/solidsense/wirepas
-    install -m 0644 ${S}/sink_service/build/sinkService ${D}/data/solidsense/wirepas/sinkService
+    install -m 0755 ${S}/sink_service/build/sinkService ${D}/data/solidsense/wirepas/sinkService
 }
 
 FILES_${PN} = " \
@@ -197,5 +195,4 @@ FILES_${PN} = " \
     /lib/systemd/system/wirepasTransport2.service \
     /lib/systemd/system/wirepasTransport1.service \
     /lib/systemd/system/wirepasMicro.service \
-    /data/solidsense/wirepas/sinkService \
 "
