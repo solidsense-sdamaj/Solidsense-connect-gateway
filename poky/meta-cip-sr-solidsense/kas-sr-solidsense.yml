@@ -40,6 +40,9 @@ repos:
             meta-mender-core:
     meta-readonly-rootfs-overlay:
         url: "https://github.com/solidrun-ejb/meta-readonly-rootfs-overlay"
+    meta-iot-cloud:
+        url: "https://github.com/intel-iot-devkit/meta-iot-cloud.git"
+        refspec: warrior
 bblayers_conf_header:
   meta-custom: |
     LCONF_VERSION = "6"
@@ -104,14 +107,14 @@ local_conf_header:
     IMAGE_INSTALL_append += "nfs-utils modem-gps wirepas-gateway wirepas-gateway-dev dhcp-server bind"
     IMAGE_INSTALL_append += "kura wireless-tools"
     #     Debug
-    #IMAGE_INSTALL_append += "strace gdb"
+    # IMAGE_INSTALL_append += "gdb strace tcpdump"
     #     Java
     PREFERRED_PROVIDER_virtual/java-native = "cacao-native"
     PREFERRED_PROVIDER_virtual/java-initial-native = "cacao-initial-native"
 
     # Mender
     INHERIT += "mender-full"
-    MENDER_ARTIFACT_NAME = "Solidsense-2019102800"
+    MENDER_ARTIFACT_NAME = "Solidsense-2019110500"
     PREFERRED_PROVIDER_u-boot-fw-utils = "u-boot-fw-utils"
     MENDER_FEATURES_ENABLE_append = " mender-uboot mender-image-sd"
     MENDER_FEATURES_DISABLE_append = " mender-grub mender-image-uefi"
