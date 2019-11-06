@@ -5,23 +5,82 @@ export PATH=/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin:/opt/jvm/bin:/usr/java/
 export MALLOC_ARENA_MAX=1
 KURA_CUSTOM_PROPERTIES_FILE="/opt/eclipse/kura/user/kura_custom.properties"
 
+# Create user snapshot_0.xml
 if [ ! -f /opt/eclipse/kura/user/snapshots/snapshot_0.xml ] ; then
     cd "/opt/SolidSense/kura/config" || exit
     python3 /opt/SolidSense/kura/config/gen_kura_properties.py
 fi
 
+# Update kura_custom.properties
+KURA_CUSTOM_PROPERTIES_FILE="/opt/eclipse/kura/user/kura_custom.properties"
+KURA_CUSTOM_PROPERTIES_FILE_TMP="/tmp/kura_custom.properties"
+NLINES=$(($(wc -l /opt/eclipse/kura/user/kura_custom.properties | awk '{print $1}') + 10))
 MENDER_VERSION="$(sed s'/artifact_name=//' < /etc/mender/artifact_info)"
-KURA_FIRMWARE_VERSION="$(grep kura.firmware.version ${KURA_CUSTOM_PROPERTIES_FILE} | sed s'/kura.firmware.version=//')"
+SOLIDSENSE_FILE="/etc/solidsense"
+# shellcheck source=/dev/null
+. ${SOLIDSENSE_FILE}
 
-if [ -z "${KURA_FIRMWARE_VERSION}" ] ; then
-	sed "s/################/kura.firmware.version=${MENDER_VERSION}\\n\\n################/" \
-		< "${KURA_CUSTOM_PROPERTIES_FILE}" > /tmp/kura_custom.properties
-	mv /tmp/kura_custom.properties "${KURA_CUSTOM_PROPERTIES_FILE}"
-elif [ "${MENDER_VERSION}" != "${KURA_FIRMWARE_VERSION}" ] ; then
-	sed "s/kura.firmware.version=.*$/kura.firmware.version=${MENDER_VERSION}/" \
-		< "${KURA_CUSTOM_PROPERTIES_FILE}" > /tmp/kura_custom.properties
-	mv /tmp/kura_custom.properties "${KURA_CUSTOM_PROPERTIES_FILE}"
-fi
+awk -v N="${NLINES}" -v MENDER_VERSION="${MENDER_VERSION}" -v SW1_VERSION="${SW1_VERSION}" -v SW2_VERSION="${SW2_VERSION}" \
+'BEGIN {
+	OLD_FS=FS
+	FS="="
+	NLINES=1
+	FOUND_MENDER_VERSION = 0
+	FOUND_BIOS_VERSION = 0
+	COUNT = 0
+
+	for (i = 1; i <= N; i++)
+	{
+		prev[i] = ""
+	}
+}
+{
+	COUNT = COUNT + 1
+	if (/^kura.firmware.version/)
+	{
+		FOUND_MENDER_VERSION = 1
+		if (MENDER_VERSION != $2)
+		{
+			# Update mender version
+			$0 = "kura.firmware.version="MENDER_VERSION
+		}
+	}
+	else if (/^kura.bios.version/)
+	{
+		FOUND_BIOS_VERSION = 1
+		if (SW1_VERSION != $2)
+		{
+			# Update kura bios version
+			$0 = "kura.bios.version="SW1_VERSION
+		}
+	}
+	prev[COUNT] = $0
+}
+END {
+	FS=OLD_FS
+	for (i = 1; i < N; i++)
+	{
+		$0 = prev[i]
+		if (prev[i] != "")
+		{
+			if (/^kura/)
+			{
+				if (FOUND_MENDER_VERSION == 0)
+				{
+					FOUND_MENDER_VERSION = 1
+					printf("kura.firmware.version=%s\n", MENDER_VERSION)
+				}
+				if (FOUND_BIOS_VERSION == 0)
+				{
+					FOUND_BIOS_VERSION = 1
+					printf("kura.bios.version=%s\n", SW1_VERSION)
+				}
+			}
+			print prev[i]
+		}
+	}
+}' "${KURA_CUSTOM_PROPERTIES_FILE}" > "${KURA_CUSTOM_PROPERTIES_FILE_TMP}"
+mv "${KURA_CUSTOM_PROPERTIES_FILE_TMP}" "${KURA_CUSTOM_PROPERTIES_FILE}"
 
 DIR=$(cd "$(dirname "${0}")/.." || exit; pwd)
 cd "$DIR" || exit
