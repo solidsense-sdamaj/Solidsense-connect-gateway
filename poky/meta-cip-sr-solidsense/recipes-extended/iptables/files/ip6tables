@@ -22,5 +22,6 @@
 -A FORWARD -i eth0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
 -A FORWARD -i wlan0 -o ppp+ -j ACCEPT
 -A FORWARD -i ppp+ -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+-A OUTPUT -j ACCEPT
 COMMIT
 # Completed on Mon Sep 23 14:05:01 2019
