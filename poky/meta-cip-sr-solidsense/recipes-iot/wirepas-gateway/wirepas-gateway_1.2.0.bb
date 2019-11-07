@@ -27,12 +27,12 @@ DEPENDS = " \
     systemd \
 "
 RDEPENDS_${PN} = " \
-    openocd \
     python3 \
     python3-paho-mqtt \
     python3-pydbus \
     python3-pyyaml (=5.1.1)\
     systemd \
+    wirepas-firmware \
     wirepas-messaging \
 "
 
