@@ -6,6 +6,7 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 
 SRC_URI += " \
    file://fstab \
+   file://hosts \
 "
 
 do_install_append () {
