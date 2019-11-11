@@ -34,6 +34,7 @@ RDEPENDS_${PN} = " \
     python3-pydbus \
     python3-pyyaml \
     systemd \
+    wirepas-firmware \
     wirepas-messaging \
 "
 
