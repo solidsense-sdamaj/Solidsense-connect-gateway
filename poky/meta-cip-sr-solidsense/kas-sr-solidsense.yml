@@ -34,8 +34,8 @@ repos:
         url: "https://github.com/solidrun-ejb/meta-java.git"
         refspec: meta-cip-sr-solidsense
     meta-mender-core:
-        url: "https://github.com/solidrun-ejb/meta-mender.git"
-        refspec: meta-cip-sr-solidsense
+        url: "https://github.com/mendersoftware/meta-mender.git"
+        refspec: warrior
         layers:
             meta-mender-core:
     meta-readonly-rootfs-overlay:
@@ -114,7 +114,7 @@ local_conf_header:
 
     # Mender
     INHERIT += "mender-full"
-    MENDER_ARTIFACT_NAME = "Solidsense-2019111100"
+    MENDER_ARTIFACT_NAME = "Solidsense-2019111200"
     PREFERRED_PROVIDER_u-boot-fw-utils = "u-boot-fw-utils"
     MENDER_FEATURES_ENABLE_append = " mender-uboot mender-image-sd"
     MENDER_FEATURES_DISABLE_append = " mender-grub mender-image-uefi"
