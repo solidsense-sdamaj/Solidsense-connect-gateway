@@ -9,15 +9,10 @@ SRC_URI = " \
 "
 SRCREV = "5f3e5463182ffbe6d55fcbef7c145403eb13916c"
 
-DEPENDS_${PN} = " \
+DEPENDS = " \
     python3-native \
     python3-grpcio-native \
     python3-grpcio-tools-native \
-    python3-pip-native \
-    python3-setuptools \
-    python3-setuptools-scm \
-    python3-setuptools-native \
-    python3-setuptools-scm-native \
 "
 RDEPENDS_${PN} = " \
     python3 \
