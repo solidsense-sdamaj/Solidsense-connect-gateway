@@ -42,6 +42,8 @@ SINK_SERVICE_CFLAGS = " \
     -I${S}/sink_service/c-mesh-api/lib/platform \
 "
 
+SECURITY_STACK_PROTECTOR = ""
+
 EXTRA_OEMAKE = " \
     'CC=${CC}' \
     'CFLAGS=${CFLAGS} ${SINK_SERVICE_CFLAGS}' \
