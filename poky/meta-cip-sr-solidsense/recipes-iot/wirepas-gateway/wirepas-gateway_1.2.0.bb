@@ -11,7 +11,7 @@ SRC_URI = " \
     git://github.com/wirepas/c-mesh-api;rev=v1.2.0;destsuffix=git/sink_service/c-mesh-api \
     file://com.wirepas.sink.conf \
     file://configure_node.py \
-    file://grpc.tar.gz \
+    file://grpc-1.2.0.tar.gz \
     file://wirepasMicro.service \
     file://wirepasSink1.service \
     file://wirepasSink2.service \
