@@ -8,11 +8,15 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 
 SRC_URI = " \
     git://git@github.com/SolidRun/SolidSense-V1.git;protocol=ssh;branch=V0.910;destsuffix=SolidSense-V1;name=SolidSense-V1 \
+    git://git@github.com/SolidRun/SolidSense-BLE.git;protocol=ssh;branch=V1.0.3;destsuffix=SolidSense-BLE;name=SolidSense-BLE \
     file://kura-${PV}.tar.gz \
     file://kura.service \
 "
 SRCREV_SolidSense-V1 = "8781140e9cf4767d6859f45c0cab7707fc5d9844"
+SRCREV_SolidSense-BLE = "5841bdc83078e00028dda1d1c52ff4b0979b1e38"
 S-V1 = "${WORKDIR}/SolidSense-V1"
+S-BLE = "${WORKDIR}/SolidSense-BLE"
+KURA_PATH = "/opt/eclipse/kura_4.0.0_solid_sense/"
 
 SYSTEMD_SERVICE_${PN} = "kura.service"
 SYSTEMD_AUTO_ENABLE_${PN} = "enable"
@@ -44,25 +48,31 @@ do_install () {
         ${D}${systemd_unitdir}/system/kura.service
 
     # Install updated start_kura_background.sh
-    install -d ${D}/opt/eclipse/kura_4.0.0_solid_sense/bin
+    install -d ${D}${KURA_PATH}/bin
     install -m 0755 ${S-V1}/Kura/scripts/start_kura_background.sh \
-                    ${D}/opt/eclipse/kura_4.0.0_solid_sense/bin/start_kura_background.sh
+                    ${D}${KURA_PATH}/bin/start_kura_background.sh
 
     # Install iptables firewall rules
-    install -d ${D}/opt/eclipse/kura_4.0.0_solid_sense/.data
-    install -m 0644 ${S-V1}/Kura/data/iptables ${D}/opt/eclipse/kura_4.0.0_solid_sense/.data/iptables
-    install -m 0644 ${S-V1}/Kura/data/ip6tables ${D}/opt/eclipse/kura_4.0.0_solid_sense/.data/ip6tables
+    install -d ${D}${KURA_PATH}/.data
+    install -m 0644 ${S-V1}/Kura/data/iptables ${D}${KURA_PATH}/.data/iptables
+    install -m 0644 ${S-V1}/Kura/data/ip6tables ${D}${KURA_PATH}/.data/ip6tables
 
     # Install remote cli helper shell script
     install -d ${D}${base_bindir}
     install -m 0755 ${S-V1}/Kura/scripts/krc.sh ${D}${base_bindir}/krc
 
     # Install updated log settings
-    install -d ${D}/opt/eclipse/kura_4.0.0_solid_sense/user
-    install -m 0644 ${S-V1}/Kura/user/log4j.xml ${D}/opt/eclipse/kura_4.0.0_solid_sense/user/log4j.xml
+    install -d ${D}${KURA_PATH}/user
+    install -m 0644 ${S-V1}/Kura/user/log4j.xml ${D}${KURA_PATH}/user/log4j.xml
 
     rm -rf ${D}/opt/SolidSense/kura/config/*
     cp -arP ${S-V1}/Kura/Config/* ${D}/opt/SolidSense/kura/config/
+
+    # Install the ble-gateway Kura dp
+    #    TODO: create a conditional to only install this if the ble-gateway recipe is selected
+    cp -a ${S-BLE}/Install/BLEConfigurationService.dp ${D}${KURA_PATH}/data/packages
+    echo "BLEConfigurationService=file\:/opt/eclipse/kura/data/packages/BLEConfigurationService.dp" >> \
+            ${D}${KURA_PATH}/data/dpa.properties
 
     chown -R root:root ${D}/opt
 }
