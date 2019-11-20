@@ -7,16 +7,12 @@ LIC_FILES_CHKSUM = " \
 FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 
 SRC_URI = " \
-    git://github.com/SolidRun/SolidSense-V1.git;protocol=ssh \
+    git://git@github.com/SolidRun/SolidSense-V1.git;protocol=ssh;branch=V0.910;destsuffix=SolidSense-V1;name=SolidSense-V1 \
     file://kura-${PV}.tar.gz \
     file://kura.service \
-    file://start_kura_background.sh \
-    file://iptables \
-    file://ip6tables \
-    file://krc.sh \
-    file://log4j.xml \
 "
-SRCREV = "98a3331932752cadafa34d1e6ff84873f0c14ac0"
+SRCREV_SolidSense-V1 = "8781140e9cf4767d6859f45c0cab7707fc5d9844"
+S-V1 = "${WORKDIR}/SolidSense-V1"
 
 SYSTEMD_SERVICE_${PN} = "kura.service"
 SYSTEMD_AUTO_ENABLE_${PN} = "enable"
@@ -37,29 +33,36 @@ RDEPENDS_${PN} = " \
 inherit systemd
 
 do_install () {
+    # Install kura
     cp -arP ${WORKDIR}/kura-${PV}/* ${D}
 
+    # Install systemd service file
     install -d ${D}${systemd_unitdir}/system
     install -m 0644 ${WORKDIR}/kura.service ${D}${systemd_unitdir}/system
     sed -i -e 's,@SBINDIR@,${sbindir},g' \
         -e 's,@SYSCONFDIR@,${sysconfdir},g' \
         ${D}${systemd_unitdir}/system/kura.service
 
+    # Install updated start_kura_background.sh
     install -d ${D}/opt/eclipse/kura_4.0.0_solid_sense/bin
-    install -m 0755 ${WORKDIR}/start_kura_background.sh ${D}/opt/eclipse/kura_4.0.0_solid_sense/bin/start_kura_background.sh
+    install -m 0755 ${S-V1}/Kura/scripts/start_kura_background.sh \
+                    ${D}/opt/eclipse/kura_4.0.0_solid_sense/bin/start_kura_background.sh
 
+    # Install iptables firewall rules
     install -d ${D}/opt/eclipse/kura_4.0.0_solid_sense/.data
-    install -m 0644 ${WORKDIR}/iptables ${D}/opt/eclipse/kura_4.0.0_solid_sense/.data/iptables
-    install -m 0644 ${WORKDIR}/ip6tables ${D}/opt/eclipse/kura_4.0.0_solid_sense/.data/ip6tables
+    install -m 0644 ${S-V1}/Kura/data/iptables ${D}/opt/eclipse/kura_4.0.0_solid_sense/.data/iptables
+    install -m 0644 ${S-V1}/Kura/data/ip6tables ${D}/opt/eclipse/kura_4.0.0_solid_sense/.data/ip6tables
 
+    # Install remote cli helper shell script
     install -d ${D}${base_bindir}
-    install -m 0755 ${WORKDIR}/krc.sh ${D}${base_bindir}/krc
+    install -m 0755 ${S-V1}/Kura/scripts/krc.sh ${D}${base_bindir}/krc
 
+    # Install updated log settings
     install -d ${D}/opt/eclipse/kura_4.0.0_solid_sense/user
-    install -m 0644 ${WORKDIR}/log4j.xml ${D}/opt/eclipse/kura_4.0.0_solid_sense/user/log4j.xml
+    install -m 0644 ${S-V1}/Kura/user/log4j.xml ${D}/opt/eclipse/kura_4.0.0_solid_sense/user/log4j.xml
 
     rm -rf ${D}/opt/SolidSense/kura/config/*
-    cp -arP ${WORKDIR}/git/Kura/Config/* ${D}/opt/SolidSense/kura/config/
+    cp -arP ${S-V1}/Kura/Config/* ${D}/opt/SolidSense/kura/config/
 
     chown -R root:root ${D}/opt
 }
