@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = " \
 FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 
 SRC_URI = " \
-    git://github.com/SolidRun/Solidense-Modem_GPS_Service.git;protocol=ssh \
+    git://git@github.com/SolidRun/SolidSense-Modem_GPS_Service.git;protocol=ssh \
 "
 SRCREV = "813337f6882d46bbea01e21e9b39b79feea3e95c"
 S = "${WORKDIR}/git"
@@ -45,7 +45,6 @@ do_install () {
     sed -i -e 's,@SBINDIR@,${sbindir},g' \
         -e 's,@SYSCONFDIR@,${sysconfdir},g' \
         ${D}${systemd_unitdir}/system/modem_gps.service
-
 
     # remove unecessary installed items
     rm -f ${D}/opt/SolidSense/modem_gps/install.sh
