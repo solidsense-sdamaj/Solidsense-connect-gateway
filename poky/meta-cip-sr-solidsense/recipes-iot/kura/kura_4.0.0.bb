@@ -40,7 +40,7 @@ do_install () {
     # Install kura
     cp -arP ${WORKDIR}/kura-${PV}/* ${D}
 
-    # Install systemd service file
+    # Install kura unit file
     install -d ${D}${systemd_unitdir}/system
     install -m 0644 ${WORKDIR}/kura.service ${D}${systemd_unitdir}/system
     sed -i -e 's,@SBINDIR@,${sbindir},g' \
@@ -49,22 +49,22 @@ do_install () {
 
     # Install updated start_kura_background.sh
     install -d ${D}${KURA_PATH}/bin
-    install -m 0755 ${S-V1}/Kura/scripts/start_kura_background.sh \
-                    ${D}${KURA_PATH}/bin/start_kura_background.sh
+    install -m 0755 ${S-V1}/Kura/scripts/start_kura_background.sh ${D}${KURA_PATH}/bin/start_kura_background.sh
 
-    # Install iptables firewall rules
+    # Install firewall rules
     install -d ${D}${KURA_PATH}/.data
     install -m 0644 ${S-V1}/Kura/data/iptables ${D}${KURA_PATH}/.data/iptables
     install -m 0644 ${S-V1}/Kura/data/ip6tables ${D}${KURA_PATH}/.data/ip6tables
 
-    # Install remote cli helper shell script
+    # Install shell script to assist with running cli command via Kura/Kapua
     install -d ${D}${base_bindir}
     install -m 0755 ${S-V1}/Kura/scripts/krc.sh ${D}${base_bindir}/krc
 
-    # Install updated log settings
+    # Install updated logging config
     install -d ${D}${KURA_PATH}/user
     install -m 0644 ${S-V1}/Kura/user/log4j.xml ${D}${KURA_PATH}/user/log4j.xml
 
+    # Install SolidSense configuration scripts/data
     rm -rf ${D}/opt/SolidSense/kura/config/*
     cp -arP ${S-V1}/Kura/Config/* ${D}/opt/SolidSense/kura/config/
 
