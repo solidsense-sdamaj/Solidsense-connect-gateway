@@ -1,7 +1,5 @@
 [Unit]
 Description=Start Kura
-Requires=hostapd-wlan0.service
-After=hostapd-wlan0.service
 
 [Service]
 Type=forking
