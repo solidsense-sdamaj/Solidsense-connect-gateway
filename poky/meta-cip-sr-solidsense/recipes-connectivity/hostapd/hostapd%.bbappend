@@ -7,7 +7,7 @@ SRC_URI += " \
 "
 
 SYSTEMD_SERVICE_${PN} = "hostapd-wlan0.service"
-SYSTEMD_AUTO_ENABLE_${PN} = "enable"
+SYSTEMD_AUTO_ENABLE_${PN} = "disable"
 INITSCRIPT_PARAMS = "remove"
 
 do_install_append () {

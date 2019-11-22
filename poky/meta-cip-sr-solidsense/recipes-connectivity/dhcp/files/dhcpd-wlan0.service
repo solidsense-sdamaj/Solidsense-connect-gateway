@@ -1,7 +1,6 @@
 [Unit]
 Description=DHCPv4 Server Daemon
 Documentation=man:dhcpd(8) man:dhcpd.conf(5)
-After=hostapd-wlan0.service
 
 [Service]
 PIDFile=/run/dhcpd-wlan0.pid
