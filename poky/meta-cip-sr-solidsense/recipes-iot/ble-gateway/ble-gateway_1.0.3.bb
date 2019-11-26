@@ -28,6 +28,8 @@ do_install () {
     # install ble_gateway
     install -d ${D}/opt/SolidSense/ble_gateway
     cp -arP ${S}/MQTT-Transport-Client ${D}/opt/SolidSense/ble_gateway/
+    cp -arP ${S}/BLE-Bluepy ${D}/opt/SolidSense/ble_gateway/
+    cp -arP ${S}/bluepy ${D}/opt/SolidSense/ble_gateway/
     chown -R root:root ${D}/opt/SolidSense/ble_gateway
 
     # install initial config
@@ -59,4 +61,14 @@ FILES_${PN} = " \
   /opt/SolidSense/ble_gateway/MQTT-Transport-Client/utils/__init__.py \
   /opt/SolidSense/ble_gateway/MQTT-Transport-Client/utils/log_tools.py \
   /opt/SolidSense/ble_gateway/MQTT-Transport-Client/utils/argument_tools.py \
+  /opt/SolidSense/ble_gateway/BLE-Bluepy/Readme \
+  /opt/SolidSense/ble_gateway/BLE-Bluepy/BLE-Test3.py \
+  /opt/SolidSense/ble_gateway/BLE-Bluepy/BLE-Test2.py \
+  /opt/SolidSense/ble_gateway/BLE-Bluepy/BLE_Client.py \
+  /opt/SolidSense/ble_gateway/BLE-Bluepy/BLE-Test4.py \
+  /opt/SolidSense/ble_gateway/BLE-Bluepy/Ruuvi.py \
+  /opt/SolidSense/ble_gateway/BLE-Bluepy/Documentation \
+  /opt/SolidSense/ble_gateway/BLE-Bluepy/BLE_Data.py \
+  /opt/SolidSense/ble_gateway/bluepy/btle.py \
+  /opt/SolidSense/ble_gateway/bluepy/uuids.json \
 "
