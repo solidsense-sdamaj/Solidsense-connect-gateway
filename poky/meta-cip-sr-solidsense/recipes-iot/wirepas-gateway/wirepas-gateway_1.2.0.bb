@@ -9,18 +9,12 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 SRC_URI = " \
     git://github.com/wirepas/gateway;rev=v1.2.0 \
     git://github.com/wirepas/c-mesh-api;rev=v1.2.0;destsuffix=git/sink_service/c-mesh-api \
-    file://com.wirepas.sink.conf \
-    file://configure_node.py \
-    file://grpc-1.2.0.tar.gz \
-    file://wirepasMicro.service \
-    file://wirepasSink1.service \
-    file://wirepasSink2.service \
-    file://wirepasSinkConfig.service \
-    file://wirepasTransport1.service \
-    file://wirepasTransport2.service \
+    git://git@github.com/SolidRun/SolidSense-V1.git;protocol=ssh;branch=V0.910;destsuffix=SolidSense-V1;name=SolidSense-V1 \
 "
 
+SRCREV_SolidSense-V1 = "355518a79d30cae53e7497c27411605b76f558bb"
 S = "${WORKDIR}/git"
+S-V1 = "${WORKDIR}/SolidSense-V1"
 
 DEPENDS = " \
     python3-native \
@@ -74,6 +68,7 @@ do_compile () {
 }
 
 do_install () {
+    # Install wirepas-gateway
     cd ${S}/python_transport
     ${STAGING_BINDIR_NATIVE}/python3-native/python3 setup.py install ${WIREPAS_GATEWAY_INSTALL_ARGS}
 
@@ -82,22 +77,26 @@ do_install () {
     sed -i -e '1s|^#!.*|#!/usr/bin/env python3|' ${D}${bindir}/wm-dbus-print
 
     # Install the require grpc
-    install -d ${D}/data/solidsense/grpc
-    cp -a ${WORKDIR}/grpc/* ${D}/data/solidsense/grpc
-    chown -R root:root ${D}/data/solidsense/grpc
+    install -d ${D}/opt/SolidSense/wirepas/grpc
+    cp -a ${S-V1}/wirepas/grpc/* ${D}/opt/SolidSense/wirepas/grpc
+    chown -R root:root ${D}/opt/SolidSense/wirepas/grpc
 
-    install -d ${D}/data/solidsense/wirepas
-    install -m 0644 ${WORKDIR}/configure_node.py ${D}/data/solidsense/wirepas/configure_node.py
+    # Install the configure_node.py
+    install -d ${D}/opt/SolidSense/wirepas
+    install -m 0644 ${S-V1}/wirepas/scripts/configure_node.py ${D}/opt/SolidSense/wirepas/configure_node.py
+
+    # Install the dbus config
     install -d ${D}${sysconfdir}/dbus-1/system.d
-    install -m 0644 ${WORKDIR}/com.wirepas.sink.conf ${D}${sysconfdir}/dbus-1/system.d/com.wirepas.sink.conf
+    install -m 0644 ${S-V1}/wirepas/dbus/com.wirepas.sink.conf ${D}${sysconfdir}/dbus-1/system.d/com.wirepas.sink.conf
 
+    # Install systemd unit files
     install -d ${D}${systemd_unitdir}/system
-    install -m 0644 ${WORKDIR}/wirepasMicro.service ${D}${systemd_unitdir}/system
-    install -m 0644 ${WORKDIR}/wirepasSink1.service ${D}${systemd_unitdir}/system
-    install -m 0644 ${WORKDIR}/wirepasSink2.service ${D}${systemd_unitdir}/system
-    install -m 0644 ${WORKDIR}/wirepasSinkConfig.service ${D}${systemd_unitdir}/system
-    install -m 0644 ${WORKDIR}/wirepasTransport1.service ${D}${systemd_unitdir}/system
-    install -m 0644 ${WORKDIR}/wirepasTransport2.service ${D}${systemd_unitdir}/system
+    install -m 0644 ${S-V1}/wirepas/systemd/wirepasMicro.service ${D}${systemd_unitdir}/system
+    install -m 0644 ${S-V1}/wirepas/systemd/wirepasSink1.service ${D}${systemd_unitdir}/system
+    install -m 0644 ${S-V1}/wirepas/systemd/wirepasSink2.service ${D}${systemd_unitdir}/system
+    install -m 0644 ${S-V1}/wirepas/systemd/wirepasSinkConfig.service ${D}${systemd_unitdir}/system
+    install -m 0644 ${S-V1}/wirepas/systemd/wirepasTransport1.service ${D}${systemd_unitdir}/system
+    install -m 0644 ${S-V1}/wirepas/systemd/wirepasTransport2.service ${D}${systemd_unitdir}/system
     sed -i -e 's,@SBINDIR@,${sbindir},g' \
         -e 's,@SYSCONFDIR@,${sysconfdir},g' \
         ${D}${systemd_unitdir}/system/wirepasMicro.service
@@ -117,8 +116,9 @@ do_install () {
         -e 's,@SYSCONFDIR@,${sysconfdir},g' \
         ${D}${systemd_unitdir}/system/wirepasTransport2.service
 
-    install -d ${D}/data/solidsense/wirepas
-    install -m 0755 ${S}/sink_service/build/sinkService ${D}/data/solidsense/wirepas/sinkService
+    # Install the sinkService
+    install -d ${D}/opt/SolidSense/bin
+    install -m 0755 ${S}/sink_service/build/sinkService ${D}/opt/SolidSense/bin/sinkService
 }
 
 FILES_${PN} = " \
@@ -183,15 +183,14 @@ FILES_${PN} = " \
     /usr/share/wirepas_gateway-extras/package/extwirepas.pem \
     /usr/share/wirepas_gateway-extras/package/requirements.txt \
     /usr/share/wirepas_gateway-extras/package/LICENSE \
-    /data/solidsense/grpc \
-    /data/solidsense/grpc/grpc_service.proto \
-    /data/solidsense/grpc/grpc_service_pb2.py \
-    /data/solidsense/grpc/argument_tools.py \
-    /data/solidsense/grpc/grpc_service_pb2_grpc.py \
-    /data/solidsense/grpc/client_demo.py \
-    /data/solidsense/grpc/grpc_service.py \
-    /data/solidsense/wirepas/sinkService \
-    /data/solidsense/wirepas/configure_node.py \
+    /opt/SolidSense/wirepas/grpc/grpc_service.proto \
+    /opt/SolidSense/wirepas/grpc/grpc_service_pb2.py \
+    /opt/SolidSense/wirepas/grpc/argument_tools.py \
+    /opt/SolidSense/wirepas/grpc/grpc_service_pb2_grpc.py \
+    /opt/SolidSense/wirepas/grpc/client_demo.py \
+    /opt/SolidSense/wirepas/grpc/grpc_service.py \
+    /opt/SolidSense/bin/sinkService \
+    /opt/SolidSense/wirepas/configure_node.py \
     /etc/dbus-1/system.d/com.wirepas.sink.conf \
     /lib/systemd/system/wirepasSinkConfig.service \
     /lib/systemd/system/wirepasTransport2.service \
