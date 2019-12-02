@@ -27,6 +27,7 @@ RDEPENDS_${PN} = " \
     python3-pyyaml (=5.1.1)\
     systemd \
     wirepas-firmware \
+    wirepas-firmware-check \
     wirepas-messaging \
 "
 
