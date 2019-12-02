@@ -8,6 +8,7 @@ SRC_URI = " \
     git://github.com/wirepas/backend-apis \
 "
 SRCREV = "5f3e5463182ffbe6d55fcbef7c145403eb13916c"
+S = "${WORKDIR}/git"
 
 DEPENDS = " \
     python3-native \
@@ -54,8 +55,6 @@ RDEPENDS_${PN} = " \
     python3-urllib3 \
     python3-wcwidth \
 "
-
-S = "${WORKDIR}/git"
 
 WIREPAS_MESSAGING_INSTALL_ARGS = " \
     --root=${D} \
