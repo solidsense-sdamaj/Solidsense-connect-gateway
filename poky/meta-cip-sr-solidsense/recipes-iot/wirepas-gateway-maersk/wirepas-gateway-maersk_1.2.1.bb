@@ -13,7 +13,7 @@ SRC_URI = " \
 "
 
 SRCREV_gateway = "a01c4ada9839d107fca8fd24a1d041d77089c5e2"
-SRCREV_SolidSense-V1 = "355518a79d30cae53e7497c27411605b76f558bb"
+SRCREV_SolidSense-V1 = "f4c7765a35f373685765e7b77c854616530ca032"
 S = "${WORKDIR}/git"
 S-V1 = "${WORKDIR}/SolidSense-V1"
 
