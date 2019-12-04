@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = " \
 SRC_URI = " \
     git://git@github.com/SolidRun/SolidSense-BLE.git;protocol=ssh;branch=V1.0.3 \
 "
-SRCREV = "5841bdc83078e00028dda1d1c52ff4b0979b1e38"
+SRCREV = "c082578e27010756a8c9c093846237201cd83478"
 S = "${WORKDIR}/git"
 
 SYSTEMD_SERVICE_${PN} = "bleTransport.service"
@@ -16,13 +16,21 @@ SYSTEMD_AUTO_ENABLE_${PN} = "disable"
 
 inherit systemd
 
-RDEPENDS_${PN} = "\
+DEPENDS = " \
+   glib-2.0 \
+"
+
+RDEPENDS_${PN} = " \
     bluez5 \
     kura \
     python3 \
     python3-paho-mqtt \
     python3-pyyaml \
 "
+
+do_compile_prepend () {
+    cd ${S}/helper
+}
 
 do_install () {
     # install ble_gateway
@@ -34,8 +42,10 @@ do_install () {
 
     # install initial config
     install -d ${D}/data/solidsense/ble_gateway
-    cp -arP ${S}/MQTT-Transport-Client/settings_example.cfg ${D}/data/solidsense/ble_gateway/bleTransport.service.cfg
-    chown root:root ${D}/data/solidsense/ble_gateway/bleTransport.service.cfg
+    install -m 0644 ${S}/MQTT-Transport-Client/settings_example.cfg ${D}/data/solidsense/ble_gateway/bleTransport.service.cfg
+    # install initial config to backup location
+    install -d ${D}/opt/SolidSense/.config/ble_gateway
+    install -m 0644 ${S}/MQTT-Transport-Client/settings_example.cfg ${D}/opt/SolidSense/.config/ble_gateway/bleTransport.service.cfg
 
     # install systemd service file
     install -d ${D}${systemd_unitdir}/system
@@ -43,6 +53,10 @@ do_install () {
     sed -i -e 's,@SBINDIR@,${sbindir},g' \
         -e 's,@SYSCONFDIR@,${sysconfdir},g' \
         ${D}${systemd_unitdir}/system/bleTransport.service
+
+    # install bluepy-helper
+    install -d ${D}/opt/SolidSense/bin
+    install -m 0777 ${S}/helper/bluepy-helper ${D}/opt/SolidSense/bin/bluepy-helper
 
     # remove unnecessary installed items
     rm ${D}/opt/SolidSense/ble_gateway/MQTT-Transport-Client/payload-examples.json
