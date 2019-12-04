@@ -17,7 +17,8 @@ SYSTEMD_AUTO_ENABLE_${PN} = "disable"
 inherit systemd
 
 DEPENDS = " \
-   glib-2.0 \
+   glib-2.0-native \
+   pkgconfig \
 "
 
 RDEPENDS_${PN} = " \
@@ -66,6 +67,8 @@ do_install () {
 
 FILES_${PN} = " \
   /data/solidsense/ble_gateway/bleTransport.service.cfg \
+  /opt/SolidSense/.config/ble_gateway/bleTransport.service.cfg \
+  /opt/SolidSense/bin/bluepy-helper \
   /opt/SolidSense/ble_gateway/MQTT-Transport-Client \
   /opt/SolidSense/ble_gateway/MQTT-Transport-Client/.gitkeep \
   /opt/SolidSense/ble_gateway/MQTT-Transport-Client/mqtt_wrapper.py \
