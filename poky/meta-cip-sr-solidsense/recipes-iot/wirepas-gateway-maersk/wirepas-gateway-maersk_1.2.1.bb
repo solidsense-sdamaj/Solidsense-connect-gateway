@@ -8,11 +8,12 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 
 SRC_URI = " \
     git://github.com/SolidRun/gateway;branch=maersk-dev;name=gateway \
-    git://github.com/wirepas/c-mesh-api;rev=v1.2.0;destsuffix=git/sink_service/c-mesh-api;name=c-mesh-api \
+    git://github.com/wirepas/c-mesh-api;destsuffix=git/sink_service/c-mesh-api;name=c-mesh-api \
     git://git@github.com/SolidRun/SolidSense-V1.git;protocol=ssh;branch=V0.910;destsuffix=SolidSense-V1;name=SolidSense-V1 \
 "
 
-SRCREV_gateway = "a7e8093db429f0e42e23a8aae76dc7defb08fb90"
+SRCREV_gateway = "acfc8d6cbc4595346950e24f02239cff4e744532"
+SRCREV_c-mesh-api = "60343e0d5e15a073927711a6f336fc46aed6cb7e"
 SRCREV_SolidSense-V1 = "f4c7765a35f373685765e7b77c854616530ca032"
 S = "${WORKDIR}/git"
 S-V1 = "${WORKDIR}/SolidSense-V1"
