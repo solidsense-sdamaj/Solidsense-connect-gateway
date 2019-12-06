@@ -114,8 +114,15 @@ local_conf_header:
 
     # Mender
     INHERIT += "mender-full"
-    MENDER_ARTIFACT_NAME = "Solidsense-M-2019120300"
+    MENDER_ARTIFACT_NAME = "Solidsense-M-2019120602"
     PREFERRED_PROVIDER_u-boot-fw-utils = "u-boot-fw-utils"
     MENDER_FEATURES_ENABLE_append = " mender-uboot mender-image-sd"
     MENDER_FEATURES_DISABLE_append = " mender-grub mender-image-uefi"
     IMAGE_ROOTFS_EXCLUDE_PATH_append = " uboot"
+
+    PREFERRED_VERSION_kura = "4.0.0"
+    PREFERRED_VERSION_wirepas-gateway-maersk = "1.2.1"
+    PREFERRED_VERSION_wirepas-messaging-maersk = "1.3.0"
+    PREFERRED_VERSION_python3-grpcio = "1.23.0"
+    PREFERRED_VERSION_python3-protobuf = "3.10.0"
+    PREFERRED_VERSION_protobuf = "3.10.0"
