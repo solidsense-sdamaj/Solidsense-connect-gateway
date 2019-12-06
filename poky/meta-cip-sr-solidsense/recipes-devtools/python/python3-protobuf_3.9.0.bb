@@ -29,7 +29,7 @@ RDEPENDS_${PN} += " \
 
 inherit setuptools3
 
-DEPENDS += "protobuf"
+DEPENDS += "protobuf (=3.9.0)"
 DISTUTILS_BUILD_ARGS += "--cpp_implementation"
 DISTUTILS_INSTALL_ARGS += "--cpp_implementation"
 
