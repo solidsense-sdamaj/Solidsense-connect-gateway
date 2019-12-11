@@ -5,9 +5,9 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=cb6bb17b0d0cca188339074207e9f4d8"
 
 SRC_URI = " \
-    git://github.com/SolidRun/backend-apis;branch=maersk-dev \
+    git://github.com/SolidRun/backend-apis;branch=issue_291 \
 "
-SRCREV = "6349fee84c88c4fd20fc60293e3b7b421f7f19bb"
+SRCREV = "54e327e4d504e91ffa0ffee25d72be0777d73aae"
 S = "${WORKDIR}/git"
 
 DEPENDS = " \
