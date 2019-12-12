@@ -7,13 +7,13 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=cb6bb17b0d0cca188339074207e9f4d8"
 FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 
 SRC_URI = " \
-    git://github.com/SolidRun/gateway;branch=maersk-dev;name=gateway \
+    git://github.com/SolidRun/gateway;branch=maersk-dev-clean;name=gateway \
     git://github.com/wirepas/c-mesh-api;destsuffix=git/sink_service/c-mesh-api;name=c-mesh-api \
     git://git@github.com/SolidRun/SolidSense-V1.git;protocol=ssh;branch=V0.910;destsuffix=SolidSense-V1;name=SolidSense-V1 \
 "
 
-SRCREV_gateway = "acfc8d6cbc4595346950e24f02239cff4e744532"
-SRCREV_c-mesh-api = "60343e0d5e15a073927711a6f336fc46aed6cb7e"
+SRCREV_gateway = "036d84d10fdc4ccaf39f2b1154db244a1024afde"
+SRCREV_c-mesh-api = "415fb60d317f3c47f39f570701a7cce4c2f0f17c"
 SRCREV_SolidSense-V1 = "f4c7765a35f373685765e7b77c854616530ca032"
 S = "${WORKDIR}/git"
 S-V1 = "${WORKDIR}/SolidSense-V1"
