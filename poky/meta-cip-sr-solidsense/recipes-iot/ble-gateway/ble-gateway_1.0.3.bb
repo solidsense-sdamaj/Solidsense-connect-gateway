@@ -10,6 +10,7 @@ SRC_URI = " \
 "
 SRCREV = "c082578e27010756a8c9c093846237201cd83478"
 S = "${WORKDIR}/git"
+PARALLEL_MAKE = ""
 
 SYSTEMD_SERVICE_${PN} = "bleTransport.service"
 SYSTEMD_AUTO_ENABLE_${PN} = "disable"
