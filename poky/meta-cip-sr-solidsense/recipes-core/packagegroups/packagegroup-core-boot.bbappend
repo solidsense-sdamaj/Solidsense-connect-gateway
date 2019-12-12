@@ -26,6 +26,8 @@ PKG_SYSTEM = "\
 #--------------------------------------------------
 PKG_MIN = "\
 	openssh \
+	openssh-sftp \
+	openssh-sftp-server \
 	gzip \
 	e2fsprogs \
 	libaio \
