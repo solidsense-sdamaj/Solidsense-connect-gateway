@@ -7,18 +7,19 @@ LIC_FILES_CHKSUM = " \
 FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 
 SRC_URI = " \
-    git://github.com/SolidRun/SolidSense-V1.git;protocol=ssh;name=SolidSense;destsuffix=SolidSense \
-    git://github.com/eclipse/kura;branch=develop;rev=KURA_${PV}_RELEASE;name=kura;destsuffix=kura \
+    git://git@github.com/SolidRun/SolidSense-V1.git;protocol=ssh;branch=V0.911;destsuffix=SolidSense;name=SolidSense-V1 \
+    git://git@github.com/SolidRun/SolidSense-BLE.git;protocol=ssh;branch=V1.0.3;destsuffix=SolidSense-BLE;name=SolidSense-BLE \
+    git://github.com/eclipse/kura;branch=develop;rev=KURA_${PV}_RELEASE;destsuffix=kura;name=kura \
+    file://org.eclipse.kura.linux.net_1.0.400.jar \
+    file://org.eclipse.kura.net.admin_1.0.400.jar \
     file://kura.service \
-    file://start_kura_background.sh \
-    file://iptables \
-    file://ip6tables \
-    file://krc.sh \
-    file://log4j.xml \
 "
-SRCREV_SolidSense_pn-${PN} = "98a3331932752cadafa34d1e6ff84873f0c14ac0"
-SRC_SS = "${WORKDIR}/SolidSense"
-SRC_KURA = "${WORKDIR}/kura"
+SRCREV_SolidSense-V1 = "25052bbc277a0b690fec8c94512c0c005b9ac1aa"
+SRCREV_SolidSense-BLE = "5841bdc83078e00028dda1d1c52ff4b0979b1e38"
+S-V1 = "${WORKDIR}/SolidSense-V1"
+S-BLE = "${WORKDIR}/SolidSense-BLE"
+S-KURA = "${WORKDIR}/kura"
+KURA_PATH = "/opt/eclipse/kura_${PV}_solid_sense/"
 
 SYSTEMD_SERVICE_${PN} = "kura.service"
 SYSTEMD_AUTO_ENABLE_${PN} = "enable"
@@ -39,52 +40,74 @@ inherit systemd
 
 do_configure () {
     export JAVA_HOME="${JAVA_HOME}"
-    cd ${SRC_KURA}
+
+    # Kura
+    cd ${S-KURA}
     mvn -f target-platform/pom.xml clean install ${MAVEN_PROPS}
+
+    # Custom plugins
+    #cd ${SRC_SS}/Kura/LTE/org.eclipse.kura.linux.net
+    #mvn -f pom.xml clean install ${MAVEN_PROPS}
+    #cd ${SRC_SS}/Kura/LTE/org.eclipse.kura.net.admin
+    #mvn -f pom.xml clean install ${MAVEN_PROPS}
 }
 
 do_compile () {
     export JAVA_HOME="${JAVA_HOME}"
-    cd ${SRC_KURA}
+
+    # Kura
+    cd ${S-KURA}
     mvn -f kura/pom.xml clean install ${MAVEN_PROPS}
     mvn -f kura/distrib/pom.xml clean install ${MAVEN_PROPS}
+
+    # Custom plugins
+    #cd ${SRC_SS}/Kura/LTE/org.eclipse.kura.linux.net
+    #mvn -f pom.xml clean install ${MAVEN_PROPS}
+    #cd ${SRC_SS}/Kura/LTE/org.eclipse.kura.net.admin
+    #mvn -f pom.xml clean install ${MAVEN_PROPS}
 }
 
 do_install () {
     # Install Kura from zip file
     install -d ${D}/opt/eclipse
     cd ${D}/opt/eclipse
-    unzip ${SRC_KURA}/kura/distrib/target/kura_4.1.0_raspberry-pi-2.zip
+    unzip ${S-KURA}/kura/distrib/target/kura_4.1.0_raspberry-pi-2.zip
     mv kura_${PV}_raspberry-pi-2 kura_${PV}_solid_sense
-    ln -s /opt/eclipse/kura_4.1.0_solid_sense ${D}/opt/eclipse/kura
+    ln -s ${KURA_PATH} ${D}/opt/eclipse/kura
 
-    # Install kura service file
+    # Install kura unit file
     install -d ${D}${systemd_unitdir}/system
     install -m 0644 ${WORKDIR}/kura.service ${D}${systemd_unitdir}/system
     sed -i -e 's,@SBINDIR@,${sbindir},g' \
         -e 's,@SYSCONFDIR@,${sysconfdir},g' \
         ${D}${systemd_unitdir}/system/kura.service
 
-    # Install updated startup script
-    install -d ${D}/opt/eclipse/kura_${PV}_solid_sense/bin
-    install -m 0755 ${WORKDIR}/start_kura_background.sh ${D}/opt/eclipse/kura_${PV}_solid_sense/bin/start_kura_background.sh
+    # Install updated start_kura_background.sh
+    install -d ${D}${KURA_PATH}/bin
+    install -m 0755 ${S-V1}/Kura/scripts/start_kura_background.sh ${D}${KURA_PATH}/bin/start_kura_background.sh
 
     # Install firewall rules
-    install -d ${D}/opt/eclipse/kura_${PV}_solid_sense/.data
-    install -m 0644 ${WORKDIR}/iptables ${D}/opt/eclipse/kura_${PV}_solid_sense/.data/iptables
-    install -m 0644 ${WORKDIR}/ip6tables ${D}/opt/eclipse/kura_${PV}_solid_sense/.data/ip6tables
+    install -d ${D}${KURA_PATH}/.data
+    install -m 0644 ${S-V1}/Kura/data/iptables ${D}${KURA_PATH}/.data/iptables
+    install -m 0644 ${S-V1}/Kura/data/ip6tables ${D}${KURA_PATH}/.data/ip6tables
 
     # Install shell script to assist with running cli command via Kura/Kapua
     install -d ${D}${base_bindir}
-    install -m 0755 ${WORKDIR}/krc.sh ${D}${base_bindir}/krc
+    install -m 0755 ${S-V1}/krc.sh ${D}${base_bindir}/krc
 
     # Install updated logging config
-    install -d ${D}/opt/eclipse/kura_${PV}_solid_sense/user
-    install -m 0644 ${WORKDIR}/log4j.xml ${D}/opt/eclipse/kura_${PV}_solid_sense/user/log4j.xml
+    install -d ${D}${KURA_PATH}/user
+    install -m 0644 ${S-V1}/Kura/user/log4j.xml ${D}${KURA_PATH}/user/log4j.xml
 
     # Install SolidSense configuration scripts/data
     install -d ${D}/opt/SolidSense/kura/config
-    cp -arP ${SRC_SS}/Kura/Config/* ${D}/opt/SolidSense/kura/config/
+    cp -arP ${S-V1}/Kura/Config/* ${D}/opt/SolidSense/kura/config/
+
+    # Install the ble-gateway Kura dp
+    #    TODO: create a conditional to only install this if the ble-gateway recipe is selected
+    cp -a ${S-BLE}/Install/BLEConfigurationService.dp ${D}${KURA_PATH}/data/packages
+    echo "BLEConfigurationService=file\:/opt/eclipse/kura/data/packages/BLEConfigurationService.dp" >> \
+            ${D}${KURA_PATH}/data/dpa.properties
 
     chown -R root:root ${D}/opt
 }
