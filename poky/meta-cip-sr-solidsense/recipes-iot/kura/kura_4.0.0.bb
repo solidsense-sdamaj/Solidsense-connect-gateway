@@ -9,13 +9,16 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 SRC_URI = " \
     git://git@github.com/SolidRun/SolidSense-V1.git;protocol=ssh;branch=V0.911;destsuffix=SolidSense-V1;name=SolidSense-V1 \
     git://git@github.com/SolidRun/SolidSense-BLE.git;protocol=ssh;branch=V1.0.3;destsuffix=SolidSense-BLE;name=SolidSense-BLE \
+    git://git@github.com/SolidRun/SolidSense-kura-wirepas.git;protocol=ssh;branch=master;destsuffix=SolidSense-kura-wp;name=SolidSense-kura-wp \
     file://kura-${PV}.tar.gz \
     file://kura.service \
 "
 SRCREV_SolidSense-V1 = "25052bbc277a0b690fec8c94512c0c005b9ac1aa"
 SRCREV_SolidSense-BLE = "5841bdc83078e00028dda1d1c52ff4b0979b1e38"
+SRCREV_SolidSense-kura-wp = "69ae491521c4adb7e3967128af7f0f355495d5f9"
 S-V1 = "${WORKDIR}/SolidSense-V1"
 S-BLE = "${WORKDIR}/SolidSense-BLE"
+S-kura-wp = "${WORKDIR}/SolidSense-kura-wp"
 KURA_PATH = "/opt/eclipse/kura_4.0.0_solid_sense/"
 
 SYSTEMD_SERVICE_${PN} = "kura.service"
@@ -67,6 +70,16 @@ do_install () {
     # Install SolidSense configuration scripts/data
     rm -rf ${D}/opt/SolidSense/kura/config/*
     cp -arP ${S-V1}/Kura/Config/* ${D}/opt/SolidSense/kura/config/
+
+    # Create initial dpa.properties that contains eddystone (ejb: is this needed?)
+    echo "org.eclipse.kura.driver.eddystone=file\:/opt/eclipse/kura/data/packages/org.eclipse.kura.driver.eddystone-1.0.0.dp" \
+        > ${D}${KURA_PATH}/data/dpa.properties
+
+    # Install the wirepas Kura dp
+    cp -a ${S-kura-wp}/com.solidsense.kura.WirepasConfigurationService/resources/dp/WirepasConfigurationService.dp \
+        ${D}${KURA_PATH}/data/packages
+    echo "WirePasConfigurationService=file\:/opt/eclipse/kura/data/packages/BLEConfigurationService.dp" >> \
+        ${D}${KURA_PATH}/data/dpa.properties
 
     # Install the ble-gateway Kura dp
     #    TODO: create a conditional to only install this if the ble-gateway recipe is selected
