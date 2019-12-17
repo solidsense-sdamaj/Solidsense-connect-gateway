@@ -71,21 +71,21 @@ do_install () {
     rm -rf ${D}/opt/SolidSense/kura/config/*
     cp -arP ${S-V1}/Kura/Config/* ${D}/opt/SolidSense/kura/config/
 
-    # Create initial dpa.properties that contains eddystone (ejb: is this needed?)
-    echo "org.eclipse.kura.driver.eddystone=file\:/opt/eclipse/kura/data/packages/org.eclipse.kura.driver.eddystone-1.0.0.dp" \
-        > ${D}${KURA_PATH}/data/dpa.properties
+    # Create initial empty dpa.properties
+    rm -f ${D}${KURA_PATH}/data/dpa.properties
+    touch ${D}${KURA_PATH}/data/dpa.properties
 
     # Install the wirepas Kura dp
     cp -a ${S-kura-wp}/com.solidsense.kura.WirepasConfigurationService/resources/dp/WirepasConfigurationService.dp \
         ${D}${KURA_PATH}/data/packages
-    echo "WirePasConfigurationService=file\:/opt/eclipse/kura/data/packages/BLEConfigurationService.dp" >> \
+    echo "WirePasConfigurationService=file\:/opt/eclipse/kura/data/packages/WirepasConfigurationService.dp" >> \
         ${D}${KURA_PATH}/data/dpa.properties
 
     # Install the ble-gateway Kura dp
     #    TODO: create a conditional to only install this if the ble-gateway recipe is selected
     cp -a ${S-BLE}/Install/BLEConfigurationService.dp ${D}${KURA_PATH}/data/packages
     echo "BLEConfigurationService=file\:/opt/eclipse/kura/data/packages/BLEConfigurationService.dp" >> \
-            ${D}${KURA_PATH}/data/dpa.properties
+        ${D}${KURA_PATH}/data/dpa.properties
 
     chown -R root:root ${D}/opt
 }
