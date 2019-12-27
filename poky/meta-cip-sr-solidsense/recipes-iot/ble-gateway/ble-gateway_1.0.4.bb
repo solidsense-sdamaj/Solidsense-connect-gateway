@@ -33,11 +33,6 @@ RDEPENDS_${PN} = " \
 do_compile () {
     cd ${S}/helper
 
-    # Remove existing binaries
-    rm ${S}/helper/bluepy-helper
-    rm ${S}/helper/bluepy-helper-dbg
-    rm ${S}/helper/bluepy-helper-n
-
     # Create debug version
     export DEBUGGING=1
     oe_runmake
