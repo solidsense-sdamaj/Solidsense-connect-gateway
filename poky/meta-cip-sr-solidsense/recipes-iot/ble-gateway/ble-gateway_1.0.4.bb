@@ -34,12 +34,13 @@ do_compile () {
     cd ${S}/helper
 
     # Create debug version
-    export DEBUGGING=1
-    oe_runmake
+    oe_runmake "DEBUGGING=1"
     mv ${S}/helper/bluepy-helper ${S}/helper/bluepy-helper-dbg
 
+    # Do a clean between builds
+    make clean
+
     # Create normal version
-    export DEBUGGING=0
     oe_runmake
 }
 
