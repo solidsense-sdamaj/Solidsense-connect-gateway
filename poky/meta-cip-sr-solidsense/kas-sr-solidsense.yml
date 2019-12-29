@@ -66,6 +66,9 @@ local_conf_header:
     CONF_VERSION = "1"
     DL_DIR ?= "/home/eric/work.kingcheese/downloads"
 
+    # Remove warnings
+    WARN_QA_remove = "host-user-contaminated"
+
     # Add distro features
     DISTRO_FEATURES_append += "ipv6 systemd sysvinit virtualization ipv6"
     VIRTUAL-RUNTIME_init_manager = "systemd"
@@ -96,16 +99,16 @@ local_conf_header:
 
     # Add additional packages
     IMAGE_INSTALL_append += "openssh mmc-utils solidsense-scripts sudo"
-    IMAGE_INSTALL_append += "docker u-boot-fw-utils util-linux"
+    IMAGE_INSTALL_append += "docker python3-docker-compose u-boot-fw-utils util-linux"
     IMAGE_INSTALL_append += "init-ifupdown ifupdown dhcp-client"
 
     # Factory
     IMAGE_INSTALL_append += "empty picocom"
 
     # Temporary additional packages
-    IMAGE_INSTALL_append += "ppp wpa-supplicant wireless-regdb iw hostapd bluez5"
+    IMAGE_INSTALL_append += "ppp wpa-supplicant wireless-regdb iw hostapd bluez5 bluez5-noinst-tools"
     IMAGE_INSTALL_append += "nfs-utils modem-gps wirepas-gateway wirepas-gateway-dev dhcp-server bind"
-    IMAGE_INSTALL_append += "kura wireless-tools ble-gateway busybox-cron"
+    IMAGE_INSTALL_append += "kura wireless-tools ble-gateway busybox-cron openvpn"
     #     Debug
     # IMAGE_INSTALL_append += "gdb strace tcpdump"
     #     Java
