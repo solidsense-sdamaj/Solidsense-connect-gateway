@@ -1,0 +1,10 @@
+# Copyright (C) 2016-2017, Solidrun, Eric Bree <eric.bree@solid-run.com>
+# SPDX-License-Identifier:	MIT
+# CIP core kas solidsense configuration
+header:
+    version: 7
+machine: solidsense
+repos:
+    meta-custom:
+        layers:
+            poky/meta-cip-sr-solidsense:
