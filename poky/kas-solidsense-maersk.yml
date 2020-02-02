@@ -43,6 +43,9 @@ repos:
             0001:
                 repo: meta-cip-sr-common
                 path: patches/poky/0001-add-unzip.patch
+            0002:
+                repo: meta-cip-sr-common
+                path: patches/poky/0002-remove-bpf_perf_event_h.patch
     meta-java:
         url: "https://git.yoctoproject.org/git/meta-java"
         refspec: warrior
