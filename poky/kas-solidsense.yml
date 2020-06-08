@@ -9,6 +9,7 @@ header:
 distro: deby
 env:
     MENDER_ARTIFACT_NAME: "dev"
+    MENDER_SERVER_URL: "https://mender.solidsense.io"
 repos:
     meta-custom:
         layers:
