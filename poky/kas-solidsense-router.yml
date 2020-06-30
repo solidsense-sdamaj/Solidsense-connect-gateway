@@ -63,6 +63,10 @@ repos:
         refspec: warrior
         layers:
             meta-mender-core:
+        patches:
+            0001:
+                repo: meta-cip-sr-common
+                path: patches/meta-mender/0001-u-boot-remove-debug-option-from-uboot_auto_configure.patch
     meta-readonly-rootfs-overlay:
         url: "https://github.com/SolidRun/meta-readonly-rootfs-overlay"
     meta-iot-cloud:
