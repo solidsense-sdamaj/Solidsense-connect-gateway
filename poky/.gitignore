@@ -13,3 +13,5 @@ meta-virtualization
 poky
 *.swo
 *.swp
+*.wic
+*.imx
