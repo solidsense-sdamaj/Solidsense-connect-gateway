@@ -50,13 +50,6 @@ repos:
     meta-java:
         url: "https://git.yoctoproject.org/git/meta-java"
         refspec: warrior
-        patches:
-            0001:
-                repo: meta-cip-sr-common
-                path: patches/meta-java/0001-add-require-in-order-to-get-GCCVERSION.patch
-            0002:
-                repo: meta-cip-sr-common
-                path: patches/meta-java/0002-update-for-additional-gcc7-warnings.patch
     meta-mender-core:
         name: meta-mender
         url: "https://github.com/mendersoftware/meta-mender.git"
