@@ -12,4 +12,4 @@ poky
 *.swo
 *.swp
 *.wic
-*.imx
+u-boot*
