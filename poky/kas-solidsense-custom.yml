@@ -26,9 +26,6 @@ repos:
             0002:
                 repo: meta-cip-sr-common
                 path: patches/meta-debian/0002-use-olddefconfig-instead-of-oldnoconfig.patch
-            0003:
-                repo: meta-cip-sr-common
-                path: patches/meta-debian/0003-CVE-2021-3156.patch
     meta-openembedded:
         url: "https://github.com/openembedded/meta-openembedded.git"
         refspec: warrior
