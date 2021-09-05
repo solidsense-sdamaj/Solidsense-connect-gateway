@@ -53,9 +53,47 @@ repos:
             0003:
                 repo: meta-cip-sr-common
                 path: patches/poky/0003-use-olddefconfig-instead-of-oldnoconfig.patch
+            0004:
+                repo: meta-cip-sr-common
+                path: patches/poky/0004-add-features-check-bbclass.patch
     meta-java:
-        url: "https://git.yoctoproject.org/git/meta-java"
-        refspec: warrior
+        url: "https://github.com/SolidRun/meta-java"
+        refspec: master-aarch64-fixes
+        patches:
+            0001:
+                repo: meta-cip-sr-common
+                path: patches/meta-java/0001-add-warrior-compat.patch
+            0002:
+                repo: meta-cip-sr-common
+                path: patches/meta-java/0002-remove-gcc-9.2-compat-check.patch
+#   meta-java:
+#       url: "https://git.yoctoproject.org/git/meta-java"
+#       refspec: warrior
+#       patches:
+#           1001:
+#               repo: meta-cip-sr-common
+#               path: patches/meta-java/0001-Resolve-links-back-to-original-files-and-use-that-pa.patch
+#           1002:
+#               repo: meta-cip-sr-common
+#               path: patches/meta-java/0002-Patch-classpath-to-allow-native-builds-on-Aarch64.patch
+#           1003:
+#               repo: meta-cip-sr-common
+#               path: patches/meta-java/0003-jamvm-update-jamvm-to-work-build-on-aarch64-native.patch
+#           1004:
+#               repo: meta-cip-sr-common
+#               path: patches/meta-java/0004-jikes-Patch-jikes-to-work-with-Aarch64.patch
+#           1005:
+#               repo: meta-cip-sr-common
+#               path: patches/meta-java/0005-icedtea-Add-support-for-native-aarch64-support.patch
+#           1006:
+#               repo: meta-cip-sr-common
+#               path: patches/meta-java/0006-ecj-Fix-OOMs-when-building.patch
+#           1007:
+#               repo: meta-cip-sr-common
+#               path: patches/meta-java/0007-openjdk-8-Fix-Native-compilation-for-Aarch64-and-cro.patch
+#           1008:
+#               repo: meta-cip-sr-common
+#               path: patches/meta-java/0008-openjdk-build-helper-Add-Aarch64-support.patch
     meta-mender-core:
         name: meta-mender
         url: "https://github.com/mendersoftware/meta-mender.git"
