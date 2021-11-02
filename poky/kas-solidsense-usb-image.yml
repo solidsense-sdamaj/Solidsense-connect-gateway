@@ -1,0 +1,73 @@
+# Copyright (C) 2016-2017, Solidrun, Eric Bree <eric.bree@solid-run.com>
+# SPDX-License-Identifier:    MIT
+# CIP core kas solidsense global configuration
+header:
+    version: 7
+    includes:
+        - repo: meta-cip-sr-common
+          file: kas-sr-common-usb-image.yml
+distro: deby
+env:
+    USBIMAGE: "1"
+    MENDER_SERVER_URL: "https://mender.solidsense.io"
+repos:
+    meta-custom:
+        layers:
+            poky/meta-cip-common:
+    meta-cip-sr-common:
+        url: "https://github.com/SolidRun/meta-cip-sr-common.git"
+    meta-debian:
+        url: "https://github.com/meta-debian/meta-debian.git"
+        refspec: warrior
+        patches:
+            0001:
+                repo: meta-cip-sr-common
+                path: patches/meta-debian/0001-change-utmp-to-43.patch
+            0002:
+                repo: meta-cip-sr-common
+                path: patches/meta-debian/0002-use-olddefconfig-instead-of-oldnoconfig.patch
+    meta-openembedded:
+        url: "https://github.com/openembedded/meta-openembedded.git"
+        refspec: warrior
+        layers:
+           meta-filesystems:
+           meta-python:
+           meta-networking:
+           meta-oe:
+    meta-virtualization:
+        url: "https://git.yoctoproject.org/git/meta-virtualization"
+        refspec: warrior
+    poky:
+        url: "https://git.yoctoproject.org/git/poky.git"
+        refspec: warrior
+        layers:
+            meta:
+            meta-poky:
+        patches:
+            0001:
+                repo: meta-cip-sr-common
+                path: patches/poky/0001-add-unzip.patch
+            0002:
+                repo: meta-cip-sr-common
+                path: patches/poky/0002-remove-bpf_perf_event_h.patch
+            0003:
+                repo: meta-cip-sr-common
+                path: patches/poky/0003-use-olddefconfig-instead-of-oldnoconfig.patch
+            0004:
+                repo: meta-cip-sr-common
+                path: patches/poky/0004-add-features-check-bbclass.patch
+    meta-mender-core:
+        name: meta-mender
+        url: "https://github.com/mendersoftware/meta-mender.git"
+        refspec: warrior
+        layers:
+            meta-mender-core:
+        patches:
+            0001:
+                repo: meta-cip-sr-common
+                path: patches/meta-mender/0001-u-boot-remove-debug-option-from-uboot_auto_configure.patch
+            0002:
+                repo: meta-cip-sr-common
+                path: patches/meta-mender/0002-add-fsck-check-to-data-partition.patch
+    meta-readonly-rootfs-overlay:
+        url: "https://github.com/SolidRun/meta-readonly-rootfs-overlay"
