@@ -66,6 +66,12 @@ repos:
             0002:
                 repo: meta-cip-sr-common
                 path: patches/meta-java/0002-remove-gcc-9.2-compat-check.patch
+            0003:
+                repo: meta-cip-sr-common
+                path: patches/meta-java/0009-add-openjdk-11.patch
+            0004:
+                repo: meta-cip-sr-common
+                path: patches/meta-java/0010-ca-certificates-change-to-support-openjdk-11.patch
 #   meta-java:
 #       url: "https://git.yoctoproject.org/git/meta-java"
 #       refspec: warrior
