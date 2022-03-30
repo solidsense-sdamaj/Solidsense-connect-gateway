@@ -15,7 +15,7 @@ repos:
         layers:
             poky/meta-cip-common:
     meta-cip-sr-common:
-        url: "https://github.com/SolidRun/meta-cip-sr-common.git"
+        url: "https://github.com/solidsense-connect/meta-cip-sr-common.git"
     meta-debian:
         url: "https://github.com/meta-debian/meta-debian.git"
         refspec: warrior
@@ -70,7 +70,7 @@ repos:
                 repo: meta-cip-sr-common
                 path: patches/meta-mender/0002-add-fsck-check-to-data-partition.patch
     meta-readonly-rootfs-overlay:
-        url: "https://github.com/SolidRun/meta-readonly-rootfs-overlay"
+        url: "https://github.com/solidsense-connect/meta-readonly-rootfs-overlay"
     meta-iot-cloud:
         url: "https://github.com/intel-iot-devkit/meta-iot-cloud.git"
         refspec: warrior

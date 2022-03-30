@@ -1,3 +1,0 @@
-[submodule "poky/meta-cip-sr-common"]
-	path = poky/meta-cip-sr-common
-	url = https://github.com/SolidRun/meta-cip-sr-common.git
