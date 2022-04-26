@@ -74,14 +74,18 @@ git clone https://github.com/solidsense-connect/meta-cip-sr-common.git
 
 => Install librairies and apps:
 
-Preference to use Ubuntu 20.4 or debian equivalent to build images
+Preference to use Ubuntu 20.4 or Debian 10 equivalent to build images:
+* for Ubuntu 20.4:
  ```shell
 sudo apt update
-sudo apt install chrpath diffstat python2 python2.7 unzip texinfo
-sudo apt install default-jdk
-sudo apt install python3-pip
-pip install kas==2.5
-
+sudo apt install chrpath diffstat python2 python2.7 unzip texinfo default-jdk python3-pip
+pip3 install kas==2.5
+ ```
+ * for Debian 10:
+ ```shell
+sudo apt update
+sudo apt install chrpath diffstat texinfo openjdk-11-jdk gawk python3-pip
+pip3 install kas==2.5
  ```
 
 => To build your solidsense-connect images for all or a specific product:
@@ -144,4 +148,15 @@ build:
 * `Solidsense-connect insdustrial N6`: in6gsdl-core-image-minimal-Solidsense-2.0-2021122000.mender
 * `Solidsense-connect N8 family`: imx8mnc-core-image-minimal-Solidsense-2.0-2021122000.mender
 
-	
+=> Firmware content:
+* Kernel 5.4.47
+* Wi-Fi Boradcom Combo: Wifi / BLE
+* wpa_supplicant v2.7
+* Sink Nordic: Wirepas 5.1, BLE v1.8.1
+* Kura 5.0.1
+* Mqtt/Kapua
+* Java JDK11
+* Python v3.7
+* Mender v2.6
+* Docker v18.09.3
+
