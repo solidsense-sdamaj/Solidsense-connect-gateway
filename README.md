@@ -5,15 +5,15 @@ Overview
 --------
 
 This folder contains the Deby-based reference implementation of the
-CIP Core project for multiple boards. Deby is a reference distribution 
+Solidsense Core project for multiple boards. Deby is a reference distribution
 built with poky and meta-debian, a layer for the poky build system that 
 allows cross-building file system images from Debian stable source 
 packages.
 
 Goal
-  * Input: Debian and CIP kernel source code
+  * Input: Debian and kernel source code
   * Build mechanism: bitbake with meta-debian
-  * Output: Minimum deployable CIP base system
+  * Output: deployable base system and performing the function of an IoT gateway for Wirepas, BLE, LTE and Wi-Fi.
 
 Supported boards
 ----------------
@@ -22,34 +22,11 @@ The list of supported boards for a specific version can be obtained by
 using `ls deby/poky/meta-cip-*`.
 
 Currently, the following boards are supported:
-  * iWave RZ/G1M Qseven Development Kit
-  * Beaglebone Black
-  * DE0-Nano-SoC Kit/Atlas-SoC Kit
-  * QEMU x86_64
+  * N6 indoor		: n6gq n6gsdl
+  * N6 outdoor		: n6gq n6gsdl
+  * N6 industrial	: in6gq in6gsdl
+  * N8 indoor		: imx8mnc
 
-Generic build instructions
---------------------------
-
-To build the file system image for a specific board you need to
-prepare a [KAS](https://github.com/siemens/kas) docker environment.
-Make sure that your docker is using the overlay2 storage driver and
-your host kernel supports overlayfs.
-
-
-```shell
-host$ docker run -v $PWD/deby:/deby -e USER_ID=`id -u $USER` -e http_proxy=$http_proxy -e https_proxy=$https_proxy -e NO_PROXY="$no_proxy" -it kasproject/kas sh
-docker$ cd /deby/poky/
-```
-
-To build the file system image use the corresponding kas project file. 
-For example, in case of the iWave RZ/G1M Qseven Development Kit:
-
-```shell
-docker$ kas build --target core-image-minimal meta-cip-iwg20m/kas-iwg20m.yml
-```
-
-For more detailed, instructions check the README file inside the
-corresponding `deby/poky/meta-cip-<board>` folder.
 
 Build solidsense images
 -----------------------
@@ -129,6 +106,35 @@ build:
  sdamaj@sdamaj:~/Solidsense-connect-gateway/poky$ ./meta-cip-sr-common/scripts/build
 ```
 
+* Build configuration:
+```shell
+- Build Configuration:
+- BB_VERSION           = "1.42.0"
+- BUILD_SYS            = "x86_64-linux"
+- NATIVELSBSTRING      = "universal"
+- TARGET_SYS           = "aarch64-deby-linux"
+- MACHINE              = "imx8mnc"
+- DISTRO               = "deby"
+- DISTRO_VERSION       = "10.0"
+- TUNE_FEATURES        = "aarch64 cortexa53 crc"
+- TARGET_FPU           = ""
+- meta-cip-common      = "meta-solidsense-products-sr:bcfd22185ae4f32792b8c6a4b326319019528767"
+- meta-cip-sr-common   = "master:df10d90d18f91c98112574ab2e83b4da03d33dea"
+- meta-cip-sr-imx8mnc  = "meta-solidsense-products-sr:bcfd22185ae4f32792b8c6a4b326319019528767"
+- meta-debian          = "patched-warrior:b65f27bf02273ec3f7304fa3c7a9901c725cc04d"
+- meta-iot-cloud       = "patched-warrior:8d15403f169b80786e85b5695ee37073a39ed835"
+- meta-java            = "patched-master-aarch64-fixes:61d0a138835f899fb99045eb6e6d493045bec950"
+- meta-mender-core     = "patched-warrior:81a8eb0a6e279056b029657eeee5c662718a2668"
+- meta-filesystems
+- meta-networking
+- meta-oe
+- meta-python          = "warrior:a24acf94d48d635eca668ea34598c6e5c857e3f8"
+- meta-readonly-rootfs-overlay = "master:c7b8a6fec1da23104299130f3ce17fea22dfda19"
+- meta-virtualization  = "warrior:6961097ff660eb32860fcd4d8eb29405be4c6766"
+- meta
+- meta-poky            = "patched-warrior:e358fb931936d27225431fdd20948f73902687ca"
+```
+
 => Solidsense-connect N6 Boards:
 * N6 indoor		: n6gq n6gsdl
 * N6 outdoor	: n6gq n6gsdl
@@ -154,7 +160,7 @@ build:
 * wpa_supplicant v2.7
 * Sink Nordic: Wirepas 5.1, BLE v1.8.1
 * Kura 5.0.1
-* Mqtt/Kapua
+* Mqtt 3.1.1
 * Java JDK11
 * Python v3.7
 * Mender v2.6
