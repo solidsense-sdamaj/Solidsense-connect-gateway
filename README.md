@@ -55,13 +55,13 @@ Preference to use Ubuntu 20.4 or Debian 10 equivalent to build images:
 * for Ubuntu 20.4:
  ```shell
 sudo apt update
-sudo apt install chrpath diffstat python2 python2.7 unzip texinfo default-jdk python3-pip
+sudo apt install chrpath diffstat python2.7 unzip texinfo libz-dev default-jdk python3-pip
 pip3 install kas==2.5
  ```
  * for Debian 10:
  ```shell
 sudo apt update
-sudo apt install chrpath diffstat texinfo openjdk-11-jdk gawk python3-pip
+sudo apt install chrpath diffstat texinfo libz-dev openjdk-11-jdk gawk python3-pip
 pip3 install kas==2.5
  ```
 
