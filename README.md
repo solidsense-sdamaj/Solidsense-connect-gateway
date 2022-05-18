@@ -49,9 +49,9 @@ git clone https://github.com/solidsense-connect/meta-cip-sr-common.git
 * create a new folder mender-cert in poky/meta-cip-sr-common
 * copy and rename the generated public.key ~/solidsense-connect/signing-private-keys to meta-cip-sr-common/mender-cert/artifact-verify-key.pem
 
-=> Install librairies and apps:
+=> Install required packages:
+ `Preference to use Ubuntu 20.4 or Debian 10 equivalent to build images `
 
-Preference to use Ubuntu 20.4 or Debian 10 equivalent to build images:
 * for Ubuntu 20.4:
  ```shell
 sudo apt update
@@ -135,14 +135,72 @@ build:
 - meta-poky            = "patched-warrior:e358fb931936d27225431fdd20948f73902687ca"
 ```
 
+=> check logs:
+You can check logs while building images:
+
+```shell
+ sdamaj@sdamaj:~/Solidsense-connect-gateway/poky$ tail -f deploy/logs/Solidsense-dev-yyyymmdd00/build-imx8mnc-yyyymmdd-hh\:mm
+```
+
+=> Solidsense images path:
+After build, all images will be generated in Solidsense-connect-gateway/poky/deploy/Solidsense-{tag}-yyymmdd00:
+
+```
+-rw-r--r-- 1 sdamaj sdamaj     48608 May 24 15:30 imx6dl-hummingboard2-emmc-som-v15.dtb
+-rw-r--r-- 1 sdamaj sdamaj     47914 May 24 15:30 imx6dl-solidsense-in6-a-emmc-som-v15.dtb
+-rw-r--r-- 1 sdamaj sdamaj     47586 May 24 15:30 imx6dl-solidsense-in6-b-emmc-som-v15.dtb
+-rw-r--r-- 1 sdamaj sdamaj     46407 May 24 15:30 imx6dl-solidsense-in6-emmc-som-v15.dtb
+-rw-r--r-- 1 sdamaj sdamaj     49994 May 24 15:30 imx6q-hummingboard2-emmc-som-v15.dtb
+-rw-r--r-- 1 sdamaj sdamaj     49151 May 24 15:30 imx6q-solidsense-in6-a-emmc-som-v15.dtb
+-rw-r--r-- 1 sdamaj sdamaj     48823 May 24 15:30 imx6q-solidsense-in6-b-emmc-som-v15.dtb
+-rw-r--r-- 1 sdamaj sdamaj     47644 May 24 15:30 imx6q-solidsense-in6-emmc-som-v15.dtb
+-rw-r--r-- 1 sdamaj sdamaj     63064 May 24 15:30 imx8mnc-core-image-minimal-Solidsense-2.0.2-2022052400.manifest
+-rw-r--r-- 1 sdamaj sdamaj     72564 May 24 15:30 imx8mnc-core-image-minimal-Solidsense-2.0.2-2022052400.manifest.lic
+-rw------- 1 sdamaj sdamaj 442786816 May 24 15:30 imx8mnc-core-image-minimal-Solidsense-2.0.2-2022052400.mender
+-rw-r--r-- 1 sdamaj sdamaj      2284 May 24 15:30 imx8mnc-core-image-minimal-Solidsense-2.0.2-2022052400.mender.bmap
+-rw-r--r-- 1 sdamaj sdamaj 442785792 May 24 15:30 imx8mnc-core-image-minimal-Solidsense-2.0.2-2022052400.mender.unsigned
+-rw-r--r-- 1 sdamaj sdamaj 418607742 May 24 15:30 imx8mnc-core-image-minimal-Solidsense-2.0.2-2022052400.tar.gz
+-rw-r--r-- 1 sdamaj sdamaj     37242 May 24 15:30 imx8mn-compact.dtb
+-rw-r--r-- 1 sdamaj sdamaj    166539 May 24 15:30 in6gq-core-image-minimal-Solidsense-2.0.2-2022052400.manifest
+-rw-r--r-- 1 sdamaj sdamaj    185105 May 24 15:30 in6gq-core-image-minimal-Solidsense-2.0.2-2022052400.manifest.lic
+-rw------- 1 sdamaj sdamaj 436619264 May 24 15:30 in6gq-core-image-minimal-Solidsense-2.0.2-2022052400.mender
+-rw-r--r-- 1 sdamaj sdamaj      2284 May 24 15:30 in6gq-core-image-minimal-Solidsense-2.0.2-2022052400.mender.bmap
+-rw-r--r-- 1 sdamaj sdamaj 436618240 May 24 15:30 in6gq-core-image-minimal-Solidsense-2.0.2-2022052400.mender.unsigned
+-rw-r--r-- 1 sdamaj sdamaj 413005813 May 24 15:30 in6gq-core-image-minimal-Solidsense-2.0.2-2022052400.tar.gz
+-rw-r--r-- 1 sdamaj sdamaj    170691 May 24 15:30 in6gsdl-core-image-minimal-Solidsense-2.0.2-2022052400.manifest
+-rw-r--r-- 1 sdamaj sdamaj    189257 May 24 15:30 in6gsdl-core-image-minimal-Solidsense-2.0.2-2022052400.manifest.lic
+-rw------- 1 sdamaj sdamaj 436619264 May 24 15:31 in6gsdl-core-image-minimal-Solidsense-2.0.2-2022052400.mender
+-rw-r--r-- 1 sdamaj sdamaj      2284 May 24 15:30 in6gsdl-core-image-minimal-Solidsense-2.0.2-2022052400.mender.bmap
+-rw-r--r-- 1 sdamaj sdamaj 436618240 May 24 15:31 in6gsdl-core-image-minimal-Solidsense-2.0.2-2022052400.mender.unsigned
+-rw-r--r-- 1 sdamaj sdamaj 413010091 May 24 15:30 in6gsdl-core-image-minimal-Solidsense-2.0.2-2022052400.tar.gz
+-rw-r--r-- 1 sdamaj sdamaj    164300 May 24 15:30 n6gq-core-image-minimal-Solidsense-2.0.2-2022052400.manifest
+-rw-r--r-- 1 sdamaj sdamaj    182834 May 24 15:30 n6gq-core-image-minimal-Solidsense-2.0.2-2022052400.manifest.lic
+-rw------- 1 sdamaj sdamaj 436085248 May 24 15:31 n6gq-core-image-minimal-Solidsense-2.0.2-2022052400.mender
+-rw-r--r-- 1 sdamaj sdamaj      2284 May 24 15:30 n6gq-core-image-minimal-Solidsense-2.0.2-2022052400.mender.bmap
+-rw-r--r-- 1 sdamaj sdamaj 436084224 May 24 15:31 n6gq-core-image-minimal-Solidsense-2.0.2-2022052400.mender.unsigned
+-rw-r--r-- 1 sdamaj sdamaj 412508518 May 24 15:30 n6gq-core-image-minimal-Solidsense-2.0.2-2022052400.tar.gz
+-rw-r--r-- 1 sdamaj sdamaj    168452 May 24 15:30 n6gsdl-core-image-minimal-Solidsense-2.0.2-2022052400.manifest
+-rw-r--r-- 1 sdamaj sdamaj    186986 May 24 15:30 n6gsdl-core-image-minimal-Solidsense-2.0.2-2022052400.manifest.lic
+-rw------- 1 sdamaj sdamaj 436153856 May 24 15:31 n6gsdl-core-image-minimal-Solidsense-2.0.2-2022052400.mender
+-rw-r--r-- 1 sdamaj sdamaj      2284 May 24 15:30 n6gsdl-core-image-minimal-Solidsense-2.0.2-2022052400.mender.bmap
+-rw-r--r-- 1 sdamaj sdamaj 436152832 May 24 15:31 n6gsdl-core-image-minimal-Solidsense-2.0.2-2022052400.mender.unsigned
+-rw-r--r-- 1 sdamaj sdamaj 412509704 May 24 15:30 n6gsdl-core-image-minimal-Solidsense-2.0.2-2022052400.tar.gz
+-rw-r--r-- 1 sdamaj sdamaj    176570 May 24 15:30 solidsense-core-image-minimal-Solidsense-2.0.2-2022052400.manifest
+-rw-r--r-- 1 sdamaj sdamaj    195072 May 24 15:30 solidsense-core-image-minimal-Solidsense-2.0.2-2022052400.manifest.lic
+-rw------- 1 sdamaj sdamaj 435725824 May 24 15:31 solidsense-core-image-minimal-Solidsense-2.0.2-2022052400.mender
+-rw-r--r-- 1 sdamaj sdamaj      2284 May 24 15:30 solidsense-core-image-minimal-Solidsense-2.0.2-2022052400.mender.bmap
+-rw-r--r-- 1 sdamaj sdamaj 435724800 May 24 15:31 solidsense-core-image-minimal-Solidsense-2.0.2-2022052400.mender.unsigned
+-rw-r--r-- 1 sdamaj sdamaj 412113219 May 24 15:30 solidsense-core-image-minimal-Solidsense-2.0.2-2022052400.tar.gz
+```
+
 => Solidsense-connect N6 Boards:
 * N6 indoor		: n6gq n6gsdl
 * N6 outdoor	: n6gq n6gsdl
 * N6 industrial	: in6gq in6gsdl 
 
 => Solidsense-connect N8 Boards:
-* N8 indoor		: imx8mnc
-* N8 outdoor 	: coming soon
+* N8 indoor     : imx8mnc
+* N8 outdoor    : coming soon
 * N8 industrial	: BOM in progress
 
 => Images Ready-To-Use from Solidsense-Connect mender:
@@ -165,4 +223,3 @@ build:
 * Python v3.7
 * Mender v2.6
 * Docker v18.09.3
-
