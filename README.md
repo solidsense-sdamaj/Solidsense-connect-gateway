@@ -142,7 +142,8 @@ You can check logs while building images:
  sdamaj@sdamaj:~/Solidsense-connect-gateway/poky$ tail -f deploy/logs/Solidsense-dev-yyyymmdd00/build-imx8mnc-yyyymmdd-hh\:mm
 ```
 
-=> Solidsense images path:
+Solidsense images path
+----------------------
 After build, all images will be generated in Solidsense-connect-gateway/poky/deploy/Solidsense-{tag}-yyymmdd00:
 
 ```
@@ -193,33 +194,59 @@ After build, all images will be generated in Solidsense-connect-gateway/poky/dep
 -rw-r--r-- 1 sdamaj sdamaj 412113219 May 24 15:30 solidsense-core-image-minimal-Solidsense-2.0.2-2022052400.tar.gz
 ```
 
-=> Solidsense-connect N6 Boards:
+Updating a SolidSense Board
+---------------------------
+This is an example how to updating a SolidSense N6 board.
+
+Copy your image mender on your board in /tmp/n6gsdl-core-image-minimal-Solidsense-2.0.2-2022052400.mender, then execute the following commands:
+
+```
+# mender install /tmp/n6gsdl-core-image-minimal-Solidsense-2.0.2-2022052400.mender
+# mender commit
+# /opt/scripts/restart --wipe
+```
+After boot, Kura will be available after 4 minutes. You can check your configuration by taping `https://serial_number_of_your_gateway` or `https://ip_address_board` on your navigator.
+
+Solidsense-connect N6 Boards
+----------------------------
 * N6 indoor		: n6gq n6gsdl
 * N6 outdoor	: n6gq n6gsdl
 * N6 industrial	: in6gq in6gsdl 
 
-=> Solidsense-connect N8 Boards:
+Solidsense-connect N8 Boards
+----------------------------
 * N8 indoor     : imx8mnc
 * N8 outdoor    : coming soon
 * N8 industrial	: BOM in progress
 
-=> Images Ready-To-Use from Solidsense-Connect mender:
+Images Ready-To-Use
+-------------------
 * `unsigned images`: https://images.solidsense.io/SolidSense/mender/SolidRun-unsigned/index.html
 * `signed images`: https://images.solidsense.io/SolidSense/mender/SolidRun-signed/index.html
 
-=> Last images:
+Last images
+-----------
 * `Solidsense-connect N6 indoor/outdoor`: n6gsdl-core-image-minimal-Solidsense-2.0-2021122000.mender
 * `Solidsense-connect insdustrial N6`: in6gsdl-core-image-minimal-Solidsense-2.0-2021122000.mender
 * `Solidsense-connect N8 family`: imx8mnc-core-image-minimal-Solidsense-2.0-2021122000.mender
 
-=> Firmware content:
+Firmware content
+----------------
 * Kernel 5.4.47
 * Wi-Fi Boradcom Combo: Wifi / BLE
 * wpa_supplicant v2.7
-* Sink Nordic: Wirepas 5.1, BLE v1.8.1
+* Sink Nordic: Transport Layer
 * Kura 5.0.1
 * Mqtt 3.1.1
 * Java JDK11
 * Python v3.7
 * Mender v2.6
 * Docker v18.09.3
+
+Informations
+------------
+* ! Wirepas 5.1 firmwares for the sinks are not integrated into the images.
+* ! You need to buy licences from SolidRun or see with SoliSense-Connect marketing service to flush the sinks.
+* ! wirepas 4.0 is not compatible with wirepas 5.0.
+* ! BLE 1.8.1 for the sinks is available with SolidSense-Connect.
+

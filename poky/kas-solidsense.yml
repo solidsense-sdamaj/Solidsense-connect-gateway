@@ -15,7 +15,7 @@ repos:
         layers:
             poky/meta-cip-common:
     meta-cip-sr-common:
-        url: "https://github.com/solidsense-connect/meta-cip-sr-common.git"
+        path: meta-cip-sr-common/
     meta-debian:
         url: "https://github.com/meta-debian/meta-debian.git"
         refspec: warrior
