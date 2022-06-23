@@ -194,6 +194,20 @@ After build, all images will be generated in Solidsense-connect-gateway/poky/dep
 -rw-r--r-- 1 sdamaj sdamaj 412113219 May 24 15:30 solidsense-core-image-minimal-Solidsense-2.0.2-2022052400.tar.gz
 ```
 
+Build errors
+------------------
+If your build failed after following this procedure, ensure that:
+
+```
+* Using Debian 10
+* bitbake will not run as root - had to create user in docker container
+* kas is found in /usr/local/bin - had to modify meta-cip-sr-common/scripts/build
+* Debian requires additional dependencies - cpio python2 python2.7 unzip wget
+* Build requires "python2" to be in the /usr/bin directory - had to create symbolic link to /usr/bin/python2.7
+* If the build gets in a bad state, clean it by removing build, deploy, and poky from the poky directory
+* System needs to support the en_US.UTF-8 locale - had to install locales and generate this locale using dpkg-reconfigure locales
+```
+
 Updating a SolidSense Board
 ---------------------------
 This is an example how to updating a SolidSense N6 board.
@@ -206,6 +220,13 @@ Copy your image mender on your board in /tmp/n6gsdl-core-image-minimal-Solidsens
 # /opt/scripts/restart --wipe
 ```
 After boot, Kura will be available after 4 minutes. You can check your configuration by taping `https://serial_number_of_your_gateway` or `https://ip_address_board` on your navigator.
+
+`If you dont able to load Kura from browser`
+```
+# /opt/scripts/restart --config
+```
+Wait for reboot, kura will be available after 4 minutes.
+
 
 Solidsense-connect N6 Boards
 ----------------------------
