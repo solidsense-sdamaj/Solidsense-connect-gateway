@@ -1,0 +1,2691 @@
+├── acl
+│   ├── COPYING
+│   ├── COPYING.LGPL
+│   ├── generic_GPLv2
+│   ├── generic_LGPLv2.1
+│   └── recipeinfo
+├── acl-native
+│   ├── COPYING
+│   ├── COPYING.LGPL
+│   ├── generic_GPLv2
+│   ├── generic_LGPLv2.1
+│   └── recipeinfo
+├── alsa-lib
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   ├── generic_LGPLv2.1
+│   ├── recipeinfo
+│   └── socket.c
+├── alsa-lib-native
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   ├── generic_LGPLv2.1
+│   ├── recipeinfo
+│   └── socket.c
+├── apt
+│   ├── COPYING.GPL
+│   ├── generic_GPLv2.0
+│   └── recipeinfo
+├── asciidoc-native
+│   ├── COPYING
+│   ├── COPYRIGHT
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── attr
+│   ├── attr.c
+│   ├── COPYING
+│   ├── COPYING.LGPL
+│   ├── generic_GPLv2
+│   ├── generic_LGPLv2.1
+│   ├── libattr.c
+│   └── recipeinfo
+├── attr-native
+│   ├── attr.c
+│   ├── COPYING
+│   ├── COPYING.LGPL
+│   ├── generic_GPLv2
+│   ├── generic_LGPLv2.1
+│   ├── libattr.c
+│   └── recipeinfo
+├── autoconf-archive
+│   ├── COPYING
+│   ├── COPYING.EXCEPTION
+│   ├── generic_GPL-3.0-with-autoconf-exception
+│   └── recipeinfo
+├── autoconf-archive-native
+│   ├── COPYING
+│   ├── COPYING.EXCEPTION
+│   ├── generic_GPL-3.0-with-autoconf-exception
+│   └── recipeinfo
+├── autoconf-native
+│   ├── autoconf.texi
+│   ├── COPYING
+│   ├── COPYINGv3
+│   ├── generic_GFDL-1.3
+│   ├── generic_GPLv2
+│   ├── generic_GPLv3
+│   └── recipeinfo
+├── automake-native
+│   ├── automake.texi
+│   ├── COPYING
+│   ├── ext3.sh
+│   ├── generic_GFDL-1.3
+│   ├── generic_GPLv2
+│   ├── generic_GPLv3
+│   └── recipeinfo
+├── base-files
+│   ├── generic_GPLv2
+│   ├── GPL-2
+│   └── recipeinfo
+├── base-passwd
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── bash
+│   ├── COPYING
+│   ├── generic_GPLv3
+│   └── recipeinfo
+├── bash-completion
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── bc
+│   ├── bcdefs.h
+│   ├── COPYING
+│   ├── COPYING.LIB
+│   ├── dc.h
+│   ├── generic_GPLv3
+│   ├── number.c
+│   └── recipeinfo
+├── bc-native
+│   ├── bcdefs.h
+│   ├── COPYING
+│   ├── COPYING.LIB
+│   ├── dc.h
+│   ├── generic_GPLv3
+│   ├── number.c
+│   └── recipeinfo
+├── bdwgc-native
+│   ├── generic_MIT
+│   ├── README.QUICK
+│   └── recipeinfo
+├── bind
+│   ├── COPYRIGHT
+│   ├── generic_BSD
+│   ├── generic_ISC
+│   └── recipeinfo
+├── binutils
+│   ├── COPYING.0
+│   ├── COPYING.1
+│   ├── COPYING3
+│   ├── COPYING3.LIB
+│   ├── COPYING.LIB.0
+│   ├── COPYING.LIB.1
+│   ├── generic_GPLv3
+│   └── recipeinfo
+├── binutils-cross-aarch64
+│   ├── COPYING.0
+│   ├── COPYING.1
+│   ├── COPYING3
+│   ├── COPYING3.LIB
+│   ├── COPYING.LIB.0
+│   ├── COPYING.LIB.1
+│   ├── generic_GPLv3
+│   └── recipeinfo
+├── binutils-cross-arm
+│   ├── COPYING.0
+│   ├── COPYING.1
+│   ├── COPYING3
+│   ├── COPYING3.LIB
+│   ├── COPYING.LIB.0
+│   ├── COPYING.LIB.1
+│   ├── generic_GPLv3
+│   └── recipeinfo
+├── binutils-native
+│   ├── COPYING.0
+│   ├── COPYING.1
+│   ├── COPYING3
+│   ├── COPYING3.LIB
+│   ├── COPYING.LIB.0
+│   ├── COPYING.LIB.1
+│   ├── generic_GPLv3
+│   └── recipeinfo
+├── bison
+│   ├── COPYING
+│   ├── generic_GPLv3
+│   └── recipeinfo
+├── bison-native
+│   ├── COPYING
+│   ├── generic_GPLv3
+│   └── recipeinfo
+├── bjam-native
+│   ├── generic_BSL-1.0
+│   ├── generic_MIT
+│   ├── generic_Python-2.0
+│   ├── LICENSE_1_0.txt
+│   └── recipeinfo
+├── ble-gateway
+│   ├── generic_GPLv2
+│   ├── LICENSE
+│   └── recipeinfo
+├── bluez5
+│   ├── COPYING
+│   ├── COPYING.LIB
+│   ├── generic_GPLv2
+│   ├── generic_LGPLv2.1
+│   ├── main.c
+│   └── recipeinfo
+├── bmap-tools-native
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── boost
+│   ├── generic_BSL-1.0
+│   ├── generic_MIT
+│   ├── generic_Python-2.0
+│   ├── LICENSE_1_0.txt
+│   └── recipeinfo
+├── bridge-utils
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── btrfs-tools
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── btrfs-tools-native
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── busybox
+│   ├── generic_bzip2
+│   ├── generic_GPLv2
+│   ├── LICENSE
+│   └── recipeinfo
+├── bzip2
+│   ├── generic_bzip2
+│   ├── LICENSE
+│   └── recipeinfo
+├── bzip2-native
+│   ├── generic_bzip2
+│   ├── LICENSE
+│   └── recipeinfo
+├── cacao-initial-native
+│   ├── COPYING
+│   ├── generic_GPL-2.0
+│   └── recipeinfo
+├── cacao-native
+│   ├── COPYING
+│   ├── generic_GPL-2.0
+│   └── recipeinfo
+├── ca-certificates
+│   ├── copyright
+│   ├── generic_GPL-2.0
+│   ├── generic_MPL-2.0
+│   └── recipeinfo
+├── ca-certificates-java
+│   ├── copyright
+│   ├── generic_GPLv2
+│   ├── InvalidKeystorePasswordException.java
+│   ├── KeyStoreHandler.java
+│   ├── recipeinfo
+│   ├── UnableToSaveKeystoreException.java
+│   ├── UnknownInputException.java
+│   └── UpdateCertificates.java
+├── cairo
+│   ├── COPYING
+│   ├── generic_GPLv3
+│   ├── generic_LGPLv2.1
+│   ├── generic_MPL-1
+│   └── recipeinfo
+├── can-utils
+│   ├── BSD-3-Clause
+│   ├── generic_BSD-3-Clause
+│   └── recipeinfo
+├── cdrtools-native
+│   ├── COPYING
+│   ├── generic_CDDL-1.0
+│   ├── generic_GPLv2
+│   ├── generic_LGPLv2.1
+│   └── recipeinfo
+├── chrpath-native
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── classpath-initial-native
+│   ├── COPYING
+│   ├── generic_GPL-2.0
+│   ├── generic_SAX-PD
+│   └── recipeinfo
+├── classpath-native
+│   ├── COPYING
+│   ├── generic_GPL-2.0
+│   ├── generic_SAX-PD
+│   └── recipeinfo
+├── cmake-native
+│   ├── cmake.h
+│   ├── Copyright.txt
+│   ├── generic_BSD-3-Clause
+│   └── recipeinfo
+├── c-mesh-api
+│   ├── generic_Apache-2.0
+│   ├── LICENSE
+│   └── recipeinfo
+├── compose-file
+│   ├── generic_Apache-2.0
+│   ├── LICENSE
+│   └── recipeinfo
+├── connectd
+│   └── recipeinfo
+├── containerd-opencontainers
+│   ├── generic_Apache-2.0
+│   ├── LICENSE
+│   └── recipeinfo
+├── core-image-minimal
+│   ├── generic_MIT
+│   └── recipeinfo
+├── core-image-minimal-n6gsdl-20220801145757
+│   ├── image_license.manifest
+│   ├── license.manifest
+│   └── package.manifest
+├── coreutils
+│   ├── COPYING
+│   ├── generic_GPLv3
+│   ├── ls.c
+│   └── recipeinfo
+├── coreutils-native
+│   ├── COPYING
+│   ├── generic_GPLv3
+│   ├── ls.c
+│   └── recipeinfo
+├── createrepo-c-native
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── cronie
+│   ├── COPYING
+│   ├── cron.c
+│   ├── generic_BSD-2-Clause
+│   ├── generic_BSD-3-Clause
+│   ├── generic_GPLv2
+│   ├── generic_ISC
+│   ├── popen.c
+│   └── recipeinfo
+├── cross-localedef-native
+│   ├── COPYING
+│   ├── COPYING.LIB
+│   ├── COPYRIGHT
+│   ├── generic_LGPLv2.1
+│   ├── LICENSES
+│   └── recipeinfo
+├── curl
+│   ├── COPYING
+│   ├── generic_MIT
+│   └── recipeinfo
+├── curl-native
+│   ├── COPYING
+│   ├── generic_MIT
+│   └── recipeinfo
+├── db
+│   ├── generic_Sleepycat
+│   ├── LICENSE
+│   └── recipeinfo
+├── db-native
+│   ├── generic_Sleepycat
+│   ├── LICENSE
+│   └── recipeinfo
+├── dbus
+│   ├── COPYING
+│   ├── dbus.h
+│   ├── generic_AFL-2.1
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── dbus-glib
+│   ├── COPYING
+│   ├── dbus-glib.h
+│   ├── generic_AFL-2
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── dbus-glib-native
+│   ├── COPYING
+│   ├── dbus-glib.h
+│   ├── generic_AFL-2
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── dbus-native
+│   ├── COPYING
+│   ├── dbus.h
+│   ├── generic_AFL-2.1
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── debianutils
+│   ├── copyright
+│   ├── generic_GPLv2
+│   ├── generic_SMAIL_GPL
+│   └── recipeinfo
+├── debianutils-native
+│   ├── copyright
+│   ├── generic_GPLv2
+│   ├── generic_SMAIL_GPL
+│   └── recipeinfo
+├── depmodwrapper-cross
+│   ├── generic_MIT
+│   └── recipeinfo
+├── dhcp
+│   ├── generic_ISC
+│   ├── LICENSE
+│   └── recipeinfo
+├── diffutils
+│   ├── COPYING
+│   ├── generic_GPLv3
+│   └── recipeinfo
+├── dnf
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   ├── PACKAGE-LICENSING
+│   └── recipeinfo
+├── dnf-native
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   ├── PACKAGE-LICENSING
+│   └── recipeinfo
+├── docbook-xml-dtd4-native
+│   ├── generic_OASIS
+│   ├── LICENSE-OASIS
+│   └── recipeinfo
+├── docbook-xsl-stylesheets-native
+│   ├── COPYING
+│   ├── generic_XSL
+│   └── recipeinfo
+├── docker
+│   ├── generic_Apache-2.0
+│   ├── LICENSE
+│   └── recipeinfo
+├── dosfstools-native
+│   ├── COPYING
+│   ├── generic_GPLv3
+│   └── recipeinfo
+├── dpkg
+│   ├── COPYING
+│   ├── generic_GPLv2.0
+│   └── recipeinfo
+├── dropbear
+│   ├── generic_BSD-2-Clause
+│   ├── generic_BSD-3-Clause
+│   ├── generic_MIT
+│   ├── generic_PD
+│   ├── LICENSE
+│   └── recipeinfo
+├── dwarfsrcfiles-native
+│   ├── dwarfsrcfiles.c
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── e2fsprogs
+│   ├── COPYING
+│   ├── e2p.h
+│   ├── et_name.c
+│   ├── ext2fs.h
+│   ├── generic_BSD
+│   ├── generic_GPLv2
+│   ├── generic_LGPLv2
+│   ├── generic_MIT
+│   ├── NOTICE
+│   ├── recipeinfo
+│   ├── ss.h
+│   └── uuid.h.in
+├── e2fsprogs-native
+│   ├── COPYING
+│   ├── e2p.h
+│   ├── et_name.c
+│   ├── ext2fs.h
+│   ├── generic_BSD
+│   ├── generic_GPLv2
+│   ├── generic_LGPLv2
+│   ├── generic_MIT
+│   ├── NOTICE
+│   ├── recipeinfo
+│   ├── ss.h
+│   └── uuid.h.in
+├── ecj-bootstrap-native
+│   ├── COPYING.MIT
+│   ├── generic_MIT
+│   ├── MIT
+│   └── recipeinfo
+├── ecj-initial-native
+│   ├── generic_MIT
+│   ├── MIT
+│   └── recipeinfo
+├── ed-native
+│   ├── carg_parser.h
+│   ├── COPYING
+│   ├── ed.h
+│   ├── generic_BSD-2-Clause
+│   ├── generic_GPLv2
+│   ├── generic_GPLv3
+│   ├── main.c
+│   └── recipeinfo
+├── elfutils
+│   ├── COPYING
+│   ├── COPYING-GPLV2
+│   ├── COPYING-LGPLV3
+│   ├── generic_GPLv2
+│   ├── generic_GPLv3
+│   ├── generic_LGPLv3
+│   └── recipeinfo
+├── elfutils-native
+│   ├── COPYING
+│   ├── COPYING-GPLV2
+│   ├── COPYING-LGPLV3
+│   ├── generic_GPLv2
+│   ├── generic_GPLv3
+│   ├── generic_LGPLv3
+│   └── recipeinfo
+├── empty
+│   ├── COPYRIGHT
+│   ├── generic_BSD-3-Clause
+│   └── recipeinfo
+├── ethtool
+│   ├── COPYING
+│   ├── ethtool.c
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── expat
+│   ├── COPYING
+│   ├── generic_MIT
+│   └── recipeinfo
+├── expat-native
+│   ├── COPYING
+│   ├── generic_MIT
+│   └── recipeinfo
+├── fastjar-native
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── file
+│   ├── COPYING
+│   ├── generic_BSD
+│   └── recipeinfo
+├── file-native
+│   ├── COPYING
+│   ├── generic_BSD
+│   └── recipeinfo
+├── findutils
+│   ├── COPYING
+│   ├── generic_GPLv3
+│   └── recipeinfo
+├── firmware-wireless
+│   ├── generic_Proprietary
+│   ├── LICENSE.TIInit_12.8.32
+│   ├── LICENSE.wl18xx-fw-4
+│   └── recipeinfo
+├── firmware-wireless-imx8mnc
+│   └── recipeinfo
+├── flex
+│   ├── COPYING
+│   ├── generic_BSD
+│   └── recipeinfo
+├── flex-native
+│   ├── COPYING
+│   ├── generic_BSD
+│   └── recipeinfo
+├── fontconfig
+│   ├── COPYING
+│   ├── fccache.c
+│   ├── fcfreetype.c
+│   ├── generic_MIT
+│   ├── generic_MIT-style
+│   ├── generic_PD
+│   └── recipeinfo
+├── fontconfig-native
+│   ├── COPYING
+│   ├── fccache.c
+│   ├── fcfreetype.c
+│   ├── generic_MIT
+│   ├── generic_MIT-style
+│   ├── generic_PD
+│   └── recipeinfo
+├── freetype
+│   ├── FTL.TXT
+│   ├── generic_FreeType
+│   ├── generic_GPLv2
+│   ├── GPLv2.TXT
+│   ├── LICENSE.TXT
+│   └── recipeinfo
+├── freetype-native
+│   ├── FTL.TXT
+│   ├── generic_FreeType
+│   ├── generic_GPLv2
+│   ├── GPLv2.TXT
+│   ├── LICENSE.TXT
+│   └── recipeinfo
+├── gawk
+│   ├── COPYING
+│   ├── generic_GPLv3
+│   └── recipeinfo
+├── gcc
+│   ├── COPYING
+│   ├── COPYING3
+│   ├── COPYING3.LIB
+│   ├── COPYING.LIB
+│   ├── COPYING.RUNTIME
+│   ├── generic_GPL-3.0-with-GCC-exception
+│   ├── generic_GPLv3
+│   └── recipeinfo
+├── gcc-cross-aarch64
+│   ├── COPYING
+│   ├── COPYING3
+│   ├── COPYING3.LIB
+│   ├── COPYING.LIB
+│   ├── COPYING.RUNTIME
+│   ├── generic_GPL-3.0-with-GCC-exception
+│   ├── generic_GPLv3
+│   └── recipeinfo
+├── gcc-cross-arm
+│   ├── COPYING
+│   ├── COPYING3
+│   ├── COPYING3.LIB
+│   ├── COPYING.LIB
+│   ├── COPYING.RUNTIME
+│   ├── generic_GPL-3.0-with-GCC-exception
+│   ├── generic_GPLv3
+│   └── recipeinfo
+├── gcc-runtime
+│   ├── COPYING
+│   ├── COPYING3
+│   ├── COPYING3.LIB
+│   ├── COPYING.LIB
+│   ├── COPYING.RUNTIME
+│   ├── generic_GPL-3.0-with-GCC-exception
+│   └── recipeinfo
+├── gdbm
+│   ├── COPYING
+│   ├── generic_GPLv3
+│   └── recipeinfo
+├── gdbm-native
+│   ├── COPYING
+│   ├── generic_GPLv3
+│   └── recipeinfo
+├── gettext-minimal-native
+│   ├── COPYING
+│   ├── generic_FSF-Unlimited
+│   └── recipeinfo
+├── gettext-native
+│   ├── COPYING
+│   ├── generic_GPLv3
+│   ├── generic_LGPL-2.1
+│   └── recipeinfo
+├── git
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── glib-2.0
+│   ├── COPYING.0
+│   ├── COPYING.1
+│   ├── generic_BSD
+│   ├── generic_LGPLv2.1
+│   ├── generic_PD
+│   ├── glib.h
+│   ├── gmodule.h
+│   ├── pcre.h
+│   └── recipeinfo
+├── glib-2.0-native
+│   ├── COPYING.0
+│   ├── COPYING.1
+│   ├── generic_BSD
+│   ├── generic_LGPLv2.1
+│   ├── generic_PD
+│   ├── glib.h
+│   ├── gmodule.h
+│   ├── pcre.h
+│   └── recipeinfo
+├── glibc
+│   ├── COPYING
+│   ├── COPYING.LIB
+│   ├── generic_GPLv2
+│   ├── generic_LGPLv2.1
+│   ├── LICENSES
+│   └── recipeinfo
+├── glibc-locale
+│   ├── generic_GPLv2
+│   ├── generic_LGPLv2.1
+│   ├── GPL-2.0
+│   ├── LGPL-2.1
+│   └── recipeinfo
+├── gmp
+│   ├── COPYING
+│   ├── COPYING.LESSERv3
+│   ├── COPYINGv2
+│   ├── generic_GPLv2
+│   ├── generic_LGPLv3
+│   └── recipeinfo
+├── gmp-native
+│   ├── COPYING
+│   ├── COPYING.LESSERv3
+│   ├── COPYINGv2
+│   ├── generic_GPLv2
+│   ├── generic_LGPLv3
+│   └── recipeinfo
+├── gnome-desktop-testing
+│   ├── COPYING
+│   ├── generic_LGPLv2
+│   ├── gnome-desktop-testing-runner.c
+│   └── recipeinfo
+├── gnu-config-native
+│   ├── config.guess
+│   ├── generic_GPL-3.0-with-autoconf-exception
+│   └── recipeinfo
+├── gnupg
+│   ├── COPYING
+│   ├── COPYING.CC0
+│   ├── COPYING.LGPL21
+│   ├── COPYING.LGPL3
+│   ├── dns.c
+│   ├── generic_BSD
+│   ├── generic_CC0-1.0
+│   ├── generic_GPLv3
+│   ├── generic_LGPLv2.1
+│   ├── generic_LGPLv3
+│   ├── generic_MIT
+│   ├── LICENSE.TinySCHEME
+│   └── recipeinfo
+├── gnutls
+│   ├── COPYING
+│   ├── COPYING.LESSER
+│   ├── generic_GPLv3
+│   ├── generic_LGPLv2.1
+│   ├── LICENSE
+│   └── recipeinfo
+├── gobject-introspection
+│   ├── compiler.c
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   ├── generic_LGPLv2
+│   ├── giregisteredtypeinfo.c
+│   ├── recipeinfo
+│   └── sourcescanner.c
+├── gobject-introspection-native
+│   ├── compiler.c
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   ├── generic_LGPLv2
+│   ├── giregisteredtypeinfo.c
+│   ├── recipeinfo
+│   └── sourcescanner.c
+├── go-capability
+│   ├── generic_BSD-2-Clause
+│   ├── LICENSE
+│   └── recipeinfo
+├── go-cli
+│   ├── generic_MIT
+│   ├── LICENSE
+│   └── recipeinfo
+├── go-connections
+│   ├── generic_Apache-2.0
+│   ├── LICENSE
+│   └── recipeinfo
+├── go-context
+│   ├── generic_BSD-3-Clause
+│   ├── LICENSE
+│   └── recipeinfo
+├── go-cross-aarch64
+│   ├── generic_BSD-3-Clause
+│   ├── LICENSE
+│   └── recipeinfo
+├── go-cross-cortexa9t2hf-neon
+│   ├── generic_BSD-3-Clause
+│   ├── LICENSE
+│   └── recipeinfo
+├── go-dbus
+│   ├── generic_BSD-2-Clause
+│   ├── LICENSE
+│   └── recipeinfo
+├── go-distribution
+│   ├── generic_Apache-2.0
+│   ├── LICENSE
+│   └── recipeinfo
+├── go-fsnotify
+│   ├── generic_BSD-3-Clause
+│   ├── LICENSE
+│   └── recipeinfo
+├── go-logrus
+│   ├── generic_MIT
+│   ├── LICENSE
+│   └── recipeinfo
+├── go-mux
+│   ├── generic_BSD-3-Clause
+│   ├── LICENSE
+│   └── recipeinfo
+├── go-native
+│   ├── generic_BSD-3-Clause
+│   ├── LICENSE
+│   └── recipeinfo
+├── go-patricia
+│   ├── generic_MIT
+│   ├── LICENSE
+│   └── recipeinfo
+├── go-pty
+│   ├── generic_MIT
+│   ├── License
+│   └── recipeinfo
+├── go-runtime
+│   ├── generic_BSD-3-Clause
+│   ├── LICENSE
+│   └── recipeinfo
+├── go-systemd
+│   ├── generic_Apache-2.0
+│   ├── LICENSE
+│   └── recipeinfo
+├── gperf-native
+│   ├── COPYING
+│   ├── generic_GPLv3
+│   ├── main.cc
+│   └── recipeinfo
+├── gpgme
+│   ├── COPYING
+│   ├── COPYING.LESSER
+│   ├── engine.h
+│   ├── generic_GPLv2
+│   ├── generic_LGPLv2.1
+│   ├── gpgme.h.in
+│   └── recipeinfo
+├── gpgme-native
+│   ├── COPYING
+│   ├── COPYING.LESSER
+│   ├── engine.h
+│   ├── generic_GPLv2
+│   ├── generic_LGPLv2.1
+│   ├── gpgme.h.in
+│   └── recipeinfo
+├── gptfdisk-native
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── grep
+│   ├── COPYING
+│   ├── generic_GPLv3
+│   └── recipeinfo
+├── groff-native
+│   ├── COPYING
+│   ├── generic_GPLv3
+│   └── recipeinfo
+├── grpc-go
+│   ├── generic_BSD
+│   ├── LICENSE
+│   └── recipeinfo
+├── grub-efi-native
+│   ├── COPYING
+│   ├── generic_GPLv3
+│   └── recipeinfo
+├── gtk-doc
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── gtk-doc-native
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── gzip
+│   ├── COPYING
+│   ├── generic_GPLv3
+│   ├── gzip.h
+│   └── recipeinfo
+├── hostapd
+│   ├── generic_BSD-3-Clause
+│   ├── README
+│   └── recipeinfo
+├── htop
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── i2c-tools
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── icu
+│   ├── generic_ICU
+│   ├── LICENSE
+│   └── recipeinfo
+├── icu-native
+│   ├── generic_ICU
+│   ├── LICENSE
+│   └── recipeinfo
+├── ifupdown
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── in6g-modules
+│   ├── generic_GPLv2
+│   ├── gpl-2.0.txt
+│   └── recipeinfo
+├── init-files
+│   ├── generic_MIT
+│   ├── MIT
+│   └── recipeinfo
+├── init-ifupdown
+│   ├── copyright
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── initscripts
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── initscripts-readonly-rootfs-overlay
+│   ├── COPYING.MIT
+│   ├── generic_MIT
+│   └── recipeinfo
+├── intltool-native
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── iproute2
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   ├── ip.c
+│   └── recipeinfo
+├── iptables
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   ├── iptables.c
+│   └── recipeinfo
+├── iputils
+│   ├── generic_BSD
+│   ├── generic_GPLv2
+│   ├── LICENSE
+│   ├── LICENSE.BSD3
+│   ├── LICENSE.GPL2
+│   └── recipeinfo
+├── iw
+│   ├── COPYING
+│   ├── generic_BSD
+│   └── recipeinfo
+├── jikes-initial-native
+│   ├── generic_MIT
+│   ├── MIT
+│   └── recipeinfo
+├── jikes-native
+│   ├── COPYING
+│   ├── generic_IPL-1.0
+│   ├── license.htm
+│   └── recipeinfo
+├── jq
+│   ├── COPYING
+│   ├── generic_MIT
+│   └── recipeinfo
+├── json-c
+│   ├── COPYING
+│   ├── generic_MIT
+│   └── recipeinfo
+├── json-c-native
+│   ├── COPYING
+│   ├── generic_MIT
+│   └── recipeinfo
+├── kbd
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── kern-tools-native
+│   ├── generic_GPLv2
+│   ├── kgit
+│   └── recipeinfo
+├── kmod
+│   ├── COPYING.0
+│   ├── COPYING.1
+│   ├── generic_GPL-2.0
+│   ├── generic_LGPL-2.1
+│   └── recipeinfo
+├── kmod-native
+│   ├── COPYING.0
+│   ├── COPYING.1
+│   ├── generic_GPL-2.0
+│   ├── generic_LGPL-2.1
+│   └── recipeinfo
+├── kura
+│   ├── generic_EPL-1.0
+│   ├── LICENSE
+│   └── recipeinfo
+├── ldconfig-native
+│   ├── generic_GPLv2
+│   ├── ldconfig.c
+│   └── recipeinfo
+├── libaio
+│   ├── COPYING
+│   ├── generic_LGPLv2.1
+│   └── recipeinfo
+├── libarchive
+│   ├── COPYING
+│   ├── generic_BSD
+│   └── recipeinfo
+├── libarchive-native
+│   ├── COPYING
+│   ├── generic_BSD
+│   └── recipeinfo
+├── libassuan
+│   ├── assuan.c
+│   ├── assuan-defs.h
+│   ├── COPYING
+│   ├── COPYING.LIB
+│   ├── generic_GPLv3
+│   ├── generic_LGPLv2.1
+│   └── recipeinfo
+├── libassuan-native
+│   ├── assuan.c
+│   ├── assuan-defs.h
+│   ├── COPYING
+│   ├── COPYING.LIB
+│   ├── generic_GPLv3
+│   ├── generic_LGPLv2.1
+│   └── recipeinfo
+├── libatomic-ops-native
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   ├── generic_MIT
+│   ├── LICENSING.txt
+│   └── recipeinfo
+├── libcap
+│   ├── generic_BSD
+│   ├── generic_GPLv2
+│   ├── License
+│   └── recipeinfo
+├── libcheck
+│   ├── COPYING.LESSER
+│   ├── generic_LGPLv2.1
+│   └── recipeinfo
+├── libcheck-native
+│   ├── COPYING.LESSER
+│   ├── generic_LGPLv2.1
+│   └── recipeinfo
+├── libcomps
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── libcomps-native
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── libdevmapper
+│   ├── COPYING
+│   ├── COPYING.LIB
+│   ├── generic_GPLv2
+│   ├── generic_LGPLv2.1
+│   └── recipeinfo
+├── libdnf
+│   ├── COPYING
+│   ├── generic_LGPLv2.1
+│   └── recipeinfo
+├── libdnf-native
+│   ├── COPYING
+│   ├── generic_LGPLv2.1
+│   └── recipeinfo
+├── libdrm
+│   ├── generic_MIT
+│   ├── recipeinfo
+│   └── xf86drm.c
+├── libecj-bootstrap-native
+│   ├── EPL-1.0
+│   ├── generic_EPL-1.0
+│   └── recipeinfo
+├── libevent
+│   ├── generic_BSD
+│   ├── generic_MIT
+│   ├── LICENSE
+│   └── recipeinfo
+├── libffi
+│   ├── generic_MIT
+│   ├── LICENSE
+│   └── recipeinfo
+├── libffi-native
+│   ├── generic_MIT
+│   ├── LICENSE
+│   └── recipeinfo
+├── libftdi
+│   ├── COPYING.GPL
+│   ├── COPYING.LIB
+│   ├── generic_GPLv2
+│   ├── generic_LGPLv2.1
+│   └── recipeinfo
+├── libgcc
+│   ├── COPYING
+│   ├── COPYING3
+│   ├── COPYING3.LIB
+│   ├── COPYING.LIB
+│   ├── COPYING.RUNTIME
+│   ├── generic_GPL-3.0-with-GCC-exception
+│   ├── generic_GPLv3
+│   └── recipeinfo
+├── libgcc-initial
+│   ├── COPYING
+│   ├── COPYING3
+│   ├── COPYING3.LIB
+│   ├── COPYING.LIB
+│   ├── COPYING.RUNTIME
+│   ├── generic_GPL-3.0-with-GCC-exception
+│   └── recipeinfo
+├── libgcrypt
+│   ├── COPYING
+│   ├── COPYING.LIB
+│   ├── dumpsexp.c
+│   ├── generic_GPLv2
+│   ├── generic_GPLv3
+│   ├── generic_LGPLv2.1
+│   ├── LICENSES
+│   └── recipeinfo
+├── libgpg-error
+│   ├── COPYING
+│   ├── COPYING.LIB
+│   ├── generic_GPLv2
+│   ├── generic_LGPLv2.1
+│   ├── gpg-error.h.in
+│   ├── init.c
+│   └── recipeinfo
+├── libgpg-error-native
+│   ├── COPYING
+│   ├── COPYING.LIB
+│   ├── generic_GPLv2
+│   ├── generic_LGPLv2.1
+│   ├── gpg-error.h.in
+│   ├── init.c
+│   └── recipeinfo
+├── libical
+│   ├── COPYING
+│   ├── generic_LGPLv2.1
+│   ├── generic_MPL-1
+│   ├── LICENSE
+│   └── recipeinfo
+├── libice
+│   ├── COPYING
+│   ├── generic_MIT-style
+│   └── recipeinfo
+├── libice-native
+│   ├── COPYING
+│   ├── generic_MIT-style
+│   └── recipeinfo
+├── libidn2
+│   ├── COPYING
+│   ├── COPYING.LESSERv3
+│   ├── COPYINGv2
+│   ├── generic_GPLv2
+│   ├── generic_GPLv3
+│   ├── generic_LGPLv3
+│   ├── idn2.c
+│   ├── idn2.h.in
+│   └── recipeinfo
+├── libksba
+│   ├── COPYING
+│   ├── COPYING.GPLv2
+│   ├── COPYING.GPLv3
+│   ├── COPYING.LGPLv3
+│   ├── generic_GPLv2
+│   ├── generic_GPLv3
+│   ├── generic_LGPLv3
+│   └── recipeinfo
+├── libmnl
+│   ├── COPYING
+│   ├── generic_LGPLv2.1
+│   └── recipeinfo
+├── libmodulemd
+│   ├── COPYING
+│   ├── generic_MIT
+│   └── recipeinfo
+├── libmodulemd-native
+│   ├── COPYING
+│   ├── generic_MIT
+│   └── recipeinfo
+├── libmpc
+│   ├── COPYING.LESSER
+│   ├── generic_LGPLv3
+│   └── recipeinfo
+├── libmpc-native
+│   ├── COPYING.LESSER
+│   ├── generic_LGPLv3
+│   └── recipeinfo
+├── libnl
+│   ├── COPYING
+│   ├── generic_LGPLv2.1
+│   └── recipeinfo
+├── libnsl2
+│   ├── COPYING
+│   ├── generic_LGPL-2.1
+│   └── recipeinfo
+├── libnsl2-native
+│   ├── COPYING
+│   ├── generic_LGPL-2.1
+│   └── recipeinfo
+├── libpcap
+│   ├── generic_BSD
+│   ├── LICENSE
+│   ├── pcap.h
+│   └── recipeinfo
+├── libpciaccess
+│   ├── COPYING
+│   ├── generic_MIT
+│   ├── generic_MIT-style
+│   └── recipeinfo
+├── libpcre
+│   ├── generic_BSD
+│   ├── LICENCE
+│   └── recipeinfo
+├── libpcre-native
+│   ├── generic_BSD
+│   ├── LICENCE
+│   └── recipeinfo
+├── libpng
+│   ├── generic_Libpng
+│   ├── LICENSE
+│   ├── png.h
+│   └── recipeinfo
+├── libpthread-stubs
+│   ├── COPYING
+│   ├── generic_MIT
+│   └── recipeinfo
+├── libpthread-stubs-native
+│   ├── COPYING
+│   ├── generic_MIT
+│   └── recipeinfo
+├── librepo
+│   ├── COPYING
+│   ├── generic_LGPLv2.1
+│   └── recipeinfo
+├── librepo-native
+│   ├── COPYING
+│   ├── generic_LGPLv2.1
+│   └── recipeinfo
+├── libsm
+│   ├── COPYING
+│   ├── generic_MIT-style
+│   └── recipeinfo
+├── libsm-native
+│   ├── COPYING
+│   ├── generic_MIT-style
+│   └── recipeinfo
+├── libsolv
+│   ├── generic_BSD-3-Clause
+│   ├── LICENSE.BSD
+│   └── recipeinfo
+├── libsolv-native
+│   ├── generic_BSD-3-Clause
+│   ├── LICENSE.BSD
+│   └── recipeinfo
+├── libtirpc
+│   ├── COPYING
+│   ├── generic_BSD
+│   ├── netname.c
+│   └── recipeinfo
+├── libtirpc-native
+│   ├── COPYING
+│   ├── generic_BSD
+│   ├── netname.c
+│   └── recipeinfo
+├── libtool
+│   ├── COPYING
+│   ├── COPYING.LIB
+│   ├── generic_GPLv2
+│   ├── generic_LGPLv2.1
+│   └── recipeinfo
+├── libtool-cross
+│   ├── COPYING
+│   ├── COPYING.LIB
+│   ├── generic_GPLv2
+│   ├── generic_LGPLv2.1
+│   └── recipeinfo
+├── libtool-native
+│   ├── COPYING
+│   ├── COPYING.LIB
+│   ├── generic_GPLv2
+│   ├── generic_LGPLv2.1
+│   └── recipeinfo
+├── libunistring
+│   ├── COPYING.LIB
+│   ├── generic_GPLv2
+│   ├── generic_LGPLv3
+│   ├── README
+│   └── recipeinfo
+├── libusb1
+│   ├── COPYING
+│   ├── generic_LGPLv2.1
+│   └── recipeinfo
+├── libusb-compat
+│   ├── generic_LGPLv2.1
+│   ├── LICENSE
+│   └── recipeinfo
+├── libx11
+│   ├── COPYING
+│   ├── generic_BSD
+│   ├── generic_MIT
+│   ├── generic_MIT-style
+│   └── recipeinfo
+├── libx11-native
+│   ├── COPYING
+│   ├── generic_BSD
+│   ├── generic_MIT
+│   ├── generic_MIT-style
+│   └── recipeinfo
+├── libxau
+│   ├── COPYING
+│   ├── generic_MIT-style
+│   └── recipeinfo
+├── libxau-native
+│   ├── COPYING
+│   ├── generic_MIT-style
+│   └── recipeinfo
+├── libxcb
+│   ├── COPYING
+│   ├── generic_MIT
+│   └── recipeinfo
+├── libxcb-native
+│   ├── COPYING
+│   ├── generic_MIT
+│   └── recipeinfo
+├── libxdamage
+│   ├── COPYING
+│   ├── generic_MIT
+│   └── recipeinfo
+├── libxdmcp
+│   ├── COPYING
+│   ├── generic_MIT-style
+│   └── recipeinfo
+├── libxdmcp-native
+│   ├── COPYING
+│   ├── generic_MIT-style
+│   └── recipeinfo
+├── libxext
+│   ├── COPYING
+│   ├── generic_MIT-style
+│   └── recipeinfo
+├── libxext-native
+│   ├── COPYING
+│   ├── generic_MIT-style
+│   └── recipeinfo
+├── libxfixes
+│   ├── COPYING
+│   ├── generic_MIT-style
+│   └── recipeinfo
+├── libxfixes-native
+│   ├── COPYING
+│   ├── generic_MIT-style
+│   └── recipeinfo
+├── libxi
+│   ├── COPYING
+│   ├── generic_MIT
+│   ├── generic_MIT-style
+│   ├── recipeinfo
+│   └── XIGetDevFocus.c
+├── libxi-native
+│   ├── COPYING
+│   ├── generic_MIT
+│   ├── generic_MIT-style
+│   ├── recipeinfo
+│   └── XIGetDevFocus.c
+├── libxkbcommon
+│   ├── generic_MIT
+│   ├── generic_MIT-style
+│   ├── LICENSE
+│   └── recipeinfo
+├── libxml2
+│   ├── Copyright
+│   ├── generic_MIT
+│   ├── hash.c
+│   ├── list.c
+│   ├── recipeinfo
+│   └── trio.c
+├── libxml2-native
+│   ├── Copyright
+│   ├── generic_MIT
+│   ├── hash.c
+│   ├── list.c
+│   ├── recipeinfo
+│   └── trio.c
+├── libxml-parser-perl-native
+│   ├── generic_Artistic-1.0
+│   ├── generic_GPL-1.0
+│   ├── README
+│   └── recipeinfo
+├── libxrandr
+│   ├── COPYING
+│   ├── generic_MIT-style
+│   └── recipeinfo
+├── libxrandr-native
+│   ├── COPYING
+│   ├── generic_MIT-style
+│   └── recipeinfo
+├── libxrender
+│   ├── COPYING
+│   ├── generic_MIT-style
+│   └── recipeinfo
+├── libxrender-native
+│   ├── COPYING
+│   ├── generic_MIT-style
+│   └── recipeinfo
+├── libxshmfence
+│   ├── COPYING
+│   ├── generic_MIT-style
+│   └── recipeinfo
+├── libxslt-native
+│   ├── Copyright
+│   ├── generic_MIT
+│   └── recipeinfo
+├── libxt
+│   ├── COPYING
+│   ├── generic_MIT
+│   ├── generic_MIT-style
+│   └── recipeinfo
+├── libxt-native
+│   ├── COPYING
+│   ├── generic_MIT
+│   ├── generic_MIT-style
+│   └── recipeinfo
+├── libxtst
+│   ├── COPYING
+│   ├── generic_MIT-style
+│   ├── recipeinfo
+│   └── XTest.c
+├── libxtst-native
+│   ├── COPYING
+│   ├── generic_MIT-style
+│   ├── recipeinfo
+│   └── XTest.c
+├── libxxf86vm
+│   ├── COPYING
+│   ├── generic_MIT
+│   └── recipeinfo
+├── libyaml
+│   ├── generic_MIT
+│   ├── LICENSE
+│   └── recipeinfo
+├── libyaml-native
+│   ├── generic_MIT
+│   ├── LICENSE
+│   └── recipeinfo
+├── linux-base
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── linux-firmware
+│   ├── generic_Firmware-Abilis
+│   ├── generic_Firmware-adsp_sst
+│   ├── generic_Firmware-agere
+│   ├── generic_Firmware-amdgpu
+│   ├── generic_Firmware-amd-ucode
+│   ├── generic_Firmware-amlogic_vdec
+│   ├── generic_Firmware-ath9k-htc
+│   ├── generic_Firmware-atheros_firmware
+│   ├── generic_Firmware-atmel
+│   ├── generic_Firmware-broadcom_bcm43xx
+│   ├── generic_Firmware-ca0132
+│   ├── generic_Firmware-cavium
+│   ├── generic_Firmware-chelsio_firmware
+│   ├── generic_Firmware-cw1200
+│   ├── generic_Firmware-cypress
+│   ├── generic_Firmware-dib0700
+│   ├── generic_Firmware-e100
+│   ├── generic_Firmware-ene_firmware
+│   ├── generic_Firmware-fw_sst_0f28
+│   ├── generic_Firmware-go7007
+│   ├── generic_Firmware-GPLv2
+│   ├── generic_Firmware-hfi1_firmware
+│   ├── generic_Firmware-i2400m
+│   ├── generic_Firmware-i915
+│   ├── generic_Firmware-ibt_firmware
+│   ├── generic_Firmware-imx-sdma_firmware
+│   ├── generic_Firmware-IntcSST2
+│   ├── generic_Firmware-it913x
+│   ├── generic_Firmware-iwlwifi_firmware
+│   ├── generic_Firmware-kaweth
+│   ├── generic_Firmware-Marvell
+│   ├── generic_Firmware-moxa
+│   ├── generic_Firmware-myri10ge_firmware
+│   ├── generic_Firmware-netronome
+│   ├── generic_Firmware-nvidia
+│   ├── generic_Firmware-OLPC
+│   ├── generic_Firmware-phanfw
+│   ├── generic_Firmware-qat
+│   ├── generic_Firmware-qcom
+│   ├── generic_Firmware-qla1280
+│   ├── generic_Firmware-qla2xxx
+│   ├── generic_Firmware-qualcommAthos_ar3k
+│   ├── generic_Firmware-qualcommAthos_ath10k
+│   ├── generic_Firmware-r8a779x_usb3
+│   ├── generic_Firmware-radeon
+│   ├── generic_Firmware-ralink_a_mediatek_company_firmware
+│   ├── generic_Firmware-ralink-firmware
+│   ├── generic_Firmware-rtlwifi_firmware
+│   ├── generic_Firmware-siano
+│   ├── generic_Firmware-tda7706-firmware
+│   ├── generic_Firmware-ti-connectivity
+│   ├── generic_Firmware-ti-keystone
+│   ├── generic_Firmware-ueagle-atm4-firmware
+│   ├── generic_Firmware-via_vt6656
+│   ├── generic_Firmware-wl1251
+│   ├── generic_Firmware-xc4000
+│   ├── generic_Firmware-xc5000
+│   ├── generic_Firmware-xc5000c
+│   ├── generic_WHENCE
+│   ├── LICENCE.cadence
+│   ├── LICENCE.mediatek
+│   └── recipeinfo
+├── linux-imx
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── linux-libc-headers-base
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── lvm2
+│   ├── COPYING
+│   ├── COPYING.LIB
+│   ├── generic_GPLv2
+│   ├── generic_LGPLv2.1
+│   └── recipeinfo
+├── lz4-native
+│   ├── COPYING
+│   ├── generic_BSD
+│   ├── generic_BSD-2-Clause
+│   ├── generic_GPL-2.0
+│   ├── LICENSE.0
+│   ├── LICENSE.1
+│   └── recipeinfo
+├── lzo
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   ├── lzo_init.c
+│   └── recipeinfo
+├── lzo-native
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   ├── lzo_init.c
+│   └── recipeinfo
+├── lzop-native
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   ├── lzop.c
+│   └── recipeinfo
+├── m4
+│   ├── COPYING.0
+│   ├── COPYING.1
+│   ├── generic_GPLv3
+│   └── recipeinfo
+├── m4-native
+│   ├── COPYING.0
+│   ├── COPYING.1
+│   ├── generic_GPLv3
+│   └── recipeinfo
+├── make
+│   ├── COPYING
+│   ├── COPYING.LIB
+│   ├── generic_GPLv3
+│   ├── generic_LGPLv2
+│   └── recipeinfo
+├── makedepend-native
+│   ├── COPYING
+│   ├── generic_MIT-X
+│   └── recipeinfo
+├── makedevs-native
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── maven-native
+│   ├── generic_Apache-2.0
+│   ├── LICENSE
+│   └── recipeinfo
+├── mdadm
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   ├── mdadm.h
+│   ├── mdmon.c
+│   └── recipeinfo
+├── mender
+│   ├── generic_Apache-2.0
+│   ├── generic_BSD-2-Clause
+│   ├── generic_BSD-3-Clause
+│   ├── generic_ISC
+│   ├── generic_MIT
+│   ├── generic_OLDAP-2.8
+│   ├── generic_OpenSSL
+│   ├── LIC_FILES_CHKSUM.sha256
+│   └── recipeinfo
+├── mender-artifact-info
+│   ├── Apache-2.0
+│   ├── generic_Apache-2.0
+│   └── recipeinfo
+├── mender-artifact-native
+│   ├── generic_Apache-2.0
+│   ├── generic_BSD-2-Clause
+│   ├── generic_BSD-3-Clause
+│   ├── generic_ISC
+│   ├── generic_MIT
+│   ├── LIC_FILES_CHKSUM.sha256
+│   └── recipeinfo
+├── mender-connect
+│   ├── generic_Apache-2.0
+│   ├── generic_BSD-2-Clause
+│   ├── generic_BSD-3-Clause
+│   ├── generic_ISC
+│   ├── generic_MIT
+│   ├── LIC_FILES_CHKSUM.sha256
+│   └── recipeinfo
+├── mesa
+│   ├── generic_MIT
+│   ├── license.html
+│   └── recipeinfo
+├── meson-native
+│   ├── COPYING
+│   ├── generic_Apache-2.0
+│   └── recipeinfo
+├── mklibs-native
+│   ├── copyright
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── mmc-utils
+│   ├── generic_GPLv2
+│   ├── mmc.c
+│   └── recipeinfo
+├── modem-gps
+│   ├── generic_GPLv2
+│   ├── LICENSE
+│   └── recipeinfo
+├── modutils-initscripts
+│   ├── generic_PD
+│   ├── LICENSE
+│   └── recipeinfo
+├── mpfr
+│   ├── COPYING
+│   ├── COPYING.LESSER
+│   ├── generic_GPLv3
+│   ├── generic_LGPLv3
+│   └── recipeinfo
+├── mpfr-native
+│   ├── COPYING
+│   ├── COPYING.LESSER
+│   ├── generic_GPLv3
+│   ├── generic_LGPLv3
+│   └── recipeinfo
+├── mtools-native
+│   ├── COPYING
+│   ├── generic_GPLv3
+│   └── recipeinfo
+├── mynewt-sr-nina-b1-blehci
+│   ├── generic_Apache-2.0
+│   ├── LICENSE
+│   └── recipeinfo
+├── n6g-modules
+│   ├── generic_GPLv2
+│   ├── gpl-2.0.txt
+│   └── recipeinfo
+├── nano
+│   ├── COPYING
+│   ├── generic_GPLv3
+│   └── recipeinfo
+├── nasm-native
+│   ├── generic_BSD-2-Clause
+│   ├── LICENSE
+│   └── recipeinfo
+├── ncurses
+│   ├── generic_MIT
+│   ├── recipeinfo
+│   └── version.c
+├── ncurses-native
+│   ├── generic_MIT
+│   ├── recipeinfo
+│   └── version.c
+├── netbase
+│   ├── copyright
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── nettle
+│   ├── COPYING.LESSERv3
+│   ├── COPYINGv2
+│   ├── generic_GPLv2
+│   ├── generic_LGPLv3
+│   ├── recipeinfo
+│   ├── serpent-decrypt.c
+│   └── serpent-set-key.c
+├── nfs-utils
+│   ├── COPYING
+│   ├── generic_BSD
+│   ├── generic_GPLv2
+│   ├── generic_MIT
+│   └── recipeinfo
+├── ninja-native
+│   ├── COPYING
+│   ├── generic_Apache-2.0
+│   └── recipeinfo
+├── notary
+│   ├── generic_Apache-2.0
+│   ├── LICENSE
+│   └── recipeinfo
+├── npth
+│   ├── COPYING.LIB
+│   ├── generic_LGPLv2.1
+│   └── recipeinfo
+├── nspr
+│   ├── configure.in
+│   ├── generic_GPL-2.0
+│   ├── generic_LGPL-2.1
+│   ├── generic_MPL-2.0
+│   ├── Makefile.in
+│   └── recipeinfo
+├── nspr-native
+│   ├── configure.in
+│   ├── generic_GPL-2.0
+│   ├── generic_LGPL-2.1
+│   ├── generic_MPL-2.0
+│   ├── Makefile.in
+│   └── recipeinfo
+├── nss
+│   ├── COPYING
+│   ├── generic_GPL-2.0
+│   ├── generic_LGPL-2.1
+│   ├── generic_MPL-2.0
+│   ├── LICENSE
+│   ├── LICENSE-MPL
+│   └── recipeinfo
+├── nss-native
+│   ├── COPYING
+│   ├── generic_GPL-2.0
+│   ├── generic_LGPL-2.1
+│   ├── generic_MPL-2.0
+│   ├── LICENSE
+│   ├── LICENSE-MPL
+│   └── recipeinfo
+├── onig
+│   ├── COPYING
+│   ├── generic_BSD
+│   └── recipeinfo
+├── openjdk-11
+│   ├── generic_GPL-2.0-with-classpath-exception
+│   ├── LICENSE
+│   └── recipeinfo
+├── openjdk-11-native
+│   ├── generic_GPL-2.0-with-classpath-exception
+│   ├── LICENSE
+│   └── recipeinfo
+├── openocd
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── openssh
+│   ├── generic_BSD
+│   ├── LICENCE
+│   └── recipeinfo
+├── openssl
+│   ├── generic_openssl
+│   ├── LICENSE
+│   └── recipeinfo
+├── openssl-native
+│   ├── generic_openssl
+│   ├── LICENSE
+│   └── recipeinfo
+├── openvpn
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── opkg
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   ├── opkg.c
+│   └── recipeinfo
+├── opkg-arch-config
+│   ├── generic_MIT
+│   └── recipeinfo
+├── opkg-native
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   ├── opkg.c
+│   └── recipeinfo
+├── opkg-utils
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   ├── opkg.py
+│   └── recipeinfo
+├── opkg-utils-native
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   ├── opkg.py
+│   └── recipeinfo
+├── os-release
+│   ├── generic_MIT
+│   └── recipeinfo
+├── packagegroup-core-boot
+│   ├── generic_MIT
+│   └── recipeinfo
+├── packagegroup-core-ssh-dropbear
+│   ├── generic_MIT
+│   └── recipeinfo
+├── parted
+│   ├── COPYING
+│   ├── generic_GPLv3
+│   └── recipeinfo
+├── parted-native
+│   ├── COPYING
+│   ├── generic_GPLv3
+│   └── recipeinfo
+├── pbzip2-native
+│   ├── COPYING
+│   ├── generic_BSD
+│   └── recipeinfo
+├── pciutils
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── perl
+│   ├── Artistic
+│   ├── Copying
+│   ├── generic_Artistic-1.0
+│   ├── generic_GPL-1.0
+│   └── recipeinfo
+├── perl-native
+│   ├── Artistic
+│   ├── Copying
+│   ├── generic_Artistic-1.0
+│   ├── generic_GPL-1.0
+│   └── recipeinfo
+├── picocom
+│   ├── generic_GPLv2
+│   ├── LICENSE.txt
+│   └── recipeinfo
+├── pigz-native
+│   ├── generic_Apache-2.0
+│   ├── generic_Zlib
+│   ├── pigz.c
+│   └── recipeinfo
+├── pinentry
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   ├── main.cpp
+│   └── recipeinfo
+├── pixman
+│   ├── COPYING
+│   ├── generic_MIT
+│   ├── generic_MIT-style
+│   ├── generic_PD
+│   ├── pixman-arm-neon-asm.h
+│   ├── pixman-matrix.c
+│   └── recipeinfo
+├── pkgconfig
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── pkgconfig-native
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── popt
+│   ├── COPYING
+│   ├── generic_MIT
+│   └── recipeinfo
+├── popt-native
+│   ├── COPYING
+│   ├── generic_MIT
+│   └── recipeinfo
+├── ppp
+│   ├── ccp.c
+│   ├── chat.c
+│   ├── generic_BSD
+│   ├── generic_GPLv2
+│   ├── generic_LGPLv2
+│   ├── generic_PD
+│   ├── passprompt.c
+│   ├── recipeinfo
+│   └── tdb.c
+├── prelink-native
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── procps
+│   ├── COPYING
+│   ├── COPYING.LIB
+│   ├── generic_GPLv2
+│   ├── generic_LGPLv2
+│   ├── generic_LGPLv2.1
+│   ├── recipeinfo
+│   └── w.c
+├── protobuf
+│   ├── generic_BSD-3-Clause
+│   ├── LICENSE
+│   └── recipeinfo
+├── protobuf-native
+│   ├── generic_BSD-3-Clause
+│   ├── LICENSE
+│   └── recipeinfo
+├── pseudo-native
+│   ├── COPYING
+│   ├── generic_LGPLv2.1
+│   └── recipeinfo
+├── ptest-runner
+│   ├── generic_GPLv2
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3
+│   ├── generic_PSFv2
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-alabaster
+│   ├── generic_BSD
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-asn1crypto
+│   ├── generic_MIT
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-atomicwrites
+│   ├── generic_MIT
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-attrs
+│   ├── generic_MIT
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-babel
+│   ├── generic_BSD
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-cached-property
+│   ├── generic_BSD-3-Clause
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-certifi
+│   ├── generic_ISC
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-cffi
+│   ├── generic_MIT
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-cffi-native
+│   ├── generic_MIT
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-chardet
+│   ├── generic_LGPL-2.1
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-colorama
+│   ├── generic_BSD-3-Clause
+│   ├── LICENSE.txt
+│   └── recipeinfo
+├── python3-coverage
+│   ├── generic_Apache-2.0
+│   ├── LICENSE.txt
+│   └── recipeinfo
+├── python3-cryptography
+│   ├── generic_Apache-2.0
+│   ├── generic_BSD
+│   ├── LICENSE
+│   ├── LICENSE.APACHE
+│   ├── LICENSE.BSD
+│   └── recipeinfo
+├── python3-cython-native
+│   ├── generic_Apache-2.0
+│   ├── LICENSE.txt
+│   └── recipeinfo
+├── python3-dbus
+│   ├── COPYING
+│   ├── generic_MIT
+│   └── recipeinfo
+├── python3-docker
+│   ├── generic_Apache-2.0
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-docker-compose
+│   ├── generic_Apache-2.0
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-dockerpty
+│   ├── generic_Apache-2.0
+│   ├── LICENSE.txt
+│   └── recipeinfo
+├── python3-docker-pycreds
+│   ├── generic_Apache-2.0
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-docopt
+│   ├── generic_MIT
+│   ├── LICENSE-MIT
+│   └── recipeinfo
+├── python3-docutils
+│   ├── COPYING.txt
+│   ├── generic_BSD-2-Clause
+│   ├── generic_GPLv3
+│   ├── generic_PSF
+│   └── recipeinfo
+├── python3-grpcio
+│   ├── generic_Apache-2.0
+│   ├── PKG-INFO
+│   └── recipeinfo
+├── python3-grpcio-native
+│   ├── BSD-3-Clause
+│   ├── generic_BSD-3-Clause
+│   └── recipeinfo
+├── python3-grpcio-tools
+│   ├── BSD-3-Clause
+│   ├── generic_BSD-3-Clause
+│   └── recipeinfo
+├── python3-grpcio-tools-native
+│   ├── BSD-3-Clause
+│   ├── generic_BSD-3-Clause
+│   └── recipeinfo
+├── python3-idna
+│   ├── generic_BSD-3-Clause
+│   ├── generic_Python-2.0
+│   ├── generic_Unicode
+│   ├── LICENSE.rst
+│   └── recipeinfo
+├── python3-imagesize
+│   ├── generic_MIT
+│   ├── LICENSE.rst
+│   └── recipeinfo
+├── python3-importlib-metadata
+│   ├── generic_Apache-1.0
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-iniparse
+│   ├── generic_MIT
+│   ├── generic_PSF
+│   ├── LICENSE
+│   ├── LICENSE-PSF
+│   └── recipeinfo
+├── python3-iniparse-native
+│   ├── generic_MIT
+│   ├── generic_PSF
+│   ├── LICENSE
+│   ├── LICENSE-PSF
+│   └── recipeinfo
+├── python3-jinja2
+│   ├── generic_BSD-3-Clause
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-jsonschema
+│   ├── COPYING
+│   ├── generic_MIT
+│   └── recipeinfo
+├── python3-mako-native
+│   ├── generic_MIT
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-markupsafe
+│   ├── generic_BSD-3-Clause
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-more-itertools
+│   ├── generic_MIT
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-native
+│   ├── generic_PSFv2
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-ndg-httpsclient
+│   ├── generic_BSD
+│   ├── MANIFEST.in
+│   └── recipeinfo
+├── python3-packaging
+│   ├── generic_BSD
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-paho-mqtt
+│   ├── edl-v10
+│   ├── epl-v10
+│   ├── generic_EDL-1.0
+│   ├── generic_EPL-1.0
+│   ├── LICENSE.txt
+│   └── recipeinfo
+├── python3-pip-native
+│   ├── generic_MIT
+│   ├── LICENSE.txt
+│   └── recipeinfo
+├── python3-pkgconfig-native
+│   ├── generic_MIT
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-pluggy
+│   ├── generic_MIT
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-ply
+│   ├── generic_BSD-3-Clause
+│   ├── README.md
+│   └── recipeinfo
+├── python3-ply-native
+│   ├── generic_BSD-3-Clause
+│   ├── README.md
+│   └── recipeinfo
+├── python3-pockets
+│   ├── generic_BSD
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-protobuf
+│   ├── generic_BSD-3-Clause
+│   ├── PKG-INFO
+│   └── recipeinfo
+├── python3-protobuf-native
+│   ├── generic_BSD-3-Clause
+│   ├── PKG-INFO
+│   └── recipeinfo
+├── python3-py
+│   ├── generic_MIT
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-pyasn1
+│   ├── generic_BSD-2-Clause
+│   ├── LICENSE.rst
+│   └── recipeinfo
+├── python3-pycairo
+│   ├── COPYING
+│   ├── COPYING-LGPL-2.1
+│   ├── COPYING-MPL-1.1
+│   ├── generic_LGPLv2.1
+│   ├── generic_MPLv1.1
+│   └── recipeinfo
+├── python3-pycparser
+│   ├── generic_BSD-3-Clause
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-pycparser-native
+│   ├── generic_BSD-3-Clause
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-pydbus
+│   ├── generic_LGPLv2.1
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-pygments
+│   ├── generic_BSD
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-pygobject
+│   ├── COPYING
+│   ├── generic_LGPLv2.1
+│   └── recipeinfo
+├── python3-py-native
+│   ├── generic_MIT
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-pyopenssl
+│   ├── generic_Apache-2.0
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-pyparsing
+│   ├── generic_MIT
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-pyserial
+│   ├── generic_BSD
+│   ├── LICENSE.txt
+│   └── recipeinfo
+├── python3-pysocks
+│   ├── generic_BSD
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-pytest
+│   ├── generic_MIT
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-pytest-runner-native
+│   ├── generic_MIT
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-pytz
+│   ├── generic_MIT
+│   ├── LICENSE.txt
+│   └── recipeinfo
+├── python3-pyyaml
+│   ├── generic_MIT
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-requests
+│   ├── generic_Apache-2.0
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-rfc3987
+│   ├── generic_GPLv3
+│   ├── PKG-INFO
+│   └── recipeinfo
+├── python3-setuptools
+│   ├── generic_MIT
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-setuptools-native
+│   ├── generic_MIT
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-setuptools-scm
+│   ├── generic_MIT
+│   ├── PKG-INFO
+│   └── recipeinfo
+├── python3-setuptools-scm-native
+│   ├── generic_MIT
+│   ├── PKG-INFO
+│   └── recipeinfo
+├── python3-six
+│   ├── generic_MIT
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-six-native
+│   ├── generic_MIT
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-snowballstemmer
+│   ├── generic_BSD
+│   ├── PKG-INFO
+│   └── recipeinfo
+├── python3-sphinx
+│   ├── generic_BSD
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-sphinxcontrib-applehelp
+│   ├── generic_BSD
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-sphinxcontrib-devhelp
+│   ├── generic_BSD
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-sphinxcontrib-htmlhelp
+│   ├── generic_BSD
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-sphinxcontrib-jsmath
+│   ├── generic_BSD
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-sphinxcontrib-napoleon
+│   ├── generic_BSD
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-sphinxcontrib-qthelp
+│   ├── generic_BSD
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-sphinxcontrib-serializinghtml
+│   ├── generic_BSD
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-strict-rfc3339
+│   ├── generic_GPLv3
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-texttable
+│   ├── generic_LGPL-3.0
+│   ├── LICENSE
+│   └── recipeinfo
+├── python3-urllib3
+│   ├── generic_MIT
+│   ├── LICENSE.txt
+│   └── recipeinfo
+├── python3-vcversioner-native
+│   ├── generic_ISC
+│   ├── PKG-INFO
+│   └── recipeinfo
+├── python3-wcwidth
+│   ├── generic_MIT
+│   ├── LICENSE.txt
+│   └── recipeinfo
+├── python3-websocket-client
+│   ├── generic_LGPL-2.1
+│   ├── LICENSE
+│   └── recipeinfo
+├── python-can
+│   ├── generic_LGPLv3
+│   ├── LICENSE.txt
+│   └── recipeinfo
+├── python-can-j1939
+│   ├── generic_MIT
+│   ├── LICENSE
+│   └── recipeinfo
+├── python-native
+│   ├── generic_PSFv2
+│   ├── LICENSE
+│   └── recipeinfo
+├── qemu-native
+│   ├── COPYING
+│   ├── COPYING.LIB
+│   ├── generic_GPLv2
+│   ├── generic_LGPLv2.1
+│   └── recipeinfo
+├── qemuwrapper-cross
+│   ├── generic_MIT
+│   └── recipeinfo
+├── quilt-native
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── quota
+│   ├── generic_BSD
+│   ├── generic_GPLv2
+│   ├── generic_LGPLv2.1
+│   ├── quota.c
+│   ├── recipeinfo
+│   ├── rquota_server.c
+│   └── svc_socket.c
+├── re2c-native
+│   ├── generic_PD
+│   ├── README
+│   └── recipeinfo
+├── readline
+│   ├── COPYING
+│   ├── generic_GPLv3
+│   └── recipeinfo
+├── readline-native
+│   ├── COPYING
+│   ├── generic_GPLv3
+│   └── recipeinfo
+├── requirements.solidsense.5.4.txt
+├── rng-tools
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── rpcbind
+│   ├── COPYING
+│   ├── generic_BSD
+│   ├── recipeinfo
+│   └── rpcinfo.c
+├── rpm
+│   ├── COPYING
+│   ├── generic_GPL-2.0
+│   └── recipeinfo
+├── rpm-native
+│   ├── COPYING
+│   ├── generic_GPL-2.0
+│   └── recipeinfo
+├── rs485conf
+│   ├── generic_BSD-3-Clause
+│   ├── LICENSE
+│   └── recipeinfo
+├── rsync-native
+│   ├── COPYING
+│   ├── generic_GPLv3
+│   └── recipeinfo
+├── runc-docker
+│   ├── generic_Apache-2.0
+│   ├── LICENSE
+│   └── recipeinfo
+├── run-postinsts
+│   ├── COPYING.MIT
+│   ├── generic_MIT
+│   └── recipeinfo
+├── sed
+│   ├── COPYING
+│   ├── generic_GPLv3
+│   ├── recipeinfo
+│   └── sed.h
+├── shadow
+│   ├── COPYING
+│   ├── generic_Artistic-1.0
+│   ├── generic_BSD
+│   ├── passwd.c
+│   └── recipeinfo
+├── shadow-native
+│   ├── COPYING
+│   ├── generic_Artistic-1.0
+│   ├── generic_BSD
+│   ├── passwd.c
+│   └── recipeinfo
+├── shadow-securetty
+│   ├── COPYING.MIT
+│   ├── generic_MIT
+│   └── recipeinfo
+├── shadow-sysroot
+│   ├── generic_Artistic-1.0
+│   ├── generic_BSD
+│   ├── login.defs_shadow-sysroot
+│   └── recipeinfo
+├── shared-mime-info
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── shared-mime-info-native
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── socat
+│   ├── COPYING
+│   ├── generic_GPL-2.0-with-OpenSSL-exception
+│   ├── README
+│   └── recipeinfo
+├── solidsense-mqtt
+│   ├── generic_EPL-1.0
+│   ├── LICENSE
+│   └── recipeinfo
+├── solidsense-provisioning
+│   ├── generic_EPL-2.0
+│   ├── LICENSE
+│   └── recipeinfo
+├── solidsense-scripts
+│   ├── generic_GPLv2
+│   ├── gpl-2.0.txt
+│   └── recipeinfo
+├── solidsense-vehicle
+│   ├── generic_GPL-2.0
+│   ├── LICENSE
+│   └── recipeinfo
+├── sqlite3
+│   ├── generic_PD
+│   ├── recipeinfo
+│   └── sqlite.h.in
+├── sqlite3-native
+│   ├── generic_PD
+│   ├── recipeinfo
+│   └── sqlite.h.in
+├── squashfs-tools-native
+│   ├── COPYING
+│   ├── generic_GPL-2
+│   └── recipeinfo
+├── sudo
+│   ├── arc4random.c
+│   ├── arc4random_uniform.c
+│   ├── fnmatch.c
+│   ├── generic_BSD
+│   ├── generic_ISC
+│   ├── generic_Zlib
+│   ├── getcwd.c
+│   ├── getentropy.c
+│   ├── glob.c
+│   ├── inet_pton.c
+│   ├── LICENSE
+│   ├── reallocarray.c
+│   ├── recipeinfo
+│   ├── redblack.c
+│   ├── snprintf.c
+│   └── sudo_queue.h
+├── swig-native
+│   ├── generic_BSD
+│   ├── generic_GPLv3
+│   ├── LICENSE
+│   ├── LICENSE-GPL
+│   ├── LICENSE-UNIVERSITIES
+│   └── recipeinfo
+├── sysfsutils
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   ├── generic_LGPLv2.1
+│   ├── GPL
+│   ├── LGPL
+│   └── recipeinfo
+├── syslinux-native
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   ├── README
+│   └── recipeinfo
+├── systemd
+│   ├── generic_GPLv2
+│   ├── generic_LGPLv2.1
+│   ├── LICENSE.GPL2
+│   ├── LICENSE.LGPL2.1
+│   └── recipeinfo
+├── systemd-compat-units
+│   ├── generic_MIT
+│   └── recipeinfo
+├── systemd-conf
+│   ├── generic_GPLv2
+│   ├── generic_LGPLv2.1
+│   ├── LICENSE.GPL2
+│   ├── LICENSE.LGPL2.1
+│   └── recipeinfo
+├── systemd-serialgetty
+│   ├── generic_GPLv2
+│   ├── GPL-2.0
+│   └── recipeinfo
+├── systemd-systemctl-native
+│   ├── COPYING.MIT
+│   ├── generic_MIT
+│   └── recipeinfo
+├── tar
+│   ├── COPYING
+│   ├── generic_GPLv3
+│   └── recipeinfo
+├── tcl-native
+│   ├── generic_BSD-3-Clause
+│   ├── generic_tcl
+│   ├── license.terms
+│   └── recipeinfo
+├── tcpdump
+│   ├── generic_BSD
+│   ├── LICENSE
+│   └── recipeinfo
+├── tcp-wrappers
+│   ├── DISCLAIMER
+│   ├── generic_BSD
+│   └── recipeinfo
+├── texinfo-dummy-native
+│   ├── COPYING
+│   ├── generic_MIT
+│   └── recipeinfo
+├── thin-provisioning-tools
+│   ├── COPYING
+│   ├── generic_GPLv3
+│   └── recipeinfo
+├── traceroute
+│   ├── COPYING
+│   ├── COPYING.LIB
+│   ├── generic_GPL-2.0
+│   ├── generic_LGPL-2.1
+│   └── recipeinfo
+├── tzcode-native
+│   ├── generic_BSD
+│   ├── generic_BSD-3-Clause
+│   ├── generic_PD
+│   ├── LICENSE
+│   └── recipeinfo
+├── tzdata
+│   ├── generic_BSD
+│   ├── generic_BSD-3-Clause
+│   ├── generic_PD
+│   ├── LICENSE
+│   └── recipeinfo
+├── u-boot
+│   ├── generic_GPLv2
+│   ├── README
+│   └── recipeinfo
+├── u-boot-fw-utils-mender-auto-provided
+│   ├── dummy-license.txt
+│   ├── generic_GPL-2.0
+│   └── recipeinfo
+├── unzip
+│   ├── generic_BSD-3-Clause
+│   ├── LICENSE
+│   └── recipeinfo
+├── unzip-native
+│   ├── generic_BSD-3-Clause
+│   ├── LICENSE
+│   └── recipeinfo
+├── update-rc.d
+│   ├── generic_GPLv2
+│   ├── recipeinfo
+│   └── update-rc.d
+├── update-rc.d-native
+│   ├── generic_GPLv2
+│   ├── recipeinfo
+│   └── update-rc.d
+├── usbutils
+│   ├── generic_GPLv2
+│   ├── generic_GPLv3
+│   ├── lsusb.c
+│   ├── lsusb.py.in
+│   └── recipeinfo
+├── util-linux
+│   ├── COPYING.0
+│   ├── COPYING.1
+│   ├── COPYING.2
+│   ├── COPYING.3
+│   ├── COPYING.BSD-3-Clause
+│   ├── COPYING.BSD-4-Clause-UC
+│   ├── COPYING.GPL-2.0-or-later
+│   ├── COPYING.LGPL-2.1-or-later
+│   ├── generic_BSD
+│   ├── generic_GPLv2
+│   ├── generic_LGPLv2.1
+│   ├── README.licensing
+│   └── recipeinfo
+├── util-linux-native
+│   ├── COPYING.0
+│   ├── COPYING.1
+│   ├── COPYING.2
+│   ├── COPYING.3
+│   ├── COPYING.BSD-3-Clause
+│   ├── COPYING.BSD-4-Clause-UC
+│   ├── COPYING.GPL-2.0-or-later
+│   ├── COPYING.LGPL-2.1-or-later
+│   ├── generic_BSD
+│   ├── generic_GPLv2
+│   ├── generic_LGPLv2.1
+│   ├── README.licensing
+│   └── recipeinfo
+├── util-macros
+│   ├── COPYING
+│   ├── generic_MIT
+│   ├── generic_MIT-style
+│   └── recipeinfo
+├── util-macros-native
+│   ├── COPYING
+│   ├── generic_MIT
+│   ├── generic_MIT-style
+│   └── recipeinfo
+├── volatile-binds
+│   ├── COPYING.MIT
+│   ├── generic_MIT
+│   └── recipeinfo
+├── wayland
+│   ├── COPYING
+│   ├── generic_MIT
+│   ├── recipeinfo
+│   └── wayland-server.c
+├── wayland-native
+│   ├── COPYING
+│   ├── generic_MIT
+│   ├── recipeinfo
+│   └── wayland-server.c
+├── wayland-protocols
+│   ├── COPYING
+│   ├── generic_MIT
+│   ├── presentation-time.xml
+│   └── recipeinfo
+├── wget
+│   ├── COPYING
+│   ├── generic_GPLv3
+│   └── recipeinfo
+├── which
+│   ├── copyright
+│   ├── generic_PD
+│   └── recipeinfo
+├── wic-tools
+│   ├── generic_MIT
+│   └── recipeinfo
+├── wireless-regdb
+│   ├── generic_ISC
+│   ├── LICENSE
+│   └── recipeinfo
+├── wireless-tools
+│   ├── COPYING
+│   ├── generic_BSD
+│   ├── generic_GPLv2
+│   ├── generic_LGPL-2.0
+│   ├── generic_MPL-1.0
+│   ├── iwconfig.c
+│   ├── iwevent.c
+│   ├── recipeinfo
+│   └── sample_enc.c
+├── wirepas-firmware
+│   ├── generic_GPLv2
+│   ├── gpl-2.0.txt
+│   └── recipeinfo
+├── wirepas-firmware-check
+│   ├── generic_Apache-2.0
+│   ├── LICENSE
+│   └── recipeinfo
+├── wirepas-gateway
+│   ├── generic_Apache-2.0
+│   ├── LICENSE
+│   └── recipeinfo
+├── wirepas-mesh-messaging
+│   ├── generic_Apache-2.0
+│   ├── PKG-INFO
+│   └── recipeinfo
+├── wirepas-messaging
+│   ├── generic_Apache-2.0
+│   ├── LICENSE
+│   └── recipeinfo
+├── wpa-supplicant
+│   ├── COPYING
+│   ├── generic_BSD
+│   ├── README
+│   ├── recipeinfo
+│   └── wpa_supplicant.c
+├── xcb-proto
+│   ├── COPYING
+│   ├── dri2.xml
+│   ├── generic_MIT
+│   └── recipeinfo
+├── xcb-proto-native
+│   ├── COPYING
+│   ├── dri2.xml
+│   ├── generic_MIT
+│   └── recipeinfo
+├── xkeyboard-config
+│   ├── COPYING
+│   ├── generic_MIT
+│   ├── generic_MIT-style
+│   └── recipeinfo
+├── xmlto-native
+│   ├── COPYING
+│   ├── generic_GPLv2
+│   └── recipeinfo
+├── xorgproto
+│   ├── COPYING-x11proto
+│   ├── generic_MIT-style
+│   └── recipeinfo
+├── xorgproto-native
+│   ├── COPYING-x11proto
+│   ├── generic_MIT-style
+│   └── recipeinfo
+├── xrandr
+│   ├── COPYING
+│   ├── generic_MIT
+│   └── recipeinfo
+├── xtrans
+│   ├── COPYING
+│   ├── generic_MIT
+│   ├── generic_MIT-style
+│   └── recipeinfo
+├── xtrans-native
+│   ├── COPYING
+│   ├── generic_MIT
+│   ├── generic_MIT-style
+│   └── recipeinfo
+├── xz
+│   ├── COPYING
+│   ├── COPYING.GPLv2
+│   ├── COPYING.GPLv3
+│   ├── COPYING.LGPLv2.1
+│   ├── generic_GPL-3.0-with-autoconf-exception
+│   ├── generic_GPLv2
+│   ├── generic_LGPLv2.1
+│   ├── generic_PD
+│   ├── getopt.c
+│   └── recipeinfo
+├── xz-native
+│   ├── COPYING
+│   ├── COPYING.GPLv2
+│   ├── COPYING.GPLv3
+│   ├── COPYING.LGPLv2.1
+│   ├── generic_GPL-3.0-with-autoconf-exception
+│   ├── generic_GPLv2
+│   ├── generic_LGPLv2.1
+│   ├── generic_PD
+│   ├── getopt.c
+│   └── recipeinfo
+├── zip
+│   ├── generic_BSD-3-Clause
+│   ├── LICENSE
+│   └── recipeinfo
+├── zip-native
+│   ├── generic_BSD-3-Clause
+│   ├── LICENSE
+│   └── recipeinfo
+├── zlib
+│   ├── generic_Zlib
+│   ├── recipeinfo
+│   └── zlib.h
+└── zlib-native
+    ├── generic_Zlib
+    ├── recipeinfo
+    └── zlib.h
