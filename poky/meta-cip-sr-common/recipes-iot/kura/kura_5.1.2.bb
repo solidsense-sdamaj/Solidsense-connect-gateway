@@ -14,7 +14,7 @@ SRC_URI = " \
     file://sudoers.kurad \
 "
 SRCREV_SolidSense-V1 = "d7557fb7fb3f1e12aabcf905455f834b425b46bc"
-SRCREV_kura = "b5a3db78f956ccbc31217e017c41922822bc688a"
+SRCREV_kura = "11adcadc4676ecb843c0cc611ff95b4651ac7662"
 S-V1 = "${WORKDIR}/SolidSense-V1"
 S-KURA = "${WORKDIR}/kura-${PV}"
 KURA_VERSION = "${PV}"
@@ -56,7 +56,8 @@ do_compile () {
 
     # Kura
     cd ${S-KURA}
-    ./build-all.sh
+    #./build-all.sh
+    ./build-all.sh -P!can-dp -P!core-dp -P!dev-env -P!intel-up2-ubuntu-20 -P!intel-up2-ubuntu-20-nn -Pn8-compact -P!nvidia-jetson-nano -P!nvidia-jetson-nano-nn -Praspberry-pi -P!raspberry-pi-nn -P!raspberry-pi-ubuntu-20 -P!raspberry-pi-ubuntu-20-nn
 
     # Custom plugins
     #cd ${SRC_SS}/Kura/LTE/org.eclipse.kura.linux.net
