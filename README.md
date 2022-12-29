@@ -37,14 +37,9 @@ Build solidsense images
 * create this path in your workspace: ~/solidsense-connect/signing-private-keys
 * generate private.key and public.key by following: mender doc https://docs.mender.io/development/artifact-creation/sign-and-verify
 * copy the generated keys in ~/solidsense-connect/signing-private-keys
-* clone the repo solidsense-connect-gateway from https://github.com/solidsense-connect/Solidsense-connect-gateway.git, branch meta-solidsense-products-sr:
-
+* clone the repo solidsense-connect-gateway from https://github.com/solidsense-connect/Solidsense-connect-gateway.git :
  ```shell
-git clone https://github.com/solidsense-connect/Solidsense-connect-gateway.git --branch meta-solidsense-products-sr
-```
-* from poky directory, clone the meta-cip-sr-common who contains specific files, scripts, kas and yaml files.
- ```shell
-git clone https://github.com/solidsense-connect/meta-cip-sr-common.git
+git clone https://github.com/solidsense-connect/Solidsense-connect-gateway.git
 ```
 * create a new folder mender-cert in poky/meta-cip-sr-common
 * copy and rename the generated public.key ~/solidsense-connect/signing-private-keys to meta-cip-sr-common/mender-cert/artifact-verify-key.pem
