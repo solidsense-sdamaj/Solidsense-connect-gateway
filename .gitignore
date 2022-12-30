@@ -1,0 +1,17 @@
+poky/build*/
+poky/deploy
+pokykas/
+poky/meta-cip-sr-common/mender-cert/
+poky/meta-debian/
+poky/meta-java/
+poky/meta-iot-cloud/
+poky/meta-mender/
+poky/meta-openembedded/
+poky/meta-readonly-rootfs-overlay/
+poky/meta-virtualization/
+poky/poky/
+
+*.swo
+*.swp
+*.wic
+u-boot*
