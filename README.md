@@ -45,15 +45,8 @@ git clone https://github.com/solidsense-connect/Solidsense-connect-gateway.git
 * copy and rename the generated public.key ~/solidsense-connect/signing-private-keys to meta-cip-sr-common/mender-cert/artifact-verify-key.pem
 
 => Install required packages:
- `Preference to use Ubuntu 20.4 or Debian 10 equivalent to build images `
+ `Preference to use Debian 10 to build images `
 
-* for Ubuntu 20.4:
- ```shell
-sudo apt update
-sudo apt install chrpath diffstat python2.7 unzip texinfo libz-dev default-jdk python3-pip
-pip3 install kas==2.5
- ```
- * for Debian 10:
  ```shell
 sudo apt update
 sudo apt install chrpath diffstat texinfo libz-dev openjdk-11-jdk gawk python3-pip
@@ -207,10 +200,10 @@ Updating a SolidSense Board
 ---------------------------
 This is an example how to updating a SolidSense N6 board.
 
-Copy your image mender on your board in /tmp/n6gsdl-core-image-minimal-Solidsense-2.0.2-2022052400.mender, then execute the following commands:
+Download the last N6 image mender on your board and install it following theses commands:
 
 ```
-# mender install /tmp/n6gsdl-core-image-minimal-Solidsense-2.0.2-2022052400.mender
+# mender install https://images.solidsense.io/SolidSense/mender/SolidRun-signed/2.0.2/n6gsdl-core-image-minimal-Solidsense-2.0.2-2022122600.mender
 # mender commit
 # /opt/scripts/restart --wipe
 ```
@@ -222,18 +215,44 @@ After boot, Kura will be available after 4 minutes. You can check your configura
 ```
 Wait for reboot, kura will be available after 4 minutes.
 
-
 Solidsense-connect N6 Boards
 ----------------------------
-* N6 indoor		: n6gq n6gsdl
+* N6 indoor     : n6gq n6gsdl
 * N6 outdoor	: n6gq n6gsdl
 * N6 industrial	: in6gq in6gsdl 
+
+Solidsense N6 products
+----------------------
+
+| Product  | Informations                                                     |
+|--------  |----------------------------------------------------------------- |
+|SRG0001   | SolidSense N6 Edge Gateway Indoor - Dual core-WiFi               |
+|SRG0002   | SolidSense N6 Edge Gateway Indoor - Dual core-WiFi -LTE C4 EU    |
+|SRG0003   | SolidSense N6 Edge Gateway Indoor - Quad core-WiFi -LTE C4 EU    |
+|SRG0004   | SolidSense N6 Edge Gateway Indoor - Dual core-WiFi -LTE C4 US    |
+|SRG0005   | SolidSense N6 Edge Gateway Indoor - Single core-WiFi -LTE C4 US  |
+|SRG0006   | SolidSense N6 Edge Gateway Indoor - Dual core-WiFi -LTE C4 AU    |
+|SRG0007   | SolidSense N6 Edge Gateway Indoor - Quad core-WiFi -LTE C4 US    |
 
 Solidsense-connect N8 Boards
 ----------------------------
 * N8 indoor     : imx8mnc
 * N8 outdoor    : coming soon
-* N8 industrial	: BOM in progress
+* N8 industrial : BOM in progress
+
+
+SolidSense N8 products
+----------------------
+
+| Product       | Informations                                                       |
+|-------------- |------------------------------------------------------------------- |
+|SRG0400        | SolidSense N8 Compact - Test version fully equiped                 |
+|SRG0401        | SolidSense N8 Compact - WiFi BLE                                   |
+|SRG0402        | SolidSense N8 Compact - WiFi LTE BLE                               |
+|SRG0403        | SolidSense N8 Compact - WiFi Extended                              |
+|SRG0404        | SolidSense N8 Compact - WiFi LTE Extended                          |
+|SRG0405.01SD   | SolidSense N8 Compact - WiFi BLE-UBLOX LTE RS485 CAN ETH-Atheros   |
+|SRG0405.02SD   | SolidSense N8 Compact - WiFi BLE-FWM LTE POE RS485 CAN ETH-ADIN    |
 
 Images Ready-To-Use
 -------------------
@@ -242,9 +261,9 @@ Images Ready-To-Use
 
 Last images
 -----------
-* `Solidsense-connect N6 indoor/outdoor`: n6gsdl-core-image-minimal-Solidsense-2.0-2021122000.mender
+* `Solidsense-connect N6 indoor/outdoor`: n6gsdl-core-image-minimal-Solidsense-2.0.2-2022122600.mender
 * `Solidsense-connect insdustrial N6`: in6gsdl-core-image-minimal-Solidsense-2.0-2021122000.mender
-* `Solidsense-connect N8 family`: imx8mnc-core-image-minimal-Solidsense-2.0-2021122000.mender
+* `Solidsense-connect N8 family`: imx8mnc-core-image-minimal-Solidsense-2.0.2-2022120600.mender
 
 Firmware content
 ----------------
@@ -259,10 +278,19 @@ Firmware content
 * Mender v2.6
 * Docker v18.09.3
 
-Informations
-------------
-* ! Wirepas 5.1 firmwares for the sinks are not integrated into the images.
-* ! You need to buy licences from SolidRun or see with SoliSense-Connect marketing service to flush the sinks.
-* ! wirepas 4.0 is not compatible with wirepas 5.0.
-* ! BLE 1.8.1 for the sinks is available with SolidSense-Connect.
+Informations about Wirepas firmware
+-----------------------------------
+* Wirepas 4.x and 5.x firmwares for the sinks are not integrated into the images.
+* You need to buy licences from SoliSense-Connect marketing service to flush the sinks.
+* wirepas 4.x is not compatible with wirepas 5.x.
 
+Informations about BLE firmwares
+--------------------------------
+* For U-BLOX NINA1: https://images.solidsense.io/SolidSense/bluetooth/nina-b1/index.html
+* For U-BLOX NINA3: https://images.solidsense.io/SolidSense/bluetooth/nina-b3/index.html
+* For FUJITSU FWM7BLZ22W: https://images.solidsense.io/SolidSense/bluetooth/fwm7blz22w/index.html  
+
+Maintainers
+------------
+- Samer Damaj <samer.damaj@solidsense-connect.com>
+- Anthony Pauthonnier <anthony.pauthonnier@sodira-connect.com>
