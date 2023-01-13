@@ -60,6 +60,7 @@ local_conf_header:
     IMAGE_INSTALL_append += "docker python3-docker-compose u-boot-fw-utils util-linux"
     IMAGE_INSTALL_append += "init-ifupdown ifupdown dhcp-client"
     IMAGE_INSTALL_append += "tzdata solidsense-provisioning solidsense-mqtt solidsense-vehicle"
+    IMAGE_INSTALL_append += "nano"
 
     # Factory
     IMAGE_INSTALL_append += "empty picocom"
