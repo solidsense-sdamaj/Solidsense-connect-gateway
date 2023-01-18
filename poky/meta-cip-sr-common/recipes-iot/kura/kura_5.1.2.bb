@@ -8,13 +8,13 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 
 SRC_URI = " \
     git://git@github.com/SolidRun/SolidSense-V1.git;protocol=ssh;branch=master;destsuffix=SolidSense-V1;name=SolidSense-V1 \
-    git://github.com/solidsense-connect/kura.git;branch=solidsense-5.1.2;destsuffix=kura-${PV};name=kura \
+    git://github.com/solidsense-connect/kura.git;branch=solidsense-5.1.2-rc1;destsuffix=kura-${PV};name=kura \
     file://kura.service \
     file://polkit.kura \
     file://sudoers.kurad \
 "
 SRCREV_SolidSense-V1 = "d7557fb7fb3f1e12aabcf905455f834b425b46bc"
-SRCREV_kura = "11adcadc4676ecb843c0cc611ff95b4651ac7662"
+SRCREV_kura = "e33a3d66ebafbfc242039aa18f12f9f5969a9638"
 S-V1 = "${WORKDIR}/SolidSense-V1"
 S-KURA = "${WORKDIR}/kura-${PV}"
 KURA_VERSION = "${PV}"
