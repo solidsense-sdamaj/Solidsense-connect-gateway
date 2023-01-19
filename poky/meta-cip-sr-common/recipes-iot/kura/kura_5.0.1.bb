@@ -7,14 +7,14 @@ LIC_FILES_CHKSUM = " \
 FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 
 SRC_URI = " \
-    git://git@github.com/SolidRun/SolidSense-V1.git;protocol=ssh;branch=master;destsuffix=SolidSense-V1;name=SolidSense-V1 \
+    git://git@github.com/solidsense-connect/SolidSense-V1.git;protocol=ssh;branch=master;destsuffix=SolidSense-V1;name=SolidSense-V1 \
     git://github.com/SolidRun/kura.git;branch=solidsense-5.0.1;destsuffix=kura-${PV};name=kura \
     file://kura.service \
     file://polkit.kura \
     file://sudoers.kurad \
     file://0001-add-n8-compact.patch \
 "
-SRCREV_SolidSense-V1 = "e01f8420fd3717a7e7ee3719969b4e268e41797e"
+SRCREV_SolidSense-V1 = "d7557fb7fb3f1e12aabcf905455f834b425b46bc"
 SRCREV_kura = "6120d4a66fbf98119d82a7b7e87f9795ced881c6"
 S-V1 = "${WORKDIR}/SolidSense-V1"
 S-KURA = "${WORKDIR}/kura-${PV}"

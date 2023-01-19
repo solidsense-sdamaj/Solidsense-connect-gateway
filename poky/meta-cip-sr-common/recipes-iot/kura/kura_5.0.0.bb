@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = " \
 FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 
 SRC_URI = " \
-    git://git@github.com/SolidRun/SolidSense-V1.git;protocol=ssh;branch=master;destsuffix=SolidSense-V1;name=SolidSense-V1 \
+    git://git@github.com/solidsense-connect/SolidSense-V1.git;protocol=ssh;branch=master;destsuffix=SolidSense-V1;name=SolidSense-V1 \
     git://github.com/SolidRun/kura.git;branch=solidsense-5.0.0;destsuffix=kura-${PV};name=kura \
     file://kura.service \
     file://polkit.kura \
@@ -15,7 +15,7 @@ SRC_URI = " \
     file://0001-add-n8-compact.patch \
     file://0002-Updating-log4j-version-to-2.15.0.patch \
 "
-SRCREV_SolidSense-V1 = "e01f8420fd3717a7e7ee3719969b4e268e41797e"
+SRCREV_SolidSense-V1 = "d7557fb7fb3f1e12aabcf905455f834b425b46bc"
 SRCREV_kura = "7f9936077b8bc96170a180bf011c6ccc7f0466f4"
 S-V1 = "${WORKDIR}/SolidSense-V1"
 S-KURA = "${WORKDIR}/kura-${PV}"
