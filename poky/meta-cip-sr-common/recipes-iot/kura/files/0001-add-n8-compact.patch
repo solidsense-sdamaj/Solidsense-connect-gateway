@@ -451,6 +451,7 @@ index 000000000..9ea79da4d
 +-A input-kura -i eth0 -p tcp -m tcp --dport 4443 -j ACCEPT
 +-A input-kura -p tcp -m tcp --dport 22 -j ACCEPT
 +-A input-kura -i lo -j ACCEPT
++-A input-kura -i tun0 --dport 443 -j ACCEPT
 +-A input-kura -m state --state RELATED,ESTABLISHED -j ACCEPT
 +-A input-kura -p icmp -m icmp --icmp-type 8 -m state --state NEW,RELATED,ESTABLISHED -j ACCEPT
 +-A input-kura -j RETURN
@@ -651,7 +652,7 @@ index 000000000..672d7974d
 +
 +#create known kura install location
 +ln -sf ${INSTALL_DIR}/kura_* ${INSTALL_DIR}/kura
-+        
++
 +#set up Kura init
 +sed "s|INSTALL_DIR|${INSTALL_DIR}|" ${INSTALL_DIR}/kura/install/kura.service > /lib/systemd/system/kura.service
 +systemctl daemon-reload
@@ -748,7 +749,7 @@ index 000000000..672d7974d
 +fi
 +chown bind:bind /etc/bind/rndc.key
 +chmod 600 /etc/bind/rndc.key
-+        
++
 +#set up logrotate - no need to restart as it is a cronjob
 +cp ${INSTALL_DIR}/kura/install/logrotate.conf /etc/logrotate.conf
 +cp ${INSTALL_DIR}/kura/install/kura.logrotate /etc/logrotate.d/kura
@@ -838,6 +839,8 @@ index 000000000..197598d9c
 +net.interface.wlan0.config.nat.enabled=true
 +net.interface.wlan0.config.nat.dst.interface=unknown
 +net.interface.docker0.config.ip4.status=netIPv4StatusUnmanaged
++net.interface.tun0.config.ip4.status=netIPv4StatusEnabledLAN
+
 diff --git a/kura/distrib/src/main/resources/n8-compact/log4j.xml b/kura/distrib/src/main/resources/n8-compact/log4j.xml
 new file mode 100644
 index 000000000..78995e9a4
@@ -1020,7 +1023,7 @@ index 000000000..2ee4d1635
 +    <esf:configuration pid="org.eclipse.kura.net.admin.FirewallConfigurationService">
 +	<esf:properties>
 +	    <esf:property array="false" encrypted="false" name="firewall.open.ports" type="String">
-+                <esf:value>22,tcp,,,,,,#;443,tcp,,eth0,,,,#;443,tcp,,wlan0,,,,#;4443,tcp,,eth0,,,,#;4443,tcp,,wlan0,,,,#;1450,tcp,,eth0,,,,#;1450,tcp,,wlan0,,,,#;5002,tcp,127.0.0.1/32,,,,,#;53,udp,,eth0,,,,#;53,udp,,wlan0,,,,#;67,udp,,eth0,,,,#;67,udp,,wlan0,,,,#;8000,tcp,,eth0,,,,#;8000,tcp,,wlan0,,,,#</esf:value>
++                <esf:value>22,tcp,,,,,,#;443,tcp,,eth0,,,,#;443,tcp,,wlan0,,,,#;4443,tcp,,eth0,,,,#;4443,tcp,,wlan0,,,,#;1450,tcp,,eth0,,,,#;1450,tcp,,wlan0,,,,#;5002,tcp,127.0.0.1/32,,,,,#;53,udp,,eth0,,,,#;53,udp,,wlan0,,,,#;67,udp,,eth0,,,,#;67,udp,,wlan0,,,,#;8000,tcp,,eth0,,,,#;8000,tcp,,wlan0,,,,#;443,tcp,,tun0,,,,#</esf:value>
 +            </esf:property>
 +	    <esf:property array="false" encrypted="false" name="firewall.port.forwarding" type="String">
 +                <esf:value></esf:value>
@@ -1071,6 +1074,9 @@ index 000000000..2ee4d1635
 +            <esf:property name="net.interface.eth0.type" array="false" encrypted="false" type="String">
 +                <esf:value>ETHERNET</esf:value>
 +            </esf:property>
++            <esf:property name="net.interface.tun0.type" array="false" encrypted="false" type="String">
++                <esf:value>TUNNELING</esf:value>
++            </esf:property>
 +            <esf:property name="net.interface.lo.type" array="false" encrypted="false" type="String">
 +                <esf:value>LOOPBACK</esf:value>
 +            </esf:property>
@@ -1109,6 +1115,9 @@ index 000000000..2ee4d1635
 +            </esf:property>
 +            <esf:property name="net.interface.eth0.config.ip4.status" array="false" encrypted="false" type="String">
 +                <esf:value>netIPv4StatusEnabledWAN</esf:value>
++            </esf:property>
++            <esf:property name="net.interface.tun0.config.ip4.status" array="false" encrypted="false" type="String">
++                <esf:value>netIPv4StatusEnabledLAN</esf:value>
 +            </esf:property>
 +            <esf:property name="net.interface.wlan0.loopback" array="false" encrypted="false" type="Boolean">
 +                <esf:value>false</esf:value>
@@ -1443,8 +1452,8 @@ index 000000000..2ee4d1635
 +            <esf:property array="false" encrypted="false" name="kura.service.pid" type="String">
 +                <esf:value>org.eclipse.kura.core.data.transport.mqtt.MqttDataTransport</esf:value>
 +            </esf:property>
-+            <esf:property array="false" encrypted="false" name="broker-url" type="String">
-+                <esf:value>mqtt://broker-url:1883/</esf:value>
++            <esf:property array="false" encrypted="true" name="broker-url" type="String">
++                <esf:value>mqtts://broker-url:8883/</esf:value>
 +            </esf:property>
 +            <esf:property array="false" encrypted="false" name="keep-alive" type="Integer">
 +                <esf:value>30</esf:value>
@@ -1567,7 +1576,7 @@ index 000000000..2ee4d1635
 +                <esf:value>birth-connect-reconnect</esf:value>
 +            </esf:property>
 +            <esf:property array="false" encrypted="false" name="device.custom-name" type="String">
-+                <esf:value>Raspberry Pi 2</esf:value>
++                <esf:value>Solidsense</esf:value>
 +            </esf:property>
 +            <esf:property array="false" encrypted="false" name="device.display-name" type="String">
 +                <esf:value>device-name</esf:value>

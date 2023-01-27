@@ -1,8 +1,9 @@
 SUMMARY = "Sodira vpn"
 DESCRIPTION = "openvpn configuration"
+AUTHOR = "Samer Damaj <samer.damaj@solidsense-connect.com>"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = " \
-    file://../sodira_license.txt;md5=323581fce7a2f1705c6388b97ecc7c13 \ 
+    file://../sodira_license.txt;md5=6ab8ac43f04e71c930397fb2f566ce2f \
 "
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
