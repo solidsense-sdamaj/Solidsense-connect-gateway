@@ -203,8 +203,8 @@ This is an example how to updating a SolidSense N6 board.
 Download the last N6 image mender on your board and install it following theses commands:
 
 ```
-# mender install https://images.solidsense.io/SolidSense/mender/SolidRun-signed/2.0.2/n6gsdl-core-image-minimal-Solidsense-2.0.2-2023010500.mender
-# mender commit
+# mender install https://images.solidsense.io/SolidSense/mender/SolidRun-signed/2.1.0/n6gsdl-core-image-minimal-Solidsense-2.1-rc2-2023011800.mender
+# mender -commit
 # /opt/scripts/restart --wipe
 ```
 After boot, Kura will be available after 4 minutes. You can check your configuration by taping `https://serial_number_of_your_gateway` or `https://ip_address_board` on your navigator.
@@ -261,19 +261,19 @@ Images Ready-To-Use
 
 Last images
 -----------
-* `Solidsense-connect N6 dual indoor/outdoor`: n6gsdl-core-image-minimal-Solidsense-2.0.2-2023010500.mender
-* `Solidsense-connect N6 quad indoor/outdoor`: n6gq-core-image-minimal-Solidsense-2.0.2-2023010500.mender
-* `Solidsense-connect N6 dual insdustrial`: in6gsdl-core-image-minimal-Solidsense-2.0.2-2023010500.mender
-* `Solidsense-connect N6 quad industrial`: in6gq-core-image-minimal-Solidsense-2.0.2-2023010500.mender
-* `Solidsense-connect N8 family`: imx8mnc-core-image-minimal-Solidsense-2.0.2-2023010500.mender
+* `Solidsense-connect N6 dual indoor/outdoor`: n6gsdl-core-image-minimal-Solidsense-2.1-rc2-2023011800.mender
+* `Solidsense-connect N6 quad indoor/outdoor`: n6gq-core-image-minimal-Solidsense-2.1-rc2-2023011800.mender
+* `Solidsense-connect N6 dual insdustrial`: in6gsdl-core-image-minimal-Solidsense-2.1-rc2-2023011800.mender
+* `Solidsense-connect N8 family`: imx8mnc-core-image-minimal-Solidsense-2.1-rc2-2023011800.mender	
 
 Firmware content
 ----------------
 * Kernel 5.4.47
-* Wi-Fi Boradcom Combo: Wifi / BLE
+* Wi-Fi Broadcom Combo: Wifi / BLE for N8
+* Wi-Fi TI Combo: WiFi/BLE for N6
 * wpa_supplicant v2.7
 * Sink Nordic: Transport Layer
-* Kura 5.0.1
+* Kura 5.1.0
 * Mqtt 3.1.1
 * Java JDK11
 * Python v3.7

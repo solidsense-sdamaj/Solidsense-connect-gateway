@@ -7,10 +7,10 @@ LIC_FILES_CHKSUM = " \
 
 SRC_URI = " \
     git://git@github.com/SolidRun/SolidSense-Vehicle.git;protocol=ssh;branch=master \
-    git://git@github.com/SolidRun/SolidSense-V1.git;protocol=ssh;branch=master;destsuffix=SolidSense-V1;name=SolidSense-V1 \
+    git://git@github.com/solidsense-connect/SolidSense-V1.git;protocol=ssh;branch=master;destsuffix=SolidSense-V1;name=SolidSense-V1 \
 "
 SRCREV = "0585c7b93199d31039192f4cdddeb7671557429f"
-SRCREV_SolidSense-V1 = "e01f8420fd3717a7e7ee3719969b4e268e41797e"
+SRCREV_SolidSense-V1 = "2ca1c95ebec578d033e2e10e70030349369c49cf"
 S = "${WORKDIR}/git"
 S-V1 = "${WORKDIR}/SolidSense-V1"
 

@@ -16,6 +16,7 @@ SRC_URI += " \
 	file://0008-dt-bindings-net-adin-document-phy-clock-output-prope.patch \
 	file://0009-net-phy-adin-add-support-for-clock-output.patch \
 	file://0010-ARM-dts-imx6qdl-sr-som-update-phy-configuration-for-.patch \
+	file://0011-ARM-dts-imx6qdl-sr-som-update-phy-configuration-to-s.patch \
 "
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=bbea815ee2795b2f4230826c0c6b8814"
