@@ -12,7 +12,7 @@ SRC_URI = " \
     git://git@github.com/solidsense-connect/SolidSense-V1.git;protocol=ssh;branch=master;destsuffix=SolidSense-V1;name=SolidSense-V1 \
 "
 
-SRCREV_gateway = "4681b50140b79c784a5ea63f3833692f76922e37"
+SRCREV_gateway = "ebef05609c493bb94a27879f56428d8a9e33259a"
 SRCREV_c-mesh-api = "aa9f13334e7f7b34064f24929911d9c1076f2435"
 SRCREV_SolidSense-V1 = "2ca1c95ebec578d033e2e10e70030349369c49cf"
 S = "${WORKDIR}/git"
