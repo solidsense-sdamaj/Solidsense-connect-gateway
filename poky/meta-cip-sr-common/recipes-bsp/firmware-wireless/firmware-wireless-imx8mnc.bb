@@ -5,10 +5,10 @@ LICENSE = "CLOSED"
 
 SRC_URI = " \
     git://github.com/SolidRun/imx8mp_build.git;protocol=https;branch=imx8mn \
-    git://git@github.com/SolidRun/SolidSense-V1.git;protocol=ssh;branch=master;destsuffix=SolidSense-V1;name=SolidSense-V1 \
+    git://git@github.com/solidsense-connect/SolidSense-V1.git;protocol=ssh;branch=master;destsuffix=SolidSense-V1;name=SolidSense-V1 \
 "
 SRCREV = "f25e0e73e08a3e540212c52455d7959ee0058f36"
-SRCREV_SolidSense-V1 = "e01f8420fd3717a7e7ee3719969b4e268e41797e"
+SRCREV_SolidSense-V1 = "2ca1c95ebec578d033e2e10e70030349369c49cf"
 S-V1 = "${WORKDIR}/SolidSense-V1"
 
 SYSTEMD_SERVICE_${PN} = "ble1.service"
