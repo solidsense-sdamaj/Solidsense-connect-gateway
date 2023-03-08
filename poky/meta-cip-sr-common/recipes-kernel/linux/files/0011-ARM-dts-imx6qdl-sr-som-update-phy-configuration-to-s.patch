@@ -1,0 +1,76 @@
+From 26af0467b6d1983d5a2e910da567c238af6844d3 Mon Sep 17 00:00:00 2001
+From: Yazan Shhady <yazan.shhady@solid-run.com>
+Date: Mon, 16 Jan 2023 22:25:14 +0200
+Subject: [PATCH] ARM: dts: imx6qdl-sr-som: update phy configuration to support
+ som version 1.5|1.9|2.0
+
+---
+ arch/arm/boot/dts/imx6qdl-sr-som.dtsi | 43 ++++++++++++++++++++-------
+ 1 file changed, 32 insertions(+), 11 deletions(-)
+
+diff --git a/arch/arm/boot/dts/imx6qdl-sr-som.dtsi b/arch/arm/boot/dts/imx6qdl-sr-som.dtsi
+index e67ef695db79..0aa2ec2a4f36 100644
+--- a/arch/arm/boot/dts/imx6qdl-sr-som.dtsi
++++ b/arch/arm/boot/dts/imx6qdl-sr-som.dtsi
+@@ -78,9 +78,40 @@
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_microsom_enet_ar8035>;
+ 	phy-mode = "rgmii-id";
+-	phy-reset-duration = <2>;
++	phy-reset-duration = <10>;
+ 	phy-reset-gpios = <&gpio4 15 GPIO_ACTIVE_LOW>;
+ 	status = "okay";
++
++	mdio {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		/*
++		 * The PHY can appear at either address 0 or 4 due to the
++		 * configuration (LED) pin not being pulled sufficiently.
++		 */
++		ethernet-phy@0 {
++			reg = <0>;
++			qca,clk-out-frequency = <125000000>;
++			qca,smarteee-tw-us-1g = <24>;
++		};
++
++		ethernet-phy@4 {
++			reg = <4>;
++			qca,clk-out-frequency = <125000000>;
++			qca,smarteee-tw-us-1g = <24>;
++		};
++
++		/*
++		 * ADIN1300 (som rev 1.9 or later) is always at address 1. It
++		 * will be enabled automatically by U-Boot if detected.
++		 */
++		ethernet-phy@1 {
++			reg = <1>;
++			adi,phy-output-clock = "125mhz-free-running";
++			status = "okay";
++		};
++	};
+ };
+ 
+ &iomuxc {
+@@ -135,16 +166,6 @@
+ 				MX6QDL_PAD_CSI0_DAT11__UART1_RX_DATA	0x1b0b1
+ 			>;
+ 		};
+-
+-		/*
+-		* ADIN1300 (som rev 1.9 or later) is always at address 1. It
+-		* will be enabled automatically by U-Boot if detected.
+-		*/
+-		ethernet-phy@1 {
+-			reg = <1>;
+-			adi,phy-output-clock = "125mhz-free-running";
+-			status = "okay";
+-		};
+ 	};
+ };
+ 
+-- 
+2.37.3
+

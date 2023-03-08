@@ -56,9 +56,9 @@ local_conf_header:
     "
 
     # Add additional packages
-    IMAGE_INSTALL_append += "openssh mmc-utils solidsense-scripts sudo"
+    IMAGE_INSTALL_append += "openssh mmc-utils solidsense-scripts sudo nano"
     IMAGE_INSTALL_append += "docker python3-docker-compose u-boot-fw-utils util-linux"
-    IMAGE_INSTALL_append += "init-ifupdown ifupdown dhcp-client"
+    IMAGE_INSTALL_append += "init-ifupdown ifupdown dhcp-client tcpdump"
     IMAGE_INSTALL_append += "tzdata solidsense-provisioning solidsense-mqtt solidsense-vehicle"
 
     # Factory
@@ -89,9 +89,9 @@ local_conf_header:
     MENDER_CONNECT_SHELL = "/bin/bash"
 
     # Preferred applications
-    PREFERRED_VERSION_kura = "5.0.1"
-    KURA_VERSION = "5.0.1"
-    PREFERRED_VERSION_wirepas-gateway = "1.4.0-pyyaml5.1.1"
+    PREFERRED_VERSION_kura = "5.1.2"
+    KURA_VERSION = "5.1.2"
+    PREFERRED_VERSION_wirepas-gateway = "1.4.2"
     PREFERRED_VERSION_wirepas-messaging = "1.4.0"
     PREFERRED_VERSION_python3-grpcio = "1.22.0"
     PREFERRED_VERSION_python3-protobuf = "3.17.3"
