@@ -56,10 +56,13 @@ local_conf_header:
     "
 
     # Add additional packages
-    IMAGE_INSTALL_append += "openssh mmc-utils solidsense-scripts sudo nano"
+    IMAGE_INSTALL_append += "openssh mmc-utils solidsense-scripts sudo nano tree"
     IMAGE_INSTALL_append += "docker python3-docker-compose u-boot-fw-utils util-linux"
     IMAGE_INSTALL_append += "init-ifupdown ifupdown dhcp-client tcpdump"
     IMAGE_INSTALL_append += "tzdata solidsense-provisioning solidsense-mqtt solidsense-vehicle"
+
+    # Sodira packages
+    IMAGE_INSTALL_append += "nodejs-npm nodejs glibc-utils sqlite3 gcc g++ make packagegroup-core-buildessential sshpass"
 
     # Factory
     IMAGE_INSTALL_append += "empty picocom"
