@@ -62,7 +62,7 @@ local_conf_header:
     IMAGE_INSTALL_append += "tzdata solidsense-provisioning solidsense-mqtt solidsense-vehicle"
 
     # Sodira packages
-    IMAGE_INSTALL_append += "nodejs-npm nodejs glibc-utils sqlite3 gcc g++ make packagegroup-core-buildessential sshpass"
+    IMAGE_INSTALL_append += "sodira-vpn nodejs-npm nodejs glibc-utils sqlite3 gcc g++ make packagegroup-core-buildessential sshpass"
 
     # Factory
     IMAGE_INSTALL_append += "empty picocom"
