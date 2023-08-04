@@ -385,16 +385,23 @@ cleanup () {
 }
 
 usage () {
-	echo "$(basename "${0}"): firmware                   : Firmware image to flash"
-	echo "    -s|--sink                                  : Sink <1|2>"
-	echo "    -d|--device                                : Nina ublox <b1|B1> or Fwm fujtsu <fmw|FWM> or Nina ublox <b3|B3>"
-	echo "    -m|--mac-check                             :"
-	echo "    -M|--mac-set <MAC Address>                 : example: 0a:01:02:03:04:05 or ETH MAC + 1 (Recommended)"
-	echo "    -t|--type                                  : type to flash <boot|program|wirepas>"
-	echo "    <FILE>                                     : file to flash"
-	echo ""
-	echo "	example: $(basename "${0}") -s1 -db1 -tboot blehci-boot-1.2.0.bin"
-	exit 1
+        echo "$(basename "${0}"): firmware                   : Firmware image to flash"
+        echo ""
+        echo " N6 indoor        : SRGxxxx.01SD (Nina-b1 nRF52832) and SRGxxxx.02SD (Fujitsu nRF52833)"
+        echo " N8 compact       : SRG40x.01SD  (Nina-b1 nRF52832) and SRG40x.02SD  (Fujitsu nRF52833)"
+        echo " N6 outdoor       : Nina-b3 nRF52840"
+        echo ""
+        echo " parameters"
+        echo "    -s|--sink                                  : Sink <1|2>"
+        echo "    -d|--device                                : Nina <b1|B1> or Fwm <fwm|FWM> or Nina <b3|B3>"
+        echo "    -m|--mac-check                             :"
+        echo "    -M|--mac-set <MAC Address>                 : example: 0a:01:02:03:04:05 or ETH MAC + 1 (Recommended)"
+        echo "    -t|--type                                  : type to flash <boot|program|wirepas>"
+        echo "    <FILE>                                     : file to flash"
+        echo ""
+        echo "  example BLE: $(basename "${0}") -s1 -db1 -tboot blehci-boot-1.2.0.bin"
+        echo "  example Wirepas: $(basename "${0}") -s1 -db1 -twirepas firmware.hex"
+        exit 1
 }
 
 options=$(getopt -l "help,mac-check,mac-set:,sink:,device:,type:" -o ":hmM:s:d:t:" -- "${@}")
